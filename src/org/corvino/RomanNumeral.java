@@ -1,6 +1,11 @@
 package org.corvino;
 
 public class RomanNumeral {
+
+	/**
+	 * Parses the specified roman numeral string and returns its
+	 * value as an integer.
+	 */
 	public static int parseInteger(String romanNumeral) {
 		int		currentDigit;
 		

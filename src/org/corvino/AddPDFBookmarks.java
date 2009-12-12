@@ -21,12 +21,11 @@ import com.lowagie.text.pdf.PdfReader;
 
 public class AddPDFBookmarks {
 
-	private static Pattern fContentLinePattern = Pattern.compile("^(?:((?:[0-9]+\\.)*[0-9]+)\\s*)?(.*?)\\.++\\s?((?:[0-9]+?)|(?:[vixc]+?))$");
-	private static Pattern fIgnoreLines = Pattern.compile("(?:AppDevMozilla-000Book Page [cxvi]+ Thursday, December 4, 2003 6:21 PM)|(?:[cxvi]+ Contents)|(?:Contents [cxvi]+)");
-	private static Matcher fLineContentMatcher = fContentLinePattern.matcher("");
-	private static Matcher fAcuumulatedContentMatcher = fContentLinePattern.matcher("");
-	private static Matcher fIgnoreMatcher = fIgnoreLines.matcher("");
-	
+	private static Pattern fContentPattern = Pattern.compile("^(?:((?:[0-9]+\\.)*[0-9]+)\\s*)?(.*?)\\.++\\s?((?:[0-9]+?)|(?:[vixc]+?))$");
+	private static Pattern fIgnorePattern = Pattern.compile("(?:AppDevMozilla-000Book Page [cxvi]+ Thursday, December 4, 2003 6:21 PM)|(?:[cxvi]+ Contents)|(?:Contents [cxvi]+)");
+	private static Matcher fContentMatcher = fContentPattern.matcher("");
+	private static Matcher fIgnoreMatcher = fIgnorePattern.matcher("");
+
 	public static void main(String args[]) {
 		File								contentsFile;
 		File								inputFile;
@@ -78,8 +77,7 @@ public class AddPDFBookmarks {
 	}
 
 	private static void addBookmarks(String inputFilePath, String outputFilePath, String contentsFilePath, int pageI, int page0) throws IOException, DocumentException {
-		boolean								lineResult;
-		boolean								accumulatedResult;
+		boolean								result;
 		Document							document;
 		Map<String,Object>					bookmark;
 		int									numOfPages;
@@ -113,32 +111,22 @@ public class AddPDFBookmarks {
 
 			if (!fIgnoreMatcher.find()) {
 
-				fLineContentMatcher.reset(contentsLine);
-				lineResult = fLineContentMatcher.find();
-
-				// So, if we don't match, we accumulate content.  We match against the line
-				// as well, as a fail safe for when content accumulation goes awry.
+				// Accumulate lines content to handle multi-line items, and then match to see
+				// if we have completed a contents item yet.
 
 				accumulatedContent = (accumulatedContent.trim() + " " + contentsLine.trim()).trim();
-				fAcuumulatedContentMatcher.reset(accumulatedContent);
-				accumulatedResult = fAcuumulatedContentMatcher.find();
+				fContentMatcher.reset(accumulatedContent);
+				result = fContentMatcher.find();
 
-				if ((lineResult && (fLineContentMatcher.group(2).length() > 0)) ||
-						(accumulatedResult && (fAcuumulatedContentMatcher.group(2).length() > 0))) {
+				if (result && (fContentMatcher.group(2).length() > 0)) {
 
 					// This is a real match.  So far the regular expression has
 					// resisted only matching when there is a title., so we check
 					// for title length as well as a match.
 
-					if (null != fAcuumulatedContentMatcher.group(1) && null == fLineContentMatcher.group(1)) {
-						section = fAcuumulatedContentMatcher.group(1);
-						title = fAcuumulatedContentMatcher.group(2);
-						pageValue = fAcuumulatedContentMatcher.group(3);
-					} else {
-						section = fLineContentMatcher.group(1);
-						title = fLineContentMatcher.group(2);
-						pageValue = fLineContentMatcher.group(3);
-					}
+					section = fContentMatcher.group(1);
+					title = fContentMatcher.group(2);
+					pageValue = fContentMatcher.group(3);
 
 					bookmark = new HashMap<String, Object>();
 					bookmark.put("Action", "GoTo");
@@ -146,8 +134,7 @@ public class AddPDFBookmarks {
 
 					if (Character.isDigit(pageValue.charAt(0))) {
 						pageNumber = Integer.parseInt(pageValue) + page0;
-					}
-					else {
+					} else {
 						pageNumber = RomanNumeral.parseInteger(pageValue) + pageI;
 					}
 
@@ -162,7 +149,7 @@ public class AddPDFBookmarks {
 						bookmarks = new ArrayList<Map<String, Object>>();
 						bookmarks.add(bookmark);
 
-						if (level-currentLevel > 1) {
+						if (level - currentLevel > 1) {
 
 							// This is a weird--it means that the bookmark level is
 							// descending multiple levels at once.  This doesn't
@@ -185,8 +172,6 @@ public class AddPDFBookmarks {
 					currentLevel = level;
 					accumulatedContent = "";
 				}
-			} else {
-				lineResult = false;
 			}
 		}
 
