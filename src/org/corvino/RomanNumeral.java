@@ -5,6 +5,11 @@ public class RomanNumeral {
 	/**
 	 * Parses the specified roman numeral string and returns its
 	 * value as an integer.
+	 *
+	 * @param romanNumeral
+	 * 		The string specifying the roman numeral.
+	 * @return
+	 * 		The integer value of the specified roman numeral.
 	 */
 	public static int parseInteger(String romanNumeral) {
 		int		currentDigit;

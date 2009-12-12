@@ -26,53 +26,44 @@ public class AddPDFBookmarks {
 	private static Matcher fContentMatcher = fContentPattern.matcher("");
 	private static Matcher fIgnoreMatcher = fIgnorePattern.matcher("");
 
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException, DocumentException {
 		File								contentsFile;
 		File								inputFile;
 		File								outputFile;
 		int									pageI;
 		int									page0;
 		
-		
-		try {
-			if (5==args.length) {
-				inputFile = new File(args[0]);
-				outputFile = new File(args[1]);
-				contentsFile = new File(args[2]);
-				
-				if (!inputFile.exists()) {
-					throw new IllegalArgumentException("Input file must exist.");
-				}
 
-				if (!outputFile.getParentFile().exists()) {
-					throw new IllegalArgumentException("Directory of output file must exist.");
-				}
-				
-				if (!contentsFile.exists()) {
-					throw new IllegalArgumentException("Contents file must exist.");
-				}
-				
-				try {
-					pageI = Integer.parseInt(args[3]);
-				} catch (NumberFormatException nfe) {
-					throw new IllegalArgumentException("Page i must parse to an integer.");
-				}
-				
-				try {
-					page0 = Integer.parseInt(args[4]);
-				} catch (NumberFormatException nfe) {
-					throw new IllegalArgumentException("Page 1 must parse to an integer.");
-				}
+		if (5 == args.length) {
+			inputFile = new File(args[0]);
+			outputFile = new File(args[1]);
+			contentsFile = new File(args[2]);
 
-				addBookmarks(inputFile.getPath(), outputFile.getPath(), contentsFile.getPath(), pageI, page0);
-
+			if (!inputFile.exists()) {
+				throw new IllegalArgumentException("Input file must exist.");
 			}
-		} catch(IOException ioe) {
-			
-		} catch(DocumentException de) {
 
-		} catch(NumberFormatException nfe) {
-			
+			if (!outputFile.getParentFile().exists()) {
+				throw new IllegalArgumentException("Directory of output file must exist.");
+			}
+
+			if (!contentsFile.exists()) {
+				throw new IllegalArgumentException("Contents file must exist.");
+			}
+
+			try {
+				pageI = Integer.parseInt(args[3]);
+			} catch (NumberFormatException nfe) {
+				throw new IllegalArgumentException("Page i must parse to an integer.");
+			}
+
+			try {
+				page0 = Integer.parseInt(args[4]);
+			} catch (NumberFormatException nfe) {
+				throw new IllegalArgumentException("Page 1 must parse to an integer.");
+			}
+
+			addBookmarks(inputFile.getPath(), outputFile.getPath(), contentsFile.getPath(), pageI, page0);
 		}
 	}
 
@@ -86,20 +77,18 @@ public class AddPDFBookmarks {
 		PdfReader							reader;
 		BufferedReader						contentsReader;
 		String								contentsLine;
-		String								accumulatedContent = "";
 		String								pageValue;
 		int									pageNumber;
 		String								title;
 		String								section;
 		int									level;
 
-		List<Map<String, Object>>			poppedBookmarks;
-		List<Map<String, Object>>			bookmarks = new ArrayList<Map<String, Object>>();
-		Stack<List<Map<String, Object>>>	parents = new Stack<List<Map<String, Object>>>();
-		int									currentLevel = 1;
+		String								accumulatedContent = "";
 		File								contentsFile = new File(contentsFilePath);
 		File								inputFile = new File(inputFilePath);
 		File								outputFile = new File(outputFilePath);
+
+		HierarchicalBookmarkCollector		bookmarkCollector = new HierarchicalBookmarkCollector();
 
 
 		contentsReader = new BufferedReader(new FileReader(contentsFile));
@@ -142,60 +131,17 @@ public class AddPDFBookmarks {
 
 					level = null == section ? 1 : 0 == section.length() ? 1 : (section.length() + 1) / 2;
 
-					if (level == currentLevel) {
-						bookmarks.add(bookmark);
-					} else if (level > currentLevel) {
-						parents.push(bookmarks);
-						bookmarks = new ArrayList<Map<String, Object>>();
-						bookmarks.add(bookmark);
+					bookmarkCollector.addBookmark(bookmark, level);
 
-						if (level - currentLevel > 1) {
-
-							// This is a weird--it means that the bookmark level is
-							// descending multiple levels at once.  This doesn't
-							// make sense, and also isn't really feasible; it also
-							// causes things to go haywire.  Force it to only descend
-							// one level.
-
-							level = currentLevel + 1;
-						}
-					} else if (level < currentLevel) {
-						for (int i = 0; i < currentLevel - level; i++) {
-							poppedBookmarks = parents.pop();
-							poppedBookmarks.get(poppedBookmarks.size() - 1).put("Kids", bookmarks);
-							bookmarks = poppedBookmarks;
-						}
-
-						bookmarks.add(bookmark);
-					}
-
-					currentLevel = level;
 					accumulatedContent = "";
 				}
 			}
 		}
 
-		System.out.println("Level: " + currentLevel);
-
-		// If the last bookmark is not at the top level, the bookmark stack needs
+		// If the last bookmark was not at the top level, the bookmark stack needs
 		// to be unwound.
 
-		// This is code duplication, really, and shows a need for an object to
-		// encapsulate the bookmark collection logic.  But that is for another
-		// day...
-
-		while (1 < currentLevel) {
-			poppedBookmarks = parents.pop();
-
-			if (poppedBookmarks.size() > 0) {
-				poppedBookmarks.get(poppedBookmarks.size() -1).put("Kids", bookmarks);
-				bookmarks = poppedBookmarks;
-			}
-
-			currentLevel--;
-		}
-
-		System.out.println("Level: " + currentLevel);
+		bookmarkCollector.unwindBookmarks();
 
 		reader = new PdfReader(inputFile.getPath());
 		reader.consolidateNamedDestinations();
@@ -211,7 +157,7 @@ public class AddPDFBookmarks {
 			writer.addPage(page);
 		}
 
-		writer.setOutlines(bookmarks);
+		writer.setOutlines(bookmarkCollector.getBookmarks());
 		reader.close();
 		writer.close();
 		document.close();

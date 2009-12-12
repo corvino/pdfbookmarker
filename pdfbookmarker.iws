@@ -65,10 +65,10 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AddPDFBookmarks.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AddPDFBookmarks.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/corvino/AddPDFBookmarks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="219" column="0" selection-start="6797" selection-end="6797" vertical-scroll-proportion="0.8892308">
+            <state line="57" column="0" selection-start="1881" selection-end="1881" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -77,43 +77,18 @@
       <file leaf-file-name="HierarchicalBookmarkCollector.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/corvino/HierarchicalBookmarkCollector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="4" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="68" column="7" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RomanNumeral.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RomanNumeral.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/corvino/RomanNumeral.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="6" selection-start="146" selection-end="146" vertical-scroll-proportion="-3.2307692">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pattern.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/src.jar!/src/java/util/regex/Pattern.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="880" column="4" selection-start="40982" selection-end="40997" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PdfWriter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/iText-src-2.1.7.zip!/src/core/com/lowagie/text/pdf/PdfWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1344" column="48" selection-start="48963" selection-end="48963" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleBookmark.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/iText-src-2.1.7.zip!/src/core/com/lowagie/text/pdf/SimpleBookmark.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="304" column="52" selection-start="14484" selection-end="14494" vertical-scroll-proportion="0.0">
+            <state line="36" column="4" selection-start="754" selection-end="754" vertical-scroll-proportion="0.22461538">
               <folding />
             </state>
           </provider>
@@ -129,9 +104,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/org/corvino/RomanNumeral.java" />
-        <option value="$PROJECT_DIR$/src/org/corvino/HierarchicalBookmarkCollector.java" />
         <option value="$PROJECT_DIR$/src/org/corvino/AddPDFBookmarks.java" />
+        <option value="$PROJECT_DIR$/src/org/corvino/HierarchicalBookmarkCollector.java" />
+        <option value="$PROJECT_DIR$/src/org/corvino/RomanNumeral.java" />
       </list>
     </option>
   </component>
@@ -498,7 +473,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="22" width="1920" height="1116" extended-state="0" />
+    <frame x="-2" y="22" width="1920" height="1116" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -562,16 +537,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/iText-src-2.1.7.zip!/src/core/com/lowagie/text/pdf/PdfWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1344" column="48" selection-start="48963" selection-end="48963" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/iText-src-2.1.7.zip!/src/core/com/lowagie/text/pdf/SimpleBookmark.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="52" selection-start="14484" selection-end="14494" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/src.jar!/src/java/util/regex/Pattern.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="880" column="4" selection-start="40982" selection-end="40997" vertical-scroll-proportion="0.0">
@@ -579,23 +544,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/corvino/RomanNumeral.java">
+    <entry file="jar://$PROJECT_DIR$/lib/iText-src-2.1.7.zip!/src/core/com/lowagie/text/pdf/SimpleBookmark.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="146" selection-end="146" vertical-scroll-proportion="-3.2307692">
+        <state line="107" column="19" selection-start="4667" selection-end="4667" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/corvino/HierarchicalBookmarkCollector.java">
+    <entry file="jar://$PROJECT_DIR$/lib/iText-src-2.1.7.zip!/src/core/com/lowagie/text/pdf/PdfWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
+        <state line="1332" column="16" selection-start="48432" selection-end="48432" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/src.jar!/src/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="727" column="19" selection-start="29749" selection-end="29749" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/src.jar!/src/java/lang/Throwable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="449" column="16" selection-start="19077" selection-end="19077" vertical-scroll-proportion="0.3323077">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/corvino/AddPDFBookmarks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="0" selection-start="6797" selection-end="6797" vertical-scroll-proportion="0.8892308">
+        <state line="57" column="0" selection-start="1881" selection-end="1881" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/corvino/HierarchicalBookmarkCollector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="7" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/corvino/RomanNumeral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="4" selection-start="754" selection-end="754" vertical-scroll-proportion="0.22461538">
           <folding />
         </state>
       </provider>
