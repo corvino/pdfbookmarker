@@ -126,7 +126,7 @@ public class AddPDFBookmarks {
 			HashMap<String, Object> bookmark = iterator.next();
 
 			for (int i = 0; i < level; i++) {
-				System.out.print("	");
+				System.out.print("  ");
 			}
 
 			System.out.println(bookmark.get("Title") + " : " + bookmark.get("Page"));
@@ -166,10 +166,7 @@ public class AddPDFBookmarks {
 	{
 		boolean result;
 		HashMap<String, Object> bookmark;
-		int numOfPages;
 		int pageNumber;
-		int	level;
-		PdfReader reader;
 
 		String contentsLine;
 		String pageValue;
@@ -185,8 +182,7 @@ public class AddPDFBookmarks {
 		String ignoreRegEx = config.getIgnorePattern();
 		Matcher ignoreMatcher = null;
 
-		String accumulatedContent = "";
-		HierarchicalBookmarkCollector		bookmarkCollector = new HierarchicalBookmarkCollector();
+		HierarchicalBookmarkCollector bookmarkCollector = new HierarchicalBookmarkCollector();
 		String contents = getContents(config, pdfFile);
 		BufferedReader contentsReader = new BufferedReader(new StringReader(contents));
 
@@ -233,9 +229,7 @@ public class AddPDFBookmarks {
 					// want to?
 
 					bookmark.put("Page", Integer.toString(pageNumber) + " XYZ 0 792 0.0");
-					level = null == section ? 1 : 0 == section.length() ? 1 : (section.length() + 1) / 2;
-
-					bookmarkCollector.addBookmark(bookmark, level);
+					bookmarkCollector.addBookmark(bookmark, levelForSection(section));
 				}
 			}
 		}
@@ -247,4 +241,18 @@ public class AddPDFBookmarks {
 
 		return bookmarkCollector.getBookmarks();
 	}
+
+    static int levelForSection(String section)
+    {
+        int level;
+
+        if (null == section) {
+            level = 1;
+        } else {
+            String[] parts = section.split("\\.");
+            level = parts.length;
+        }
+
+        return level;
+    }
 }
