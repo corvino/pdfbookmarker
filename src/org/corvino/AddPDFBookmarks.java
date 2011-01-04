@@ -1,149 +1,95 @@
 package org.corvino;
 
+import com.itextpdf.text.pdf.BadPdfFormatException;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfCopy;
+import com.itextpdf.text.pdf.PdfImportedPage;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.lowagie.text.Document;
-import com.lowagie.text.DocumentException;
-import com.lowagie.text.pdf.PdfCopy;
-import com.lowagie.text.pdf.PdfImportedPage;
-import com.lowagie.text.pdf.PdfReader;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 public class AddPDFBookmarks {
 
-	private static Pattern fContentPattern = Pattern.compile("^(?:((?:[0-9]+\\.)*[0-9]+)\\s*)?(.*?)\\.++\\s?((?:[0-9]+?)|(?:[vixc]+?))$");
-	private static Pattern fIgnorePattern = Pattern.compile("(?:AppDevMozilla-000Book Page [cxvi]+ Thursday, December 4, 2003 6:21 PM)|(?:[cxvi]+ Contents)|(?:Contents [cxvi]+)");
-	private static Matcher fContentMatcher = fContentPattern.matcher("");
-	private static Matcher fIgnoreMatcher = fIgnorePattern.matcher("");
+	public static void main(String args[]) throws Exception
+	{
+		if (1 > args.length) {
+			printUsage();
+		} else {
+			String command = args[0];
 
-	public static void main(String args[]) throws IOException, DocumentException {
-		File								contentsFile;
-		File								inputFile;
-		File								outputFile;
-		int									pageI;
-		int									page0;
-		
+			if ("bookmark".equals(command)) {
+				if (4 != args.length) {
+					System.err.println("Usage: bookmark <config-file> <pdf-file> <out-file>");
+				} else {
+					String configFile = args[1];
+					String pdfFile = args[2];
+					String outFile = args[3];
 
-		if (5 == args.length) {
-			inputFile = new File(args[0]);
-			outputFile = new File(args[1]);
-			contentsFile = new File(args[2]);
+					bookmark(configFile, pdfFile, outFile);
+				}
+			} else if ("show-contents".equals(command)) {
+				if (3 != args.length) {
+					System.err.println("Usage: show-contents <config-file> <pdf-file>");
+				} else {
+					Config config = new Config(args[1]);
+					String contents = getContents(config, args[2]);
 
-			if (!inputFile.exists()) {
-				throw new IllegalArgumentException("Input file must exist.");
+					System.out.println("\nContents:\n-----------------");
+					System.out.println(contents);
+				}
+			} else if ("parse-contents".equals(command)) {
+				if (3 != args.length) {
+					System.err.println("Usage: parse-contents <config-file> <pdf-file>");
+				} else {
+					parseContents(args[1], args[2]);
+				}
+			} else {
+				printUsage();
 			}
-
-			if (!outputFile.getParentFile().exists()) {
-				throw new IllegalArgumentException("Directory of output file must exist.");
-			}
-
-			if (!contentsFile.exists()) {
-				throw new IllegalArgumentException("Contents file must exist.");
-			}
-
-			try {
-				pageI = Integer.parseInt(args[3]);
-			} catch (NumberFormatException nfe) {
-				throw new IllegalArgumentException("Page i must parse to an integer.");
-			}
-
-			try {
-				page0 = Integer.parseInt(args[4]);
-			} catch (NumberFormatException nfe) {
-				throw new IllegalArgumentException("Page 1 must parse to an integer.");
-			}
-
-			addBookmarks(inputFile.getPath(), outputFile.getPath(), contentsFile.getPath(), pageI, page0);
 		}
 	}
 
-	private static void addBookmarks(String inputFilePath, String outputFilePath, String contentsFilePath, int pageI, int page0) throws IOException, DocumentException {
-		boolean								result;
-		Document							document;
-		Map<String,Object>					bookmark;
-		int									numOfPages;
-		PdfCopy								writer;
-		PdfImportedPage						page;
-		PdfReader							reader;
-		BufferedReader						contentsReader;
-		String								contentsLine;
-		String								pageValue;
-		int									pageNumber;
-		String								title;
-		String								section;
-		int									level;
+	private static void printUsage()
+	{
+		System.err.println("Usage: <config-file> <pdf-file> [<out-file>] <command>");
+		System.err.println("Commands:");
+		System.err.println("  bookmark");
+		System.err.println("  show-contents");
+		System.err.println("  parse-contents");
+	}
 
-		String								accumulatedContent = "";
-		File								contentsFile = new File(contentsFilePath);
-		File								inputFile = new File(inputFilePath);
-		File								outputFile = new File(outputFilePath);
+	private static void bookmark(String configFile, String inputFile, String outputFile)
+		throws ParserConfigurationException, SAXException,
+			   IOException, DocumentException, BadPdfFormatException
+	{
+		int numOfPages;
 
-		HierarchicalBookmarkCollector		bookmarkCollector = new HierarchicalBookmarkCollector();
+		PdfCopy writer;
+		Document document;
+		PdfImportedPage page;
 
+		Config config = new Config(configFile);
+		PdfReader reader = new PdfReader(inputFile);
+		List<HashMap<String, Object>> bookmarks = getBookmarks(config, inputFile);
 
-		contentsReader = new BufferedReader(new FileReader(contentsFile));
-
-		for (contentsLine = contentsReader.readLine(); null != contentsLine; contentsLine = contentsReader.readLine()) {
-			contentsLine = contentsLine.trim();
-
-			fIgnoreMatcher.reset(contentsLine);
-
-			if (!fIgnoreMatcher.find()) {
-
-				// Accumulate lines content to handle multi-line items, and then match to see
-				// if we have completed a contents item yet.
-
-				accumulatedContent = (accumulatedContent.trim() + " " + contentsLine.trim()).trim();
-				fContentMatcher.reset(accumulatedContent);
-				result = fContentMatcher.find();
-
-				if (result && (fContentMatcher.group(2).length() > 0)) {
-
-					// This is a real match.  So far the regular expression has
-					// resisted only matching when there is a title., so we check
-					// for title length as well as a match.
-
-					section = fContentMatcher.group(1);
-					title = fContentMatcher.group(2);
-					pageValue = fContentMatcher.group(3);
-
-					bookmark = new HashMap<String, Object>();
-					bookmark.put("Action", "GoTo");
-					bookmark.put("Title", title);
-
-					if (Character.isDigit(pageValue.charAt(0))) {
-						pageNumber = Integer.parseInt(pageValue) + page0;
-					} else {
-						pageNumber = RomanNumeral.parseInteger(pageValue) + pageI;
-					}
-
-					bookmark.put("Page", Integer.toString(pageNumber) + " XYZ 0 792 0.0"); // Page=108 FitH 794
-
-					level = null == section ? 1 : 0 == section.length() ? 1 : (section.length() + 1) / 2;
-
-					bookmarkCollector.addBookmark(bookmark, level);
-
-					accumulatedContent = "";
-				}
-			}
-		}
-
-		// If the last bookmark was not at the top level, the bookmark stack needs
-		// to be unwound.
-
-		bookmarkCollector.unwindBookmarks();
-
-		reader = new PdfReader(inputFile.getPath());
 		reader.consolidateNamedDestinations();
 		numOfPages = reader.getNumberOfPages();
 
@@ -157,9 +103,146 @@ public class AddPDFBookmarks {
 			writer.addPage(page);
 		}
 
-		writer.setOutlines(bookmarkCollector.getBookmarks());
+		writer.setOutlines(bookmarks);
 		reader.close();
 		writer.close();
 		document.close();
+	}
+
+	private static void parseContents(String configFile, String filename)
+		throws ParserConfigurationException, SAXException, IOException
+	{
+		Config config = new Config(configFile);
+		List<HashMap<String, Object>> bookmarks = getBookmarks(config, filename);
+
+		System.out.println("\nBookmarks:\n-----------------");
+
+		int level = 0;
+		Stack<Iterator<HashMap<String, Object>>> above =
+			new Stack<Iterator<HashMap<String, Object>>>();
+		Iterator<HashMap<String, Object>> iterator = bookmarks.iterator();
+
+		while (iterator.hasNext()) {
+			HashMap<String, Object> bookmark = iterator.next();
+
+			for (int i = 0; i < level; i++) {
+				System.out.print("	");
+			}
+
+			System.out.println(bookmark.get("Title") + " : " + bookmark.get("Page"));
+
+			if (bookmark.containsKey("Kids")) {
+				level += 1;
+				@SuppressWarnings("unchecked")
+				List<HashMap<String, Object>> kids =
+						(List<HashMap<String, Object>>) bookmark.get("Kids");
+				above.push(iterator);
+				iterator = kids.iterator();
+			}
+
+			while (!iterator.hasNext() && above.size() > 0) {
+				iterator = above.pop();
+				level -= 1;
+			}
+		}
+	}
+
+
+	private static String getContents(Config config, String filename)
+		throws IOException
+	{
+		PdfReader pdfReader = new PdfReader(filename);
+		StringBuffer contents = new StringBuffer();
+
+		for (int i = config.getContentsStartPage(); i <= config.getContentsEndPage(); i++) {
+			contents.append(PdfTextExtractor.getTextFromPage(pdfReader, i));
+		}
+
+		return contents.toString();
+	}
+
+	private static List<HashMap<String, Object>> getBookmarks(Config config, String pdfFile)
+		throws IOException
+	{
+		boolean result;
+		HashMap<String, Object> bookmark;
+		int numOfPages;
+		int pageNumber;
+		int	level;
+		PdfReader reader;
+
+		String contentsLine;
+		String pageValue;
+		String section;
+		String title;
+
+		int pageZero = config.getPageZero();
+		int pageRomanZero = config.getPageRomanZero();
+
+		String contentRegEx = config.getContentPattern();
+		Pattern contentPattern = Pattern.compile(contentRegEx);
+		Matcher contentMatcher = contentPattern.matcher("");
+		String ignoreRegEx = config.getIgnorePattern();
+		Matcher ignoreMatcher = null;
+
+		String accumulatedContent = "";
+		HierarchicalBookmarkCollector		bookmarkCollector = new HierarchicalBookmarkCollector();
+		String contents = getContents(config, pdfFile);
+		BufferedReader contentsReader = new BufferedReader(new StringReader(contents));
+
+		System.out.println("Content regex: " + contentRegEx);
+
+		if (null != ignoreRegEx) {
+			Pattern ignorePattern = Pattern.compile(ignoreRegEx);
+			ignoreMatcher = ignorePattern.matcher("");
+		}
+
+		for (contentsLine = contentsReader.readLine();
+								 null != contentsLine;
+								 contentsLine = contentsReader.readLine()) {
+			ignoreMatcher.reset(contentsLine);
+
+			if (null == ignoreMatcher || !ignoreMatcher.find()) {
+				contentMatcher.reset(contentsLine);
+				result = contentMatcher.find();
+
+				if (result) {
+					section = contentMatcher.group(1);
+					title = contentMatcher.group(2);
+					pageValue = contentMatcher.group(3);
+
+					bookmark = new HashMap<String, Object>();
+					bookmark.put("Action", "GoTo");
+					bookmark.put("Title", title);
+
+					if (Character.isDigit(pageValue.charAt(0))) {
+						pageNumber = Integer.parseInt(pageValue) + pageZero;
+					} else {
+						pageNumber = RomanNumeral.parseInteger(pageValue) + pageRomanZero;
+					}
+
+					// Hmm? Legacy comment whose meaning is missing.
+					// Page=108 FitH 794
+					//
+					// The page number format is weird.
+					//
+					// TODO: Investigate this and document it better.
+					// Also, can we link inside a page, and would we
+					// want to?
+
+					bookmark.put("Page", Integer.toString(pageNumber) + " XYZ 0 792 0.0");
+					level = null == section ? 1 : 0 == section.length() ? 1 : (section.length() + 1) / 2;
+
+					bookmarkCollector.addBookmark(bookmark, level);
+				}
+			}
+		}
+
+		// If the last bookmark was not at the top level, the bookmark stack needs
+		// to be unwound.
+
+		bookmarkCollector.unwindBookmarks();
+
+		return bookmarkCollector.getBookmarks();
 	}
 }

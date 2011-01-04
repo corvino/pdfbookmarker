@@ -1,6 +1,7 @@
 package org.corvino;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
@@ -10,8 +11,8 @@ import java.util.Stack;
  *  same level, and descend from the last bookmark added.
  */
 public class HierarchicalBookmarkCollector {
-	private List<Map<String, Object>> bookmarks = new ArrayList<Map<String, Object>>();
-	private Stack<List<Map<String, Object>>> parents = new Stack<List<Map<String, Object>>>();
+	private List<HashMap<String, Object>> bookmarks = new ArrayList<HashMap<String, Object>>();
+	private Stack<List<HashMap<String, Object>>> parents = new Stack<List<HashMap<String, Object>>>();
 	private int currentLevel = 1;
 
 
@@ -23,12 +24,12 @@ public class HierarchicalBookmarkCollector {
 	 * @param level
 	 * 		The level in the hierarchy of the bookmark.
 	 */
-	public void addBookmark(Map<String,Object> bookmark, int level) {
+	public void addBookmark(HashMap<String,Object> bookmark, int level) {
 		if (level == currentLevel) {
 			bookmarks.add(bookmark);
 		} else if (level > currentLevel) {
 			parents.push(bookmarks);
-			bookmarks = new ArrayList<Map<String, Object>>();
+			bookmarks = new ArrayList<HashMap<String, Object>>();
 			bookmarks.add(bookmark);
 
 			// If the specified level is more than one level from
@@ -58,7 +59,7 @@ public class HierarchicalBookmarkCollector {
 	 * @return
 	 * 		The bookmarks at the current level.
 	 */
-	public List<Map<String, Object>> getBookmarks() {
+	public List<HashMap<String, Object>> getBookmarks() {
 		return bookmarks;
 	}
 
@@ -71,7 +72,7 @@ public class HierarchicalBookmarkCollector {
 	 * 		The level to which to unwind the bookmarks.
 	 */
 	private void unwindBookmarksToLevel(int level) {
-		List<Map<String, Object>>			poppedBookmarks;
+		List<HashMap<String, Object>>			poppedBookmarks;
 
 		for (int i = 0; i < currentLevel - level; i++) {
 			poppedBookmarks = parents.pop();

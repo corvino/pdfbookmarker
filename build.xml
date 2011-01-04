@@ -1,0 +1,36 @@
+<project name="PDFBookMarker" default="jar" basedir=".">
+    <description>
+        PDFBookMarker build file.
+    </description>
+
+    <property name="src" value="src"/>
+    <property name="build.home" value="build"/>
+    <property name="build.classes" value="${build.home}/classes" />
+    <property name="jar.name" value="pdfbookmarker.jar" />
+    <property name="jar.fullpath" value="${build.home}/${jar.name}" />
+    <property name="dist" location="dist"/>
+
+    <target name="compile" description="compile the source">
+        <mkdir dir="${build.classes}" />
+        <path>
+            <pathelement location="lib/iText-5.0.5.jar"/>
+        </path>
+        <javac srcdir="${src}" classpath="lib/iText-5.0.5.jar" destdir="${build.classes}">
+		    <compilerarg value="-Xlint"/>
+		</javac>
+    </target>
+
+    <target name="jar" depends="compile" description="Create jar file.">
+        <jar jarfile="${jar.fullpath}" basedir="${build.classes}">
+            <zipgroupfileset file="lib/iText-5.0.5.jar" includes="*.jar" />
+            <manifest>
+                <attribute name="Main-Class" value="org.corvino.AddPDFBookmarks" />
+                <attribute name="Class-Path" value="lib/iText-5.0.5.jar" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.home}" failonerror="true" />
+    </target>
+</project>

@@ -1,0 +1,35 @@
+<!--
+    java -jar build/pdfbookmarker.jar parse-contents config/RapidApplicationDevelopmentWithMozilla.xml books/mozilla/original-merged/RADwithMozilla.pdf
+    java -jar build/pdfbookmarker.jar bookmark config/RapidApplicationDevelopmentWithMozilla.xml books/mozilla/original-merged/RADwithMozilla.pdf RAD.pdf
+-->
+<pdfbookmark>
+    <table-of-contents matchMode="simple" startPage="7" endPage="17"/>
+    <pdf-pages zero="28" romanZero="0"/>
+    <!--
+        Matches and captures the section number: (?:((?:[0-9]+\.)*[0-9]+)\s)?
+            The capture is: ((?:[0-9]+\.)*[0-9])?
+            The surrounding non-capture group handles the space between the section and title.
+            The whole things is optional.
+        Matches the title: ([^\.]+)
+        Matches the intervening dots: \.*
+        Matches the page number: ((?:[0-9]+)|(?:[vixc]+))
+        Matches any trailing spaces: \s*
+
+        java RegExTest '^(?:((?:[0-9]+\.)*[0-9]+)\s)?([^\.]+)\.*\s?((?:[0-9]+)|(?:[vixc]+))\s*$' 'Acknowledgments............................................................................................. xix'
+        java RegExTest '^(?:((?:[0-9]+\.)*[0-9]+)\s)?([^\.]+)\.*\s?((?:[0-9]+)|(?:[vixc]+))\s*$' '1.1.1 Platform Versions........................................................................................4'
+    -->
+    <content-pattern>
+	    <![CDATA[
+            ^(?:((?:[0-9]+\.)*[0-9]+)\s)?([^\.]+)\.*\s?((?:[0-9]+)|(?:[vixc]+))\s*$
+		]]>
+	</content-pattern>
+
+    <!--
+        java RegExTest '(?:AppDevMozilla-000Book Page [cxvi]+ Thursday, December 4, 2003 6:21 PM)|(?:[cxvi]+ Contents)|(?:Contents [cxvi]+)|(?:^vi)' 'Contents xvii'
+    -->
+	<ignore-pattern>
+	    <![CDATA[
+			(?:AppDevMozilla-000Book Page [cxvi]+ Thursday, December 4, 2003 6:21 PM)|(?:[cxvi]+ Contents)|(?:Contents [cxvi]+)|(?:^vi)
+		]]>
+	</ignore-pattern>
+</pdfbookmark>
