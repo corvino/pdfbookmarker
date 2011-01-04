@@ -15,8 +15,8 @@
         <path>
             <pathelement location="lib/iText-5.0.5.jar"/>
         </path>
-        <javac srcdir="${src}" classpath="lib/iText-5.0.5.jar" destdir="${build.classes}">
-		    <compilerarg value="-Xlint"/>
+        <javac srcdir="${src}" classpath="lib/iText-5.0.5.jar" destdir="${build.classes}" debug="true">
+		    <compilerarg value="-Xlint" />
 		</javac>
     </target>
 
