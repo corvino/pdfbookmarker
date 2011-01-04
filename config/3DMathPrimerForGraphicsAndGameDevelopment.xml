@@ -32,5 +32,15 @@
 		]]>
 	</ignore-pattern>
 
+    <section-mapping>
+        <map name="Summation Notation" value="2" />
+        <map name="Angles, Degrees, and Radians" value="2" />
+        <map name="Trig Functions" value="2" />
+        <map name="Trig Identities" value="2" />
+    </section-mapping>
+
+    <custom-bookmarks>
+        <bookmark name="Contents" level="1" page="4" />
+    </custom-bookmarks>
 
 </pdfbookmark>

@@ -166,6 +166,7 @@ public class AddPDFBookmarks {
 	{
 		boolean result;
 		HashMap<String, Object> bookmark;
+		int level;
 		int pageNumber;
 
 		String contentsLine;
@@ -186,7 +187,23 @@ public class AddPDFBookmarks {
 		String contents = getContents(config, pdfFile);
 		BufferedReader contentsReader = new BufferedReader(new StringReader(contents));
 
+        Map<String, Integer> sectionMapping = config.getSectionMapping();
+        List<Config.Bookmark> customBookmarks = config.getCustomBookmarks();
+
+
 		System.out.println("Content regex: " + contentRegEx);
+
+        // Add custom bookmarks from config.
+
+        if (null != customBookmarks) {
+            for (Config.Bookmark custom : config.getCustomBookmarks()) {
+   				bookmark = new HashMap<String, Object>();
+				bookmark.put("Action", "GoTo");
+                bookmark.put("Title", custom.getTitle());
+                bookmark.put("Page", custom.getPage() + " XYZ 0 792 0.0");
+				bookmarkCollector.addBookmark(bookmark, custom.getLevel());
+            }
+        }
 
 		if (null != ignoreRegEx) {
 			Pattern ignorePattern = Pattern.compile(ignoreRegEx);
@@ -206,8 +223,8 @@ public class AddPDFBookmarks {
 
 				if (result) {
 					section = contentMatcher.group(1);
-					title = contentMatcher.group(2);
-					pageValue = contentMatcher.group(3);
+					title = contentMatcher.group(2).trim();
+					pageValue = contentMatcher.group(3).trim();
 
 					bookmark = new HashMap<String, Object>();
 					bookmark.put("Action", "GoTo");
@@ -228,8 +245,10 @@ public class AddPDFBookmarks {
 					// Also, can we link inside a page, and would we
 					// want to?
 
+
+
 					bookmark.put("Page", Integer.toString(pageNumber) + " XYZ 0 792 0.0");
-					bookmarkCollector.addBookmark(bookmark, levelForSection(section));
+					bookmarkCollector.addBookmark(bookmark, levelForSection(sectionMapping, title, section));
 				}
 			}
 		}
@@ -241,6 +260,19 @@ public class AddPDFBookmarks {
 
 		return bookmarkCollector.getBookmarks();
 	}
+
+    static int levelForSection(Map<String, Integer> sectionMapping, String title, String section) {
+        int level;
+
+
+        if (null != sectionMapping && sectionMapping.containsKey(title)) {
+            level = sectionMapping.get(title);
+        } else {
+            level = levelForSection(section);
+        }
+
+        return level;
+    }
 
     static int levelForSection(String section)
     {
