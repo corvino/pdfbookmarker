@@ -200,7 +200,9 @@ public class AddPDFBookmarks {
 		for (contentsLine = contentsReader.readLine();
 								 null != contentsLine;
 								 contentsLine = contentsReader.readLine()) {
-			ignoreMatcher.reset(contentsLine);
+            if (null != ignoreMatcher) {
+                ignoreMatcher.reset(contentsLine);
+            }
 
 			if (null == ignoreMatcher || !ignoreMatcher.find()) {
 				contentMatcher.reset(contentsLine);

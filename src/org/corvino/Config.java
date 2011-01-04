@@ -79,10 +79,6 @@ public class Config {
 			throw new IllegalArgumentException("Must define a content pattern.");
 		}
 
-		if (null == ignorePattern) {
-			throw new IllegalArgumentException("Must define an ignore pattern.");
-		}
-
 		System.out.println("Configuration:");
 		System.out.println("  contentPattern: " + contentPattern);
 		System.out.println("  ignorePattern: " + ignorePattern);
