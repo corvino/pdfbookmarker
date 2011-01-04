@@ -1,0 +1,36 @@
+<!--
+    java -jar build/pdfbookmarker.jar show-contents config/3DMathPrimerForGraphicsAndGameDevelopment.xml "books/3D Math Primer for Graphics and Game Development.pdf"
+    java -jar build/pdfbookmarker.jar parse-contents config/3DMathPrimerForGraphicsAndGameDevelopment.xml "books/3D Math Primer for Graphics and Game Development.pdf"
+    java -jar build/pdfbookmarker.jar bookmark config/3DMathPrimerForGraphicsAndGameDevelopment.xml "books/3D Math Primer for Graphics and Game Development.pdf" 3DMathPrimerForGraphicsAndGameDevelopment.pdf
+-->
+<pdfbookmark>
+    <table-of-contents matchMode="simple" startPage="4" endPage="11"/>
+    <pdf-pages zero="13" romanZero="1"/>
+    <!--
+        Strip some leading heading stuff: (?:(?:Chapter\s)|(?:\s?Appendix\s))?
+        Matches and captures the section number: (?:((?:[0-9]+\.)*[0-9]+)\s)?
+        The capture is: ((?:[0-9]+\.)*[0-9])?
+        The surrounding non-capture group handles the space between the section and title.
+        The whole things is optional.
+        Matches the title: ([^\.]+)
+        Matches the intervening dots: \.*
+        Matches the page number: ((?:[0-9]+)|(?:[vixc]+))
+        Matches any trailing spaces: \s*
+        'java RegExTest Chapter 1 Introduction .......................1'
+    -->
+    <content-pattern>
+	    <![CDATA[
+            ^(?:(?:Chapter\s)|(?:\s?Appendix\s))?(?:((?:[0-9]+\.)*[0-9]+)\s)?([^\.]+)\.*\s?((?:[0-9]+)|(?:[vixc]+))\s*$
+		]]>
+	</content-pattern>
+
+    <!--
+    -->
+	<ignore-pattern>
+	    <![CDATA[
+            ^ix\s$
+		]]>
+	</ignore-pattern>
+
+
+</pdfbookmark>

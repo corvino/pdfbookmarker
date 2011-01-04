@@ -1,4 +1,5 @@
 <!--
+    java -jar build/pdfbookmarker.jar show-contents config/RapidApplicationDevelopmentWithMozilla.xml books/mozilla/original-merged/RADwithMozilla.pdf
     java -jar build/pdfbookmarker.jar parse-contents config/RapidApplicationDevelopmentWithMozilla.xml books/mozilla/original-merged/RADwithMozilla.pdf
     java -jar build/pdfbookmarker.jar bookmark config/RapidApplicationDevelopmentWithMozilla.xml books/mozilla/original-merged/RADwithMozilla.pdf RAD.pdf
 -->
