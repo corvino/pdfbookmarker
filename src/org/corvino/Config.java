@@ -16,6 +16,7 @@ public class Config {
     boolean inSectionMapping;
     boolean inCustomBookmarks;
 
+    boolean accumulate;
 	int contentsStartPage;
 	int contentsEndPage;
 	int pageZero;
@@ -37,6 +38,8 @@ public class Config {
 									 String qName, Attributes attributes)
 			throws SAXException {
 				if ("table-of-contents".equalsIgnoreCase(qName)) {
+
+                    accumulate = "true".equals(attributes.getValue("accumulate"));
 
 					try {
 						contentsStartPage = Integer.parseInt(attributes.getValue("startPage").trim());
@@ -129,7 +132,12 @@ public class Config {
 		System.out.println("  ignorePattern: " + ignorePattern);
 		System.out.println("  contents start page: " + contentsStartPage);
 		System.out.println("  contents end page: " + contentsEndPage);
+        System.out.println("  accumulate: " + accumulate);
 	}
+
+    public boolean getAccumulate() {
+        return accumulate;
+    }
 
 	public int getContentsStartPage() {
 		return contentsStartPage;

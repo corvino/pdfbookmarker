@@ -1,0 +1,31 @@
+<!--
+    java -jar build/pdfbookmarker.jar show-contents config/EssentialMathematicsForGamesAndInteractiveApplications2ndEdition.xml "books/Essential Mathematics for Games & Interactive Applications, 2nd Edition.pdf"
+    java -jar build/pdfbookmarker.jar parse-contents config/EssentialMathematicsForGamesAndInteractiveApplications2ndEdition.xml "books/Essential Mathematics for Games & Interactive Applications, 2nd Edition.pdf"
+    java -Xmx1g -jar build/pdfbookmarker.jar bookmark config/EssentialMathematicsForGamesAndInteractiveApplications2ndEdition.xml "books/Essential Mathematics for Games & Interactive Applications, 2nd Edition.pdf" EssentialMathematicsForGamesAndInteractiveApplications2ndEdition.pdf
+-->
+<pdfbookmark>
+    <table-of-contents accumulate="true" startPage="10" endPage="19"/>
+    <pdf-pages zero="31" romanZero="1"/>
+    <!--
+        java RegExTest '^(?:((?:[0-9]+\.)*[0-9]+)\s)?([^\.]+)\.*\s((?:[0-9]+)|(?:[vixc]+))\s*(?:[ivx]+\sContents)?$' '1.7 Code 32'
+        java RegExTest '^(?:((?:[0-9]+\.)*[0-9]+)\s)?([^\.]+)\.*\s((?:[0-9]+)|(?:[vixc]+))\s*(?:[ivx]+\sContents)?$' '7.6.1 Using Shaders to Move from Vertex to Triangleto Fragment 278xiv Contents'
+    -->
+    <content-pattern>
+	    <![CDATA[
+            ^(?:((?:[0-9]+\.)*[0-9]+)\s)?([^\.]+)\.*\s((?:[0-9]+)|(?:[vixc]+))\s*(?:[ivx]+\sContents)?$
+		]]>
+	</content-pattern>
+
+    <!--
+        java RegExTest '(?:^Chapter [0-9]+$)|(?:^[ivx]+\sContents$)|(?:^Contents$)' 'to Fragment 278xiv Contents'
+    -->
+	<ignore-pattern>
+	    <![CDATA[
+            (?:^Chapter [0-9]+$)|(?:^[ivx]+\sContents$)|(?:^Contents$)
+		]]>
+	</ignore-pattern>
+
+    <custom-bookmarks>
+        <bookmark name="Contents" level="1" page="10" />
+    </custom-bookmarks>
+</pdfbookmark>

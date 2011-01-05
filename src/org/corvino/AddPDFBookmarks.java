@@ -174,6 +174,8 @@ public class AddPDFBookmarks {
 		String section;
 		String title;
 
+        StringBuffer accumulator = new StringBuffer();
+        boolean accumulate = config.getAccumulate();
 		int pageZero = config.getPageZero();
 		int pageRomanZero = config.getPageRomanZero();
 
@@ -218,13 +220,23 @@ public class AddPDFBookmarks {
             }
 
 			if (null == ignoreMatcher || !ignoreMatcher.find()) {
-				contentMatcher.reset(contentsLine);
-				result = contentMatcher.find();
+                if (accumulate) {
+                    if (0 != accumulator.length()) {
+                        accumulator.append(" ");
+                    }
+                    accumulator.append(contentsLine);
+                    contentMatcher.reset(accumulator);
+                } else {
+                    contentMatcher.reset(contentsLine);
+                }
+
+                result = contentMatcher.find();
 
 				if (result) {
 					section = contentMatcher.group(1);
 					title = contentMatcher.group(2).trim();
 					pageValue = contentMatcher.group(3).trim();
+                    accumulator.setLength(0);
 
 					bookmark = new HashMap<String, Object>();
 					bookmark.put("Action", "GoTo");
