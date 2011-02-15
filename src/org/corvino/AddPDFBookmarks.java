@@ -161,7 +161,52 @@ public class AddPDFBookmarks {
 		return contents.toString();
 	}
 
+    private static HashMap<String, Object> getBookmark(String title, int pageNumber) {
+		HashMap<String, Object> bookmark = new HashMap<String, Object>();
+
+		bookmark.put("Action", "GoTo");
+        bookmark.put("Title", title);
+        bookmark.put("Page", pageNumber + " XYZ 0 792 0.0");
+
+        return bookmark;
+    }
+
 	private static List<HashMap<String, Object>> getBookmarks(Config config, String pdfFile)
+		throws IOException
+    {
+        List<HashMap<String, Object>> bookmarks;
+
+        bookmarks = getBookmarksFromConfig(config);
+
+        if (null == bookmarks) {
+            bookmarks = getBookmarksFromPDF(config, pdfFile);
+        }
+
+        return bookmarks;
+    }
+
+    private static List<HashMap<String, Object>> getBookmarksFromConfig(Config config)
+    {
+        List<HashMap<String, Object>> bookmarks = null;
+        List<Config.Bookmark> contents = config.getContents();
+
+        if (null != contents) {
+            HashMap<String, Object> bookmark;
+            HierarchicalBookmarkCollector bookmarkCollector = new HierarchicalBookmarkCollector();
+
+            for (Config.Bookmark custom : config.getContents()) {
+                bookmark = getBookmark(custom.getTitle(), custom.getPage());
+				bookmarkCollector.addBookmark(bookmark, custom.getLevel());
+            }
+
+            bookmarkCollector.unwindBookmarks();
+            bookmarks = bookmarkCollector.getBookmarks();
+        }
+
+        return bookmarks;
+    }
+
+	private static List<HashMap<String, Object>> getBookmarksFromPDF(Config config, String pdfFile)
 		throws IOException
 	{
 		boolean result;
@@ -199,10 +244,7 @@ public class AddPDFBookmarks {
 
         if (null != customBookmarks) {
             for (Config.Bookmark custom : config.getCustomBookmarks()) {
-   				bookmark = new HashMap<String, Object>();
-				bookmark.put("Action", "GoTo");
-                bookmark.put("Title", custom.getTitle());
-                bookmark.put("Page", custom.getPage() + " XYZ 0 792 0.0");
+                bookmark = getBookmark(custom.getTitle(), custom.getPage());
 				bookmarkCollector.addBookmark(bookmark, custom.getLevel());
             }
         }
@@ -238,28 +280,13 @@ public class AddPDFBookmarks {
 					pageValue = contentMatcher.group(3).trim();
                     accumulator.setLength(0);
 
-					bookmark = new HashMap<String, Object>();
-					bookmark.put("Action", "GoTo");
-					bookmark.put("Title", title);
-
 					if (Character.isDigit(pageValue.charAt(0))) {
 						pageNumber = Integer.parseInt(pageValue) + pageZero;
 					} else {
 						pageNumber = RomanNumeral.parseInteger(pageValue) + pageRomanZero;
 					}
 
-					// Hmm? Legacy comment whose meaning is missing.
-					// Page=108 FitH 794
-					//
-					// The page number format is weird.
-					//
-					// TODO: Investigate this and document it better.
-					// Also, can we link inside a page, and would we
-					// want to?
-
-
-
-					bookmark.put("Page", Integer.toString(pageNumber) + " XYZ 0 792 0.0");
+                    bookmark = getBookmark(title, pageNumber);
 					bookmarkCollector.addBookmark(bookmark, levelForSection(sectionMapping, title, section));
 				}
 			}

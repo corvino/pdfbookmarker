@@ -1,0 +1,242 @@
+<!--
+    java -jar build/pdfbookmarker.jar parse-contents config/CProgrammingLanguage.xml books/C\ Programming\ Language.pdf
+    java -Xmx1g -jar build/pdfbookmarker.jar bookmark config/CProgrammingLanguage.xml books/C\ Programming\ Language.pdf C\ Programming\ Language.pdf
+-->
+<pdfbookmark>
+    <contents maskSectionLevel="2">
+        <contents-item level="1" page="1" name="Contents"/>
+        <contents-item level="1" page="6" name="Preface"/>
+        <contents-item level="1" page="8" name="Preface to the first edition"/>
+        <contents-item level="1" page="10" name="Introduction"/>
+
+        <contents-item section="1" page="14" name="A Tutorial Introduction"/>
+        <contents-item section="1.1" page="14" name="Getting Started"/>
+        <contents-item section="1.2" page="17" name="Variables and Arithmetic Expressions"/>
+        <contents-item section="1.3" page="22" name="The for statement"/>
+        <contents-item section="1.4" page="23" name="Symbolic Constants"/>
+        <contents-item section="1.5" page="24" name="Character Input and Output"/>
+        <contents-item section="1.5.1" page="24" name="File Copying"/>
+        <contents-item section="1.5.2" page="26" name="Character Counting"/>
+        <contents-item section="1.5.3" page="28" name="Line Counting"/>
+        <contents-item section="1.5.4" page="29" name="Word Counting"/>
+        <contents-item section="1.6" page="30" name="Arrays"/>
+        <contents-item section="1.7" page="33" name="Functions"/>
+        <contents-item section="1.8" page="36" name="Arguments - Call by Value"/>
+        <contents-item section="1.9" page="36" name="Character Arrays"/>
+        <contents-item section="1.10" page="39" name="External Variables and Scope"/>
+
+        <contents-item section="2" page="44" name="Types, Operators and Expressions"/>
+        <contents-item section="2.1" page="44" name="Variable Names"/>
+        <contents-item section="2.2" page="45" name="Data Types and Sizes"/>
+        <contents-item section="2.3" page="46" name="Constants"/>
+        <contents-item section="2.4" page="49" name="Declarations"/>
+        <contents-item section="2.5" page="50" name="Arithmetic Operators"/>
+        <contents-item section="2.6" page="51" name="Relational and Logical Operators"/>
+        <contents-item section="2.7" page="52" name="Type Conversions"/>
+        <contents-item section="2.8" page="56" name="Increment and Decrement Operators"/>
+        <contents-item section="2.9" page="59" name="Bitwise Operators"/>
+        <contents-item section="2.10" page="60" name="Assignment Operators and Expressions"/>
+        <contents-item section="2.11" page="62" name="Conditional Expressions"/>
+        <contents-item section="2.12" page="64" name="Precedence and Order of Evaluation"/>
+
+        <contents-item section="3" page="67" name="Control Flow"/>
+        <contents-item section="3.1" page="67" name="Statements and Blocks"/>
+        <contents-item section="3.2" page="67" name="If-Else"/>
+        <contents-item section="3.3" page="39" name="Else-If"/>
+        <contents-item section="3.4" page="70" name="Switch"/>
+        <contents-item section="3.5" page="72" name="Loops - While and For"/>
+        <contents-item section="3.6" page="76" name="Loops - Do-While"/>
+        <contents-item section="3.7" page="77" name="Break and Continue"/>
+        <contents-item section="3.8" page="78" name="Goto and labels"/>
+
+        <contents-item section="4" page="81" name="Functions and Program Structure"/>
+        <contents-item section="4.1" page="81" name="Basics of Functions"/>
+        <contents-item section="4.2" page="83" name="Functions Returning Non-integers"/>
+        <contents-item section="4.3" page="85" name="External Variables"/>
+        <contents-item section="4.4" page="90" name="Scope Rules"/>
+        <contents-item section="4.5" page="91" name="Header Files"/>
+        <contents-item section="4.6" page="92" name="Static Variables"/>
+        <contents-item section="4.7" page="93" name="Register Variables"/>
+        <contents-item section="4.8" page="93" name="Block Structure"/>
+        <contents-item section="4.9" page="94" name="Initialization"/>
+        <contents-item section="4.10" page="95" name="Recursion"/>
+        <contents-item section="4.11" page="96" name="The C Preprocessor"/>
+        <contents-item section="4.11.1" page="96" name="File Inclusion"/>
+        <contents-item section="4.11.2" page="97" name="Macro Substitution"/>
+        <contents-item section="4.11.3" page="98" name="Conditional Inclusion"/>
+
+        <contents-item section="5" page="100" name="Pointers and Arrays"/>
+        <contents-item section="5.1" page="100" name="Pointers and Addresses"/>
+        <contents-item section="5.2" page="102" name="Pointers and Function Arguments"/>
+        <contents-item section="5.3" page="105" name="Pointers and Arrays"/>
+        <contents-item section="5.4" page="108" name="Address Arithmetic"/>
+        <contents-item section="5.5" page="111" name="Character Pointers and Functions"/>
+        <contents-item section="5.6" page="115" name="Pointer Arrays; Pointers to Pointers"/>
+        <contents-item section="5.7" page="119" name="Multi-dimensional Arrays"/>
+        <contents-item section="5.8" page="121" name="Initialization of Pointer Arrays"/>
+        <contents-item section="5.9" page="121" name="Pointers vs. Multi-dimensional Arrays"/>
+        <contents-item section="5.10" page="122" name="Command-line Arguments"/>
+        <contents-item section="5.11" page="127" name="Pointers to Functions"/>
+        <contents-item section="5.12" page="130" name="Complicated Declarations"/>
+
+        <contents-item section="6" page="137" name="Structures"/>
+        <contents-item section="6.1" page="137" name="Basics of Structures"/>
+        <contents-item section="6.2" page="140" name="Structures and Functions"/>
+        <contents-item section="6.3" page="143" name="Arrays of Structures"/>
+        <contents-item section="6.4" page="148" name="Pointers to Structures"/>
+        <contents-item section="6.5" page="151" name="Self-referential Structures"/>
+        <contents-item section="6.6" page="156" name="Table Lookup"/>
+        <contents-item section="6.7" page="159" name="Typedef"/>
+        <contents-item section="6.8" page="161" name="Unions"/>
+        <contents-item section="6.9" page="163" name="Bit-fields"/>
+
+        <contents-item section="7" page="166" name="Input and Output"/>
+        <contents-item section="7.1" page="166" name="Standard Input and Output"/>
+        <contents-item section="7.2" page="168" name="Formatted Output - printf"/>
+        <contents-item section="7.3" page="170" name="Variable-length Argument Lists"/>
+        <contents-item section="7.4" page="172" name="Formatted Input - Scanf"/>
+        <contents-item section="7.5" page="175" name="File Access"/>
+        <contents-item section="7.6" page="179" name="Error Handling - Stderr and Exit"/>
+        <contents-item section="7.7" page="180" name="Line Input and Output"/>
+        <contents-item section="7.8" page="182" name="Miscellaneous Functions"/>
+        <contents-item section="7.8.1" page="182" name="String Operations"/>
+        <contents-item section="7.8.2" page="183" name="Character Class Testing and Conversion"/>
+        <contents-item section="7.8.3" page="183" name="Ungetc"/>
+        <contents-item section="7.8.4" page="183" name="Command Execution"/>
+        <contents-item section="7.8.5" page="183" name="Storage Management"/>
+        <contents-item section="7.8.6" page="184" name="Mathematical Functions"/>
+        <contents-item section="7.8.7" page="185" name="Random Number generation"/>
+
+        <contents-item section="8" page="186" name="The UNIX System Interface"/>
+        <contents-item section="8.1" page="186" name="File Descriptors"/>
+        <contents-item section="8.2" page="187" name="Low Level I/O - Read and Write"/>
+        <contents-item section="8.3" page="188" name="Open, Creat, Close, Unlink"/>
+        <contents-item section="8.4" page="191" name="Random Access - Lseek"/>
+        <contents-item section="8.5" page="192" name="Example - An implementation of Fopen and Getc"/>
+        <contents-item section="8.6" page="195" name="Example - Listing Directories"/>
+        <contents-item section="8.7" page="201" name="Example - A Storage Allocator"/>
+
+        <contents-item section="A" page="207" name="Reference Manual"/>
+        <contents-item section="A.1" page="207" name="Introduction"/>
+        <contents-item section="A.2" page="207" name="Lexical Conventions"/>
+        <contents-item section="A.2.1" page="207" name="Tokens"/>
+        <contents-item section="A.2.2" page="208" name="Comments"/>
+        <contents-item section="A.2.3" page="208" name="Identifiers"/>
+        <contents-item section="A.2.4" page="208" name="Keywords"/>
+        <contents-item section="A.2.5" page="208" name="Constants"/>
+        <contents-item section="A.2.5.1" page="209" name="Integer Constants"/>
+        <contents-item section="A.2.5.2" page="209" name="Character Constants"/>
+        <contents-item section="A.2.5.3" page="210" name="Floating Constants"/>
+        <contents-item section="A.2.6" page="210" name="Enumeration Constants"/>
+        <contents-item section="A.3" page="211" name="Syntax Notation"/>
+        <contents-item section="A.4" page="211" name="Meaning of Identifiers"/>
+        <contents-item section="A.4.1" page="211" name="Storage Class"/>
+        <contents-item section="A.4.2" page="212" name="Basic Types"/>
+        <contents-item section="A.4.3" page="213" name="Derived types"/>
+        <contents-item section="A.4.4" page="213" name="Type Qualifiers"/>
+        <contents-item section="A.5" page="214" name="Objects and Lvalues"/>
+        <contents-item section="A.6" page="214" name="Conversions"/>
+        <contents-item section="A.6.1" page="214" name="Integral Promotion"/>
+        <contents-item section="A.6.2" page="214" name="Integral Conversions"/>
+        <contents-item section="A.6.3" page="214" name="Integer and Floating"/>
+        <contents-item section="A.6.4" page="215" name="Floating Types"/>
+        <contents-item section="A.6.5" page="215" name="Arithmetic Conversions"/>
+        <contents-item section="A.6.6" page="215" name="Pointers and Integers"/>
+        <contents-item section="A.6.7" page="216" name="Void"/>
+        <contents-item section="A.6.8" page="217" name="Pointers to Void"/>
+        <contents-item section="A.7" page="217" name="Expressions"/>
+        <contents-item section="A.7.1" page="217" name="Pointer Conversion"/>
+        <contents-item section="A.7.2" page="218" name="Primary Expressions"/>
+        <contents-item section="A.7.3" page="218" name="Postfix Expressions"/>
+        <contents-item section="A.7.3.1" page="219" name="Array References"/>
+        <contents-item section="A.7.3.2" page="219" name="Function Calls"/>
+        <contents-item section="A.7.3.3" page="220" name="Structure References"/>
+        <contents-item section="A.7.3.4" page="221" name="Postfix Incrementation"/>
+        <contents-item section="A.7.4" page="221" name="Unary Operators"/>
+        <contents-item section="A.7.4.1" page="221" name="Prefix Incrementation Operators"/>
+        <contents-item section="A.7.4.2" page="221" name="Address Operator"/>
+        <contents-item section="A.7.4.3" page="222" name="Indirection Operator"/>
+        <contents-item section="A.7.4.4" page="222" name="Unary Plus Operator"/>
+        <contents-item section="A.7.4.5" page="222" name="Unary Minus Operator"/>
+        <contents-item section="A.7.4.6" page="222" name="One's Complement Operator"/>
+        <contents-item section="A.7.4.7" page="222" name="Logical Negation Operator"/>
+        <contents-item section="A.7.4.8" page="222" name="Sizeof Operator"/>
+        <contents-item section="A.7.5" page="223" name="Casts"/>
+        <contents-item section="A.7.6" page="223" name="Multiplicative Operators"/>
+        <contents-item section="A.7.7" page="224" name="Additive Operators"/>
+        <contents-item section="A.7.8" page="224" name="Shift Operators"/>
+        <contents-item section="A.7.9" page="225" name="Relational Operators"/>
+        <contents-item section="A.7.10" page="225" name="Equality Operators"/>
+        <contents-item section="A.7.11" page="226" name="Bitwise AND Operator"/>
+        <contents-item section="A.7.12" page="226" name="Bitwise Exclusive OR Operator"/>
+        <contents-item section="A.7.13" page="226" name="Bitwise Inclusive OR Operator"/>
+        <contents-item section="A.7.14" page="226" name="Logical AND Operator"/>
+        <contents-item section="A.7.15" page="227" name="Logical OR Operator"/>
+        <contents-item section="A.7.16" page="227" name="Conditional Operator"/>
+        <contents-item section="A.7.17" page="227" name="Assignment Expressions"/>
+        <contents-item section="A.7.18" page="228" name="Comma Operator"/>
+        <contents-item section="A.7.19" page="229" name="Constant Expressions"/>
+        <contents-item section="A.8" page="229" name="Declarations"/>
+        <contents-item section="A.8.1" page="230" name="Storage Class Specifiers"/>
+        <contents-item section="A.8.2" page="231" name="Type Specifiers"/>
+        <contents-item section="A.8.3" page="232" name="Structure and Union Declarations"/>
+        <contents-item section="A.8.4" page="236" name="Enumerations"/>
+        <contents-item section="A.8.5" page="237" name="Declarators"/>
+        <contents-item section="A.8.6" page="237" name="Meaning of Declarators"/>
+        <contents-item section="A.8.6.1" page="238" name="Pointer Declarators"/>
+        <contents-item section="A.8.6.2" page="238" name="Array Declarators"/>
+        <contents-item section="A.8.6.3" page="239" name="Function Declarators"/>
+        <contents-item section="A.8.7" page="241" name="Initialization"/>
+        <contents-item section="A.8.8" page="244" name="Type names"/>
+        <contents-item section="A.8.9" page="244" name="Typedef"/>
+        <contents-item section="A.8.10" page="245" name="Type Equivalence"/>
+        <contents-item section="A.9" page="246" name="Statements"/>
+        <contents-item section="A.9.1" page="246" name="Labeled Statements"/>
+        <contents-item section="A.9.2" page="247" name="Expression Statement"/>
+        <contents-item section="A.9.3" page="247" name="Compound Statement"/>
+        <contents-item section="A.9.4" page="247" name="Selection Statements"/>
+        <contents-item section="A.9.5" page="248" name="Iteration Statements"/>
+        <contents-item section="A.9.6" page="249" name="Jump statements"/>
+        <contents-item section="A.10" page="250" name="External Declarations"/>
+        <contents-item section="A.10.1" page="250" name="Function Definitions"/>
+        <contents-item section="A.10.2" page="252" name="External Declarations"/>
+        <contents-item section="A.11" page="253" name="Scope and Linkage"/>
+        <contents-item section="A.11.1" page="253" name="Lexical Scope"/>
+        <contents-item section="A.11.2" page="254" name="Linkage"/>
+        <contents-item section="A.12" page="254" name="Preprocessing"/>
+        <contents-item section="A.12.1" page="255" name="Trigraph Sequences"/>
+        <contents-item section="A.12.2" page="255" name="Line Splicing"/>
+        <contents-item section="A.12.3" page="255" name="Macro Definition and Expansion"/>
+        <contents-item section="A.12.4" page="258" name="File Inclusion"/>
+        <contents-item section="A.12.5" page="258" name="Conditional Compilation"/>
+        <contents-item section="A.12.6" page="260" name="Line Control"/>
+        <contents-item section="A.12.7" page="260" name="Error Generation"/>
+        <contents-item section="A.12.8" page="261" name="Pragmas"/>
+        <contents-item section="A.12.9" page="261" name="Null directive"/>
+        <contents-item section="A.12.10" page="261" name="Predefined names"/>
+        <contents-item section="A.13" page="261" name="Grammar"/>
+
+        <contents-item section="B" page="271" name="Standard Library"/>
+        <contents-item section="B.1" page="271" name="Input and Output: &lt;stdio.h&gt;"/>
+        <contents-item section="B.1.1" page="272" name="File Operations"/>
+        <contents-item section="B.1.2" page="273" name="Formatted Output"/>
+        <contents-item section="B.1.3" page="275" name="Formatted Input"/>
+        <contents-item section="B.1.4" page="277" name="Character Input and Output Functions"/>
+        <contents-item section="B.1.5" page="278" name="Direct Input and Output Functions"/>
+        <contents-item section="B.1.6" page="279" name="File Positioning Functions"/>
+        <contents-item section="B.1.7" page="279" name="Error Functions"/>
+        <contents-item section="B.2" page="280" name="Character Class Tests: &lt;ctype.h&gt;"/>
+        <contents-item section="B.3" page="281" name="String Functions: &lt;string.h&gt;"/>
+        <contents-item section="B.4" page="282" name="Mathematical Functions: &lt;math.h&gt;"/>
+        <contents-item section="B.5" page="283" name="Utility Functions: &lt;stdlib.h&gt;"/>
+        <contents-item section="B.6" page="286" name="Diagnostics: &lt;assert.h&gt;"/>
+        <contents-item section="B.7" page="286" name="Variable Argument Lists: &lt;stdarg.h&gt;"/>
+        <contents-item section="B.8" page="287" name="Non-local Jumps: &lt;setjmp.h&gt;"/>
+        <contents-item section="B.9" page="287" name="Signals: &lt;signal.h&gt;"/>
+        <contents-item section="B.10" page="288" name="Date and Time Functions: &lt;time.h&gt;"/>
+        <contents-item section="B.11" page="291" name="Implementation-defined Limits: &lt;limits.h&gt; and &lt;float.h&gt;"/>
+
+        <contents-item section="C" page="293" name="Summary of Changes"/>
+    </contents>
+    <pdf-pages zero="1" romanZero="1"/>
+</pdfbookmark>

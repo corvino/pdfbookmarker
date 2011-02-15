@@ -15,6 +15,7 @@ import org.xml.sax.helpers.DefaultHandler;
 public class Config {
     boolean inSectionMapping;
     boolean inCustomBookmarks;
+    boolean inContents;
 
     boolean accumulate;
 	int contentsStartPage;
@@ -23,6 +24,11 @@ public class Config {
 	int pageRomanZero;
 	String contentPattern;
 	String ignorePattern;
+
+    int maskSectionLevel;
+    int maskLevel;
+    List<Bookmark> contents;
+
     Map<String, Integer> sectionMapping;
     List<Bookmark> customBookmarks;
 
@@ -41,61 +47,65 @@ public class Config {
 
                     accumulate = "true".equals(attributes.getValue("accumulate"));
 
-					try {
-						contentsStartPage = Integer.parseInt(attributes.getValue("startPage").trim());
-					} catch (NumberFormatException nfe) {
-						throw new IllegalArgumentException("table-of-contents startPage must be an integer");
-					}
+                    contentsStartPage = Config.parseInt(attributes.getValue("startPage"),
+                                                        "table-of-contents startPage must be an integer");
+                    contentsEndPage = Config.parseInt(attributes.getValue("endPage"),
+                                                      "table-of-contents endPage must be an integer");
+                } else if ("contents".equalsIgnoreCase(qName)) {
+                    String maskSection = attributes.getValue("maskSectionLevel");
+                    String mask = attributes.getValue("maskLevel");
 
-					try {
-						contentsEndPage = Integer.parseInt(attributes.getValue("endPage").trim());
-					} catch (NumberFormatException nfe) {
-						throw new IllegalArgumentException("table-of-contents endPage must be an integer");
-					}
+                    maskSectionLevel = (null == maskSection) ? 0 : Config.parseInt(maskSection, "contents maskSectionLevel must be an int.");
+                    maskLevel = (null == mask) ? Integer.MAX_VALUE : Config.parseInt(mask, "contents maskLevel must be an int.");
+                    contents = new ArrayList<Bookmark>();
 
+                    inContents = true;
+                } else if ("contents-item".equalsIgnoreCase(qName)) {
+                    int level;
+                    String name = attributes.getValue("name").trim();
+                    int page = Config.parseInt(attributes.getValue("page"), "bookmark '" + name + "' page must be an integer.");
+                    String section = attributes.getValue("section");
+                    String levelAttrib = attributes.getValue("level");
+
+
+                    if (null != levelAttrib) {
+                        level = Config.parseInt(attributes.getValue("level"), "bookmark level must be an integer.");
+                    } else if (null != section) {
+                        level = AddPDFBookmarks.levelForSection(section);
+                    } else {
+                        throw new IllegalArgumentException("contents-item must have a section or level.");
+                    }
+
+                    if (level < maskLevel) {
+                        if (null != section && level < maskSectionLevel) {
+                            name = section.trim() + " " + name;
+                        }
+
+                        contents.add(new Bookmark(name, level, page));
+                    } else {
+                        System.out.println(name = section.trim() + " " + name);
+                    }
 				} else if ("pdf-pages".equalsIgnoreCase(qName)) {
-
-					try {
-						pageZero = Integer.parseInt(attributes.getValue("zero").trim());
-					} catch (NumberFormatException nfe) {
-						throw new IllegalArgumentException("pdf-pages zero must be an integer");
-					}
-
-					try {
-						pageRomanZero = Integer.parseInt(attributes.getValue("romanZero").trim());
-					} catch (NumberFormatException nfe) {
-						throw new IllegalArgumentException("pdf-pages zero must be an integer");
-					}
-
+                    pageZero = Config.parseInt(attributes.getValue("zero"),
+                                               "pdf-pages zero must be an integer");
+                    pageRomanZero= Config.parseInt(attributes.getValue("romanZero"),
+                                                   "pdf-pages zero must be an integer");
 				} else if ("section-mapping".equalsIgnoreCase(qName)) {
-
                     inSectionMapping = true;
                     sectionMapping = new HashMap<String, Integer>();
-
                 }  else if ("custom-bookmarks".equalsIgnoreCase(qName)) {
-
                     inCustomBookmarks = true;
                     customBookmarks = new ArrayList<Bookmark>();
-
                 } else if ("map".equalsIgnoreCase(qName) && inSectionMapping) {
-
-                    try {
-                        sectionMapping.put(attributes.getValue("name").trim(),
-                                           Integer.parseInt(attributes.getValue("value").trim()));
-                    } catch (NumberFormatException nfe) {
-                        throw new IllegalArgumentException("map value must be an integer.");
-                    }
-
+                    sectionMapping.put(attributes.getValue("name").trim(),
+                                       Config.parseInt(attributes.getValue("value"),
+                                                       "map value must be an integer."));
                 } else if ("bookmark".equalsIgnoreCase(qName) && inCustomBookmarks) {
-
-                    try {
-                        customBookmarks.add(new Bookmark(attributes.getValue("name").trim(),
-                                                Integer.parseInt(attributes.getValue("level").trim()),
-                                                Integer.parseInt(attributes.getValue("page"))));
-                    } catch (NumberFormatException nfe) {
-                        throw new IllegalArgumentException("bookmark level and page must be an integers.");
-                    }
-
+                    customBookmarks.add(new Bookmark(attributes.getValue("name").trim(),
+                                                     Config.parseInt(attributes.getValue("level"),
+                                                                     "bookmark level must be an integer."),
+                                                     Config.parseInt(attributes.getValue("page"),
+                                                                     "bookmark page must be an integer.")));
                 }
 			}
 
@@ -123,16 +133,18 @@ public class Config {
 
 		saxParser.parse(filename, handler);
 
-		if (null == contentPattern) {
-			throw new IllegalArgumentException("Must define a content pattern.");
-		}
+        if (null == contents) {
+            if (null == contentPattern) {
+                throw new IllegalArgumentException("Must define contents or a content pattern.");
+            }
 
-		System.out.println("Configuration:");
-		System.out.println("  contentPattern: " + contentPattern);
-		System.out.println("  ignorePattern: " + ignorePattern);
-		System.out.println("  contents start page: " + contentsStartPage);
-		System.out.println("  contents end page: " + contentsEndPage);
-        System.out.println("  accumulate: " + accumulate);
+            System.out.println("Configuration:");
+            System.out.println("  contentPattern: " + contentPattern);
+            System.out.println("  ignorePattern: " + ignorePattern);
+            System.out.println("  contents start page: " + contentsStartPage);
+            System.out.println("  contents end page: " + contentsEndPage);
+            System.out.println("  accumulate: " + accumulate);
+        }
 	}
 
     public boolean getAccumulate() {
@@ -163,12 +175,28 @@ public class Config {
 		return ignorePattern;
 	}
 
+    public List<Bookmark> getContents() {
+        return contents;
+    }
+
     public Map<String, Integer> getSectionMapping() {
         return sectionMapping;
     }
 
     public List<Bookmark> getCustomBookmarks() {
         return customBookmarks;
+    }
+
+    public static int parseInt(String value, String errorMessage) {
+        int retval;
+
+		try {
+			retval = Integer.parseInt(value.trim());
+		} catch (NumberFormatException nfe) {
+			throw new IllegalArgumentException(errorMessage);
+		}
+
+        return retval;
     }
 
     public static class Bookmark {
