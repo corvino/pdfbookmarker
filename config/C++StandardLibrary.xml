@@ -1,0 +1,630 @@
+<!--
+    java -jar build/pdfbookmarker.jar parse-contents config/C++StandardLibrary.xml "books/C++ Standard Library, The A Tutorial and Reference.pdf"
+    java -Xmx1g -jar build/pdfbookmarker.jar bookmark config/C++StandardLibrary.xml "books/C++ Standard Library, The A Tutorial and Reference.pdf" C++StandardLibrary.pdf
+-->
+<pdfbookmark>
+    <contents maskSectionLevel="2">
+        <contents-item level="1" page="1" name="Cover"/>
+        <contents-item level="1" page="4" name="Table of Contents"/>
+        <contents-item level="1" page="7" name="Preface"/>
+        <contents-item level="1" page="8" name="Acknowledgments"/>
+
+        <contents-item page="9" section="1" name="About this Book"/>
+        <contents-item page="9" section="1.1" name="Why this Book"/>
+        <contents-item page="9" section="1.2" name="What You Should Know Before Reading this Book"/>
+        <contents-item page="10" section="1.3" name="Style and Structure of the Book"/>
+        <contents-item page="12" section="1.4" name="How to Read this Book"/>
+        <contents-item page="13" section="1.5" name="State of the Art"/>
+        <contents-item page="13" section="1.6" name="Example Code and Additional Information"/>
+        <contents-item page="13" section="1.7" name="Feedback"/>
+
+        <contents-item page="14" section="2" name="Introduction to C++ and the Standard Library"/>
+        <contents-item page="14" section="2.1" name="History"/>
+        <contents-item page="15" section="2.2" name="New Language Features"/>
+        <contents-item page="15" section="2.2.1" name="Templates" />
+        <contents-item page="16" section="2.2.1.1" name="Nontype Template Parameters"/>
+        <contents-item page="16" section="2.2.1.2" name="Default Template Parameters"/>
+        <contents-item page="17" section="2.2.1.3" name="Keyword typename"/>
+        <contents-item page="18" section="2.2.1.4" name="Member Templates"/>
+        <contents-item page="19" section="2.2.1.5" name="Nested Template Classes"/>
+        <contents-item page="20" section="2.2.2" name="Explicit Initialization for Fundamental Types"/>
+        <contents-item page="20" section="2.2.3" name="Exception Handling"/>
+        <contents-item page="21" section="2.2.4" name="Namespaces"/>
+        <contents-item page="22" section="2.2.5" name="Type bool"/>
+        <contents-item page="22" section="2.2.6" name="Keyword explicit"/>
+        <contents-item page="23" section="2.2.7" name="New Operators for Type Conversion"/>
+        <contents-item page="25" section="2.2.8" name="Initialization of Constant Static Members"/>
+        <contents-item page="25" section="2.2.9" name="Definition of main()"/>
+        <contents-item page="26" section="2.3" name="Complexity and the Big-O Notation"/>
+
+        <contents-item page="28" section="3" name="General Concepts"/>
+        <contents-item page="28" section="3.1" name="Namespace std"/>
+        <contents-item page="29" section="3.2" name="Header Files"/>
+        <contents-item page="30" section="3.3" name="Error and Exception Handling"/>
+        <contents-item page="30" section="3.3.1" name="Standard Exception Classes"/>
+        <contents-item page="31" section="3.3.1.1" name="Exception Classes for Language Support"/>
+        <contents-item page="32" section="3.3.1.2" name="Exception Classes for the Standard Library"/>
+        <contents-item page="32" section="3.3.1.3" name="Exception Classes for Errors Outside the Scope of a Program"/>
+        <contents-item page="33" section="3.3.1.4" name="Exceptions Thrown by the Standard Library"/>
+        <contents-item page="33" section="3.3.1.5" name="Header Files for Exception Classes"/>
+        <contents-item page="33" section="3.3.2" name="Members of Exception Classes"/>
+        <contents-item page="34" section="3.3.3" name="Throwing Standard Exceptions"/>
+        <contents-item page="34" section="3.3.4" name="Deriving Standard Exception Classes"/>
+        <contents-item page="36" section="3.4" name="Allocators"/>
+
+        <contents-item page="37" section="4" name="Utilities"/>
+        <contents-item page="37" section="4.1" name="Pairs"/>
+        <contents-item page="39" level="3" name="PairComparisons"/>
+        <contents-item page="39" section="4.1.1" name="Convenience Function make_pair()"/>
+        <contents-item page="40" section="4.1.2" name="Examples of Pair Usage"/>
+        <contents-item page="40" section="4.2" name="Class auto_ptr"/>
+        <contents-item page="40" section="4.2.1" name="Motivation of Class auto_ptr"/>
+        <contents-item page="42" section="4.2.2" name="Transfer of Ownership by auto_ptr"/>
+        <contents-item page="44" section="4.2.2.1" name="Source and Sink"/>
+        <contents-item page="45" section="4.2.2.2" name="Caveat"/>
+        <contents-item page="46" section="4.2.3" name="auto_ptrs as Members"/>
+        <contents-item page="48" section="4.2.4" name="Misusing auto_ptrs"/>
+        <contents-item page="49" section="4.2.5" name="auto_ptr Examples"/>
+        <contents-item page="52" section="4.2.6" name="Class auto_ptr in Detail"/>
+        <contents-item page="53" section="4.2.6.1" name="Type Definitions"/>
+        <contents-item page="54" section="4.2.6.2" name="Value Access"/>
+        <contents-item page="55" section="4.2.6.3" name="Value Manipulation"/>
+        <contents-item page="55" section="4.2.6.4" name="Conversions"/>
+        <contents-item page="56" section="4.2.6.5" name="Sample Implementation of Class auto_ptr"/>
+        <contents-item page="58" section="4.3" name="Numeric Limits"/>
+        <contents-item page="59" section="4.3.1" name="Class numeric_limits&lt;&gt;"/>
+        <contents-item page="63" section="4.3.2" name="Example of Using numeric_limits&lt;&gt;"/>
+        <contents-item page="64" section="4.4" name="Auxiliary Functions"/>
+        <contents-item page="64" section="4.4.1" name="Processing the Minimum and Maximum"/>
+        <contents-item page="66" section="4.4.2" name="Swapping Two Values"/>
+        <contents-item page="67" section="4.5" name="Supplementary Comparison Operators"/>
+        <contents-item page="68" section="4.6" name="Header Files &lt;cstddef&gt; and &lt;cstdlib&gt;"/>
+        <contents-item page="68" section="4.6.1" name="Definitions in &lt;cstddef&gt;"/>
+        <contents-item page="69" section="4.6.2" name="Definitions in &lt;cstdlib&gt;"/>
+
+        <contents-item page="70" section="5" name="The Standard Template Library"/>
+        <contents-item page="70" section="5.1" name="STL Components"/>
+        <contents-item page="71" section="5.2" name="Containers"/>
+        <contents-item page="73" section="5.2.1" name="Sequence Containers"/>
+        <contents-item page="73" section="5.2.1.1" name="Vectors"/>
+        <contents-item page="74" section="5.2.1.2" name="Deques"/>
+        <contents-item page="75" section="5.2.1.3" name="Lists"/>
+        <contents-item page="77" section="5.2.1.4" name="Strings"/>
+        <contents-item page="77" section="5.2.1.5" name="Ordinary Arrays"/>
+        <contents-item page="77" section="5.2.2" name="Associative Containers"/>
+        <contents-item page="78" section="5.2.2.1" name="Sets"/>
+        <contents-item page="78" section="5.2.2.2" name="Multisets"/>
+        <contents-item page="78" section="5.2.2.3" name="Maps"/>
+        <contents-item page="78" section="5.2.2.4" name="Multimaps"/>
+        <contents-item page="78" section="5.2.3" name="Container Adapters"/>
+        <contents-item page="78" section="5.2.3.1" name="Stacks"/>
+        <contents-item page="78" section="5.2.3.2" name="Queues"/>
+        <contents-item page="78" section="5.2.3.3" name="Priority Queues"/>
+        <contents-item page="79" section="5.3" name="Iterators"/>
+        <contents-item page="82" section="5.3.1" name="Examples of Using Associative Containers"/>
+        <contents-item page="82" section="5.3.1.1" name="Examples of Using Sets and Multisets"/>
+        <contents-item page="85" section="5.3.1.2" name="Examples of Using Maps and Multimaps"/>
+        <contents-item page="87" section="5.3.1.3" name="Maps as Associative Arrays"/>
+        <contents-item page="88" section="5.3.2" name="Iterator Categories"/>
+        <contents-item page="92" section="5.4.1" name="Ranges"/>
+        <contents-item page="96" section="5.4.2" name="Handling Multiple Ranges"/>
+        <contents-item page="98" section="5.5" name="Iterator Adapters"/>
+
+        <contents-item page="98" section="5.5.1" name="Insert Iterators"/>
+        <contents-item page="100" section="5.5.2" name="Stream Iterators"/>
+        <contents-item page="102" section="5.5.3" name="Reverse Iterators"/>
+        <contents-item page="104" section="5.6" name="Manipulating Algorithms"/>
+        <contents-item page="104" section="5.6.1" name="&quot;Removing\&quot; Elements"/>
+        <contents-item page="107" section="5.6.2" name="Manipulating Algorithms and Associative Containers"/>
+        <contents-item page="108" section="5.6.3" name="Algorithms versus Member Functions"/>
+        <contents-item page="109" section="5.7" name="User-Defined Generic Functions"/>
+        <contents-item page="110" section="5.8" name="Functions as Algorithm Arguments"/>
+        <contents-item page="110" section="5.8.1" name="Examples of Using Functions as Algorithm Arguments"/>
+        <contents-item page="112" section="5.8.2" name="Predicates"/>
+        <contents-item page="112" section="5.8.2.1" name="Unary Predicates"/>
+        <contents-item page="114" section="5.8.2.2" name="Binary Predicates"/>
+        <contents-item page="115" section="5.9" name="Function Objects"/>
+        <contents-item page="115" section="5.9.1" name="What Are Function Objects?"/>
+        <contents-item page="120" section="5.9.2" name="Predefined Function Objects"/>
+        <contents-item page="123" section="5.10" name="Container Elements"/>
+        <contents-item page="123" section="5.10.1" name="Requirements for Container Elements"/>
+        <contents-item page="124" section="5.10.2" name="Value Semantics or Reference Semantics"/>
+        <contents-item page="125" section="5.11" name="Errors and Exceptions Inside the STL"/>
+        <contents-item page="125" section="5.11.1" name="Error Handling"/>
+        <contents-item page="127" section="5.11.2" name="Exception Handling"/>
+        <contents-item page="129" section="5.12" name="Extending the STL"/>
+
+        <contents-item page="130" section="6" name="STL Containers"/>
+        <contents-item page="130" section="6.1" name="Common Container Abilities and Operations"/>
+        <contents-item page="130" section="6.1.1" name="Common Container Abilities"/>
+        <contents-item page="130" section="6.1.2" name="Common Container Operations"/>
+        <contents-item page="131" section="6.1.2.1" name="Initialization"/>
+        <contents-item page="132" section="6.1.2.1" name="Size Operations"/>
+        <contents-item page="133" section="6.1.2.2" name="Comparisons"/>
+        <contents-item page="133" section="6.1.2.3" name="Assignments and swap ()"/>
+        <contents-item page="133" section="6.2" name="Vectors"/>
+        <contents-item page="134" section="6.2.1" name="Abilities of Vectors"/>
+        <contents-item page="134" section="6.2.1.1" name="Size and Capacity"/>
+        <contents-item page="135" section="6.2.2" name="Vector Operations"/>
+        <contents-item page="136" section="6.2.2.1" name="Create, Copy, and Destroy Operations"/>
+        <contents-item page="136" section="6.2.2.2" name="Nonmodifying Operations"/>
+        <contents-item page="137" section="6.2.2.3" name="Assignments"/>
+        <contents-item page="137" section="6.2.2.4" name="Element Access"/>
+        <contents-item page="138" section="6.2.2.5" name="Iterator Functions"/>
+        <contents-item page="138" section="6.2.2.6" name="Inserting and Removing Elements"/>
+        <contents-item page="140" section="6.2.3" name="Using Vectors as Ordinary Arrays"/>
+        <contents-item page="140" section="6.2.4" name="Exception Handling"/>
+        <contents-item page="141" section="6.2.5" name="Examples of Using Vectors"/>
+        <contents-item page="142" section="6.2.6" name="Class vector&lt;bool&gt;"/>
+        <contents-item page="144" section="6.3" name="Deques"/>
+        <contents-item page="145" section="6.3.1" name="Abilities of Deques"/>
+        <contents-item page="146" section="6.3.2" name="Deque Operations"/>
+        <contents-item page="147" section="6.3.3" name="Exception Handling"/>
+        <contents-item page="148" section="6.3.4" name="Examples of Using Deques"/>
+        <contents-item page="149" section="6.4" name="Lists"/>
+        <contents-item page="149" section="6.4.1" name="Abilities of Lists"/>
+        <contents-item page="150" section="6.4.2" name="List Operations"/>
+        <contents-item page="150" section="6.4.2.1" name="Create, Copy, and Destroy Operations"/>
+        <contents-item page="150" section="6.4.2.2" name="Nonmodifying Operations"/>
+        <contents-item page="151" section="6.4.2.3" name="Assignments"/>
+        <contents-item page="151" section="6.4.2.4" name="Element Access"/>
+        <contents-item page="152" section="6.4.2.5" name="Iterator Functions"/>
+        <contents-item page="152" section="6.4.2.6" name="Inserting and Removing Elements"/>
+        <contents-item page="153" section="6.4.2.7" name="Splice Functions"/>
+        <contents-item page="154" section="6.4.3" name="Exception Handling"/>
+        <contents-item page="155" section="6.4.4" name="Examples of Using Lists"/>
+        <contents-item page="156" section="6.5" name="Sets and Multisets"/>
+        <contents-item page="158" section="6.5.1" name="Abilities of Sets and Multisets"/>
+        <contents-item page="159" section="6.5.2" name="Set and Multiset Operations"/>
+        <contents-item page="159" section="6.5.2.1" name="Create, Copy, and Destroy Operations"/>
+        <contents-item page="160" section="6.5.2.2" name="Nonmodifying Operations"/>
+        <contents-item page="161" section="6.5.2.3" name="Special Search Operations"/>
+        <contents-item page="163" section="6.5.2.4" name="Assignments"/>
+        <contents-item page="163" section="6.5.2.5" name="Iterator Functions"/>
+        <contents-item page="164" section="6.5.2.6" name="Inserting and Removing Elements"/>
+        <contents-item page="166" section="6.5.3" name="Exception Handling"/>
+        <contents-item page="167" section="6.5.4" name="Examples of Using Sets and Multisets"/>
+        <contents-item page="171" section="6.5.5" name="Example of Specifying the Sorting Criterion at Runtime"/>
+        <contents-item page="172" section="6.6" name="Maps and Multimaps"/>
+        <contents-item page="174" section="6.6.1" name="Abilities of Maps and Multimaps"/>
+        <contents-item page="175" section="6.6.2" name="Map and Multimap Operations"/>
+        <contents-item page="175" section="6.6.2.1" name="Create, Copy, and Destroy Operations"/>
+        <contents-item page="176" section="6.6.2.2" name="Nonmodifying and Special Search Operations"/>
+        <contents-item page="177" section="6.6.2.3" name="Special Search Operations"/>
+        <contents-item page="178" section="6.6.2.4" name="Assignments"/>
+        <contents-item page="178" section="6.6.2.5" name="Iterator Functions and Element Access"/>
+        <contents-item page="180" section="6.6.2.6" name="Inserting and Removing Elements"/>
+        <contents-item page="183" section="6.6.3" name="Using Maps as Associative Arrays"/>
+        <contents-item page="185" section="6.6.4" name="Exception Handling"/>
+        <contents-item page="185" section="6.6.5" name="Examples of Using Maps and Multimaps"/>
+        <contents-item page="185" section="6.6.5.1" name="Using a Map as an Associative Array"/>
+        <contents-item page="186" section="6.6.5.2" name="Using a Multimap as a Dictionary"/>
+        <contents-item page="188" section="6.6.5.3" name="Find Elements with Certain Values"/>
+        <contents-item page="189" section="6.6.6" name="Example with Maps, Strings, and Sorting Criterion at Runtime"/>
+        <contents-item page="192" section="6.7" name="Other STL Containers"/>
+        <contents-item page="193" section="6.7.1" name="Strings as STL Containers"/>
+        <contents-item page="193" section="6.7.2" name="Ordinary Arrays as STL Containers"/>
+        <contents-item page="193" section="6.7.2.1" name="Using Ordinary Arrays Directly"/>
+        <contents-item page="194" section="6.7.2.2" name="An Array Wrapper"/>
+        <contents-item page="196" section="6.7.3" name="Hash Tables"/>
+        <contents-item page="196" section="6.8" name="Implementing Reference Semantics"/>
+        <contents-item page="199" section="6.9" name="When to Use which Container"/>
+        <contents-item page="202" section="6.10" name="Container Types and Members in Detail"/>
+        <contents-item page="202" section="6.10.1" name="Type Definitions"/>
+        <contents-item page="204" section="6.10.2" name="Create, Copy, and Destroy Operations"/>
+        <contents-item page="205" section="6.10.3" name="Nonmodifying Operations"/>
+        <contents-item page="205" section="6.10.3.1" name="Size Operations"/>
+        <contents-item page="206" section="6.10.3.2" name="Capacity Operations"/>
+        <contents-item page="206" section="6.10.3.3" name="Comparison Operations"/>
+        <contents-item page="207" section="6.10.3.4" name="Special Nonmodifying Operations for Associative Containers"/>
+        <contents-item page="208" section="6.10.4" name="Assignments"/>
+        <contents-item page="209" section="6.10.5" name="Direct Element Access"/>
+        <contents-item page="211" section="6.10.6" name="Operations to Generate Iterators"/>
+        <contents-item page="212" section="6.10.7" name="Inserting and Removing Elements"/>
+        <contents-item page="216" section="6.10.8" name="Special Member Functions for Lists"/>
+        <contents-item page="218" section="6.10.9" name="Allocator Support"/>
+        <contents-item page="219" section="6.10.10" name="Overview of Exception Handling in STL Containers"/>
+
+        <contents-item page="221" section="7" name="STL Iterators"/>
+        <contents-item page="221" section="7.1" name="Header Files for Iterators"/>
+        <contents-item page="221" section="7.2" name="Iterator Categories"/>
+        <contents-item page="222" section="7.2.1" name="Input Iterators"/>
+        <contents-item page="222" section="7.2.2" name="Output Iterators"/>
+        <contents-item page="223" section="7.2.3" name="Forward Iterators"/>
+        <contents-item page="224" section="7.2.4" name="Bidirectional Iterators"/>
+        <contents-item page="224" section="7.2.5" name="Random Access Iterators"/>
+        <contents-item page="227" section="7.2.6" name="The Increment and Decrement Problem of Vector Iterators"/>
+        <contents-item page="227" section="7.3" name="Auxiliary Iterator Functions"/>
+        <contents-item page="228" section="7.3.1" name="Stepping Iterators Using advance()"/>
+        <contents-item page="229" section="7.3.2" name="Processing Iterator Distance Using distance()"/>
+        <contents-item page="231" section="7.3.3" name="Swapping Iterator Values Using iter_swap()"/>
+        <contents-item page="232" section="7.4" name="Iterator Adapters"/>
+        <contents-item page="232" section="7.4.1" name="Reverse Iterators"/>
+        <contents-item page="233" section="7.4.1.1" name="Iterators and Reverse Iterators"/>
+        <contents-item page="236" section="7.4.1.2" name="Converting Reverse Iterators Back Using base()"/>
+        <contents-item page="238" section="7.4.2" name="Insert Iterators"/>
+        <contents-item page="238" section="7.4.2.1" name="Functionality of Insert Iterators"/>
+        <contents-item page="239" section="7.4.2.2" name="Kinds of Insert Iterators"/>
+        <contents-item page="239" section="7.4.2.3" name="Back Inserters"/>
+        <contents-item page="241" section="7.4.2.4" name="Front Inserters"/>
+        <contents-item page="242" section="7.4.2.5" name="General Inserters"/>
+        <contents-item page="244" section="7.4.2.6" name="A User-Defined Inserter for Associative Containers"/>
+        <contents-item page="244" section="7.4.3" name="Stream Iterators"/>
+        <contents-item page="244" section="7.4.3.1" name="Ostream Iterators"/>
+        <contents-item page="246" section="7.4.3.2" name="Istream Iterators"/>
+        <contents-item page="248" section="7.4.3.3" name="Another Example of Stream Iterators"/>
+        <contents-item page="249" section="7.5" name="Iterator Traits"/>
+        <contents-item page="250" section="7.5.1" name="Writing Generic Functions for Iterators"/>
+        <contents-item page="250" section="7.5.1.1" name="Using Iterator Types"/>
+        <contents-item page="251" section="7.5.1.2" name="Using Iterator Categories"/>
+        <contents-item page="252" section="7.5.1.3" name="Implementation of distance()"/>
+        <contents-item page="252" section="7.5.2" name="User-Defined Iterators"/>
+
+        <contents-item page="256" section="8" name="STL Function Objects"/>
+        <contents-item page="256" section="8.1" name="The Concept of Function Objects"/>
+        <contents-item page="257" section="8.1.1" name="Function Objects as Sorting Criteria"/>
+        <contents-item page="258" section="8.1.2" name="Function Objects with Internal State"/>
+        <contents-item page="262" section="8.1.3" name="The Return Value of for_each()"/>
+        <contents-item page="264" section="8.1.4" name="Predicates versus Function Objects"/>
+        <contents-item page="266" section="8.2" name="Predefined Function Objects"/>
+        <contents-item page="267" section="8.2.1" name="Function Adapters"/>
+        <contents-item page="268" section="8.2.2" name="Function Adapters for Member Functions"/>
+        <contents-item page="270" section="8.2.3" name="Function Adapters for Ordinary Functions"/>
+        <contents-item page="271" section="8.2.4" name="User-Defined Function Objects for Function Adapters"/>
+        <contents-item page="273" section="8.3" name="Supplementary Composing Function Objects"/>
+        <contents-item page="274" section="8.3.1" name="Unary Compose Function Object Adapters"/>
+        <contents-item page="274" section="8.3.1.1" name="Nested Computations by Using compose_f_gx"/>
+        <contents-item page="276" section="8.3.1.2" name="Combining Two Criteria by Using compose_f_gx_hx"/>
+        <contents-item page="278" section="8.3.2" name="Binary Compose Function Object Adapters"/>
+
+        <contents-item page="280" section="9" name="STL Algorithms"/>
+        <contents-item page="280" section="9.1" name="Algorithm Header Files"/>
+        <contents-item page="280" section="9.2" name="Algorithm Overview"/>
+        <contents-item page="280" section="9.2.1" name="A Brief Introduction"/>
+        <contents-item page="281" section="9.2.2" name="C1assification of Algorithms"/>
+        <contents-item page="282" section="9.2.2.1" name="Nonmodifying Algorithms"/>
+        <contents-item page="283" section="9.2.2.2" name="Modifying Algorithms"/>
+        <contents-item page="284" section="9.2.2.3" name="Removing Algorithms"/>
+        <contents-item page="285" section="9.2.2.4" name="Mutating Algorithms"/>
+        <contents-item page="285" section="9.2.2.5" name="Sorting Algorithms"/>
+        <contents-item page="288" section="9.2.2.6" name="Sorted Range Algorithms"/>
+        <contents-item page="289" section="9.2.2.7" name="Numeric Algorithms"/>
+        <contents-item page="289" section="9.3" name="Auxiliary Functions"/>
+        <contents-item page="291" section="9.4" name="The for_each() Algorithm"/>
+        <contents-item page="294" section="9.5" name="Nonmodifying Algorithms"/>
+        <contents-item page="294" section="9.5.1" name="Counting Elements"/>
+        <contents-item page="296" section="9.5.2" name="Minimum and Maximum"/>
+        <contents-item page="297" section="9.5.3" name="Searching Elements"/>
+        <contents-item page="297" section="9.5.3.1" name="Search First Matching Element"/>
+        <contents-item page="300" section="9.5.3.2" name="Search First n Matching Consecutive Elements"/>
+        <contents-item page="302" section="9.5.3.3" name="Search First Subrange"/>
+        <contents-item page="305" section="9.5.3.4" name="Search Last Subrange"/>
+        <contents-item page="306" section="9.5.3.5" name="Search First of Several Possible Elements"/>
+        <contents-item page="308" section="9.5.3.6" name="Search Two Adjacent, Equal Elements"/>
+        <contents-item page="309" section="9.5.4" name="Comparing Ranges"/>
+        <contents-item page="309" section="9.5.4.1" name="Testing Equality"/>
+        <contents-item page="311" section="9.5.4.2" name="Search the First Difference"/>
+        <contents-item page="313" section="9.5.4.3" name="Testing for &quot;Less Than&quot;"/>
+        <contents-item page="315" section="9.6" name="Modifying Algorithms"/>
+        <contents-item page="315" section="9.6.1" name="Copying Elements"/>
+        <contents-item page="318" section="9.6.2" name="Transforming and Combining Elements"/>
+        <contents-item page="318" section="9.6.2.1" name="Transforming Elements"/>
+        <contents-item page="320" section="9.6.2.2" name="Combining Elements of Two Sequences"/>
+        <contents-item page="322" section="9.6.3" name="Swapping Elements"/>
+        <contents-item page="323" section="9.6.4" name="Assigning New Values"/>
+        <contents-item page="323" section="9.6.4.1" name="Assigning the Same Value"/>
+        <contents-item page="324" section="9.6.4.2" name="Assigning Generated Values"/>
+        <contents-item page="325" section="9.6.5" name="Replacing Elements"/>
+        <contents-item page="326" section="9.6.5.1" name="Replacing Values Inside a Sequence"/>
+        <contents-item page="327" section="9.6.5.2" name="Copying and Replacing Elements"/>
+        <contents-item page="328" section="9.7" name="Removing Algorithms"/>
+        <contents-item page="328" section="9.7.1" name="Removing Certain Values"/>
+        <contents-item page="328" section="9.7.1.1" name="Removing Elements in a Sequence"/>
+        <contents-item page="330" section="9.7.1.2" name="Removing Elements While Copying"/>
+        <contents-item page="331" section="9.7.2" name="Removing Duplicates"/>
+        <contents-item page="331" section="9.7.2.1" name="Removing Consecutive Duplicates"/>
+        <contents-item page="333" section="9.7.2.2" name="Removing Duplicates While Copying"/>
+        <contents-item page="335" section="9.8" name="Mutating Algorithms"/>
+        <contents-item page="335" section="9.8.1" name="Reversing the Order of Elements"/>
+        <contents-item page="337" section="9.8.2" name="Rotating Elements"/>
+        <contents-item page="337" section="9.8.2.1" name="Rotating Elements Inside a Sequence"/>
+        <contents-item page="338" section="9.8.2.2" name="Rotating Elements While Copying"/>
+        <contents-item page="339" section="9.8.3" name="Permuting Elements"/>
+        <contents-item page="341" section="9.8.4" name="Shuffling Elements"/>
+        <contents-item page="343" section="9.8.5" name="Moving Elements to the Front"/>
+        <contents-item page="344" section="9.9" name="Sorting Algorithms"/>
+        <contents-item page="345" section="9.9.1" name="Sorting All Elements"/>
+        <contents-item page="347" section="9.9.2" name="Partial Sorting"/>
+        <contents-item page="350" section="9.9.3" name="Sorting According to the nth Element"/>
+        <contents-item page="352" section="9.9.4" name="Heap Algorithms"/>
+        <contents-item page="353" section="9.9.4.1" name="Example Using Heaps"/>
+        <contents-item page="355" section="9.10" name="Sorted Range Algorithms"/>
+        <contents-item page="355" section="9.10.1" name="Searching Elements"/>
+        <contents-item page="355" section="9.10.1.1" name="Checking Whether One Element Is Present"/>
+        <contents-item page="356" section="9.10.1.2" name="Checking Whether Several Elements Are Present"/>
+        <contents-item page="358" section="9.10.1.3" name="Searching First or Last Possible Position"/>
+        <contents-item page="359" section="9.10.1.4" name="Searching First and Last Possible Positions"/>
+        <contents-item page="361" section="9.10.2" name="Merging Elements"/>
+        <contents-item page="361" section="9.10.2.1" name="Processing the Sum of Two Sorted Sets"/>
+        <contents-item page="362" section="9.10.2.2" name="Processing the Union of Two Sorted Sets"/>
+        <contents-item page="363" section="9.10.2.3" name="Processing the Intersection of Two Sorted Sets"/>
+        <contents-item page="364" section="9.10.2.4" name="Processing the Difference of Two Sorted Sets"/>
+        <contents-item page="366" section="9.10.2.5" name="Example of All Merging Algorithms"/>
+        <contents-item page="368" section="9.10.2.6" name="Merging Consecutive Sorted Ranges"/>
+        <contents-item page="369" section="9.11" name="Numeric Algorithms"/>
+        <contents-item page="369" section="9.11.1" name="Processing Results"/>
+        <contents-item page="369" section="9.11.1.1" name="Computing the Result of One Sequence"/>
+        <contents-item page="371" section="9.11.1.2" name="Computing the Inner Product of Two Sequences"/>
+        <contents-item page="374" section="9.11.2" name="Converting Relative and Absolute Values"/>
+        <contents-item page="374" section="9.11.2.1" name="Converting Relative Values into Absolute Values"/>
+        <contents-item page="375" section="9.11.2.2" name="Converting Absolute Values into Relative Values"/>
+        <contents-item page="377" section="9.11.2.3" name="Example of Converting Relative Values into Absolute Values"/>
+
+        <contents-item page="379" section="10" name="Special Containers"/>
+        <contents-item page="379" section="10.1" name="Stacks"/>
+        <contents-item page="381" section="10.1.1" name="The Core Interface"/>
+        <contents-item page="381" section="10.1.2" name="Example of Using Stacks"/>
+        <contents-item page="382" section="10.1.3" name="Class stack&lt;&gt; in Detail"/>
+        <contents-item page="383" section="10.1.3.1" name="Type Definitions"/>
+        <contents-item page="383" section="10.1.3.2" name="Operations"/>
+        <contents-item page="384" section="10.1.4" name="A User-Defined Stack Class"/>
+        <contents-item page="386" section="10.2" name="Queues"/>
+        <contents-item page="388" section="10.2.1" name="The Core Interface"/>
+        <contents-item page="388" section="10.2.2" name="Example of Using Queues"/>
+        <contents-item page="389" section="10.2.3" name="Class queue&lt;&gt; in Detail"/>
+        <contents-item page="390" section="10.2.3.1" name="Type Definitions"/>
+        <contents-item page="390" section="10.2.3.2" name="Operations"/>
+        <contents-item page="392" section="10.2.4" name="A User-Defined Queue Class"/>
+        <contents-item page="394" section="10.3" name="Priority Queues"/>
+        <contents-item page="396" section="10.3.1" name="The Core Interface"/>
+        <contents-item page="396" section="10.3.2" name="Example of Using Priority Queues"/>
+        <contents-item page="397" section="10.3.3" name="Class priority_queue&lt;&gt; in Detail"/>
+        <contents-item page="398" section="10.3.3.1" name="Type Definitions"/>
+        <contents-item page="398" section="10.3.3.2" name="Constructors"/>
+        <contents-item page="399" section="10.3.3.3" name="Other Operations"/>
+        <contents-item page="400" section="10.4" name="Bitsets"/>
+        <contents-item page="400" section="10.4.1" name="Examples of Using Bitsets"/>
+        <contents-item page="400" section="10.4.1.1" name="Using Bitsets as Set of Flags"/>
+        <contents-item page="401" section="10.4.1.2" name="Using Bitsets for I/O with Binary Representation"/>
+        <contents-item page="403" section="10.4.2" name="Class bitset in Detail"/>
+        <contents-item page="403" section="10.4.2.1" name="Create, Copy, and Destroy Operations"/>
+        <contents-item page="404" section="10.4.2.2" name="Nonmanipulating Operations"/>
+        <contents-item page="404" section="10.4.2.3" name="Manipulating Operations"/>
+        <contents-item page="406" section="10.4.2.4" name="Access with Operator [ ]"/>
+        <contents-item page="407" section="10.4.2.5" name="Creating New Modified Bitsets"/>
+        <contents-item page="407" section="10.4.2.6" name="Operations for Type Conversions"/>
+        <contents-item page="408" section="10.4.2.7" name="Input/Output Operations"/>
+
+        <contents-item page="409" section="11" name="Strings"/>
+        <contents-item page="409" section="11.1" name="Motivation"/>
+        <contents-item page="409" section="11.1.1" name="A First Example: Extracting a Temporary File Name"/>
+        <contents-item page="414" section="11.1.2" name="A Second Example: Extracting Words and Printing Them Backward"/>
+        <contents-item page="416" section="11.2" name="Description of the String Classes"/>
+        <contents-item page="416" section="11.2.1" name="String Types"/>
+        <contents-item page="416" section="11.2.1.1" name="Header File"/>
+        <contents-item page="416" section="11.2.1.2" name="Template Class basic_string&lt;&gt;"/>
+        <contents-item page="417" section="11.2.1.3" name="Types string and wstring"/>
+        <contents-item page="418" section="11.2.2" name="Operation Overview"/>
+        <contents-item page="418" section="11.2.2.1" name="String Operation Arguments"/>
+        <contents-item page="419" section="11.2.2.2" name="Operations that Are Not Provided"/>
+        <contents-item page="420" section="11.2.3" name="Constructors and Destructors"/>
+        <contents-item page="420" section="11.2.4" name="Strings and C-Strings"/>
+        <contents-item page="422" section="11.2.5" name="Size and Capacity"/>
+        <contents-item page="423" section="11.2.6" name="Element Access"/>
+        <contents-item page="425" section="11.2.7" name="Comparisons"/>
+        <contents-item page="426" section="11.2.8" name="Modifiers"/>
+        <contents-item page="426" section="11.2.8.1" name="Assignments"/>
+        <contents-item page="426" section="11.2.8.2" name="Swapping Values"/>
+        <contents-item page="427" section="11.2.8.3" name="Making Strings Empty"/>
+        <contents-item page="427" section="11.2.8.4" name="Inserting and Removing Characters"/>
+        <contents-item page="429" section="11.2.9" name="Substrings and String Concatenation"/>
+        <contents-item page="429" section="11.2.10" name="Input/Output Operators"/>
+        <contents-item page="430" section="11.2.11" name="Searching and Finding"/>
+        <contents-item page="432" section="11.2.12" name="The Value npos"/>
+        <contents-item page="434" section="11.2.13" name="Iterator Support for Strings"/>
+        <contents-item page="434" section="11.2.13.1" name="Iterator Functions for Strings"/>
+        <contents-item page="434" section="11.2.13.2" name="Example of Using String Iterators"/>
+        <contents-item page="439" section="11.2.14" name="Internationalization"/>
+        <contents-item page="441" section="11.2.15" name="Performance"/>
+        <contents-item page="441" section="11.2.16" name="Strings and Vectors"/>
+        <contents-item page="442" section="11.3" name="String Class in Detail"/>
+        <contents-item page="442" section="11.3.1" name="Type Definitions and Static Values"/>
+        <contents-item page="444" section="11.3.2" name="Create, Copy, and Destroy Operations"/>
+        <contents-item page="445" section="11.3.3" name="Operations for Size and Capacity"/>
+        <contents-item page="445" section="11.3.3.1" name="Size Operations"/>
+        <contents-item page="445" section="11.3.3.2" name="Capacity Operations"/>
+        <contents-item page="445" section="11.3.4" name="Comparisons"/>
+        <contents-item page="447" section="11.3.5" name="Character Access"/>
+        <contents-item page="447" section="11.3.6" name="Generating C-Strings and Character Arrays"/>
+        <contents-item page="448" section="11.3.7" name="Modifying Operations"/>
+        <contents-item page="448" section="11.3.7.1" name="Assignments"/>
+        <contents-item page="449" section="11.3.7.2" name="Appending Characters"/>
+        <contents-item page="450" section="11.3.7.3" name="Inserting Characters"/>
+        <contents-item page="452" section="11.3.7.4" name="Erasing Characters"/>
+        <contents-item page="452" section="11.3.7.5" name="Changing the Size"/>
+        <contents-item page="453" section="11.3.7.6" name="Replacing Characters"/>
+        <contents-item page="454" section="11.3.8" name="Searching and Finding"/>
+        <contents-item page="454" section="11.3.8.1" name="Find a Character"/>
+        <contents-item page="454" section="11.3.8.2" name="Find a Substring"/>
+        <contents-item page="455" section="11.3.8.3" name="Find First of Different Characters"/>
+        <contents-item page="456" section="11.3.8.4" name="Find Last of Different Characters"/>
+        <contents-item page="457" section="11.3.9" name="Substrings and String Concatenation"/>
+        <contents-item page="457" section="11.3.10" name="Input/Output Functions"/>
+        <contents-item page="458" section="11.3.11" name="Generating Iterators"/>
+        <contents-item page="459" section="11.3.12" name="Allocator Support"/>
+
+        <contents-item page="461" section="12" name="Numerics"/>
+        <contents-item page="461" section="12.1" name="Complex Numbers"/>
+        <contents-item page="461" section="12.1.1" name="Examples Using Class Complex"/>
+        <contents-item page="464" section="12.1.2" name="Operations for Complex Numbers"/>
+        <contents-item page="464" section="12.1.2.1" name="Create, Copy, and Assign Operations"/>
+        <contents-item page="465" section="12.1.2.2" name="Implicit Type Conversions"/>
+        <contents-item page="467" section="12.1.2.3" name="Value Access"/>
+        <contents-item page="467" section="12.1.2.4" name="Comparison Operations"/>
+        <contents-item page="468" section="12.1.2.5" name="Arithmetic Operations"/>
+        <contents-item page="469" section="12.1.2.6" name="Input/Output Operations"/>
+        <contents-item page="470" section="12.1.2.7" name="Transcendental Functions"/>
+        <contents-item page="470" section="12.1.3" name="Class complex&lt;&gt; in Detail"/>
+        <contents-item page="470" section="12.1.3.1" name="Type Definitions"/>
+        <contents-item page="471" section="12.1.3.2" name="Create, Copy, and Assign Operations"/>
+        <contents-item page="472" section="12.1.3.3" name="Element Access"/>
+        <contents-item page="473" section="12.1.3.4" name="Input/Output Operations"/>
+        <contents-item page="473" section="12.1.3.5" name="Operators"/>
+        <contents-item page="474" section="12.1.3.6" name="Transcendental Functions"/>
+        <contents-item page="475" section="12.2" name="Valarrays"/>
+        <contents-item page="475" section="12.2.1" name="Getting to Know Valarrays"/>
+        <contents-item page="476" section="12.2.1.1" name="Header File"/>
+        <contents-item page="477" section="12.2.1.2" name="Creating Valarrays"/>
+        <contents-item page="477" section="12.2.1.3" name="Valarray Operations"/>
+        <contents-item page="480" section="12.2.1.4" name="Transcendental Functions"/>
+        <contents-item page="481" section="12.2.2" name="Valarray Subsets"/>
+        <contents-item page="482" section="12.2.2.1" name="Valarray Subset Problems"/>
+        <contents-item page="483" section="12.2.2.2" name="Slices"/>
+        <contents-item page="487" section="12.2.2.3" name="General Slices"/>
+        <contents-item page="490" section="12.2.2.4" name="Masked Subsets"/>
+        <contents-item page="492" section="12.2.2.5" name="Indirect Subsets"/>
+        <contents-item page="494" section="12.2.3" name="Class valarray in Detail"/>
+        <contents-item page="495" section="12.2.3.1" name="Create, Copy, and Destroy Operations"/>
+        <contents-item page="495" section="12.2.3.2" name="Assignment Operations"/>
+        <contents-item page="496" section="12.2.3.3" name="Member Functions"/>
+        <contents-item page="497" section="12.2.3.4" name="Element Access"/>
+        <contents-item page="497" section="12.2.3.5" name="Valarray Operators"/>
+        <contents-item page="499" section="12.2.3.6" name="Transcendental Functions"/>
+        <contents-item page="500" section="12.2.4" name="Valarray Subset Classes in Detail"/>
+        <contents-item page="500" section="12.2.4.1" name="Class slice and Class slice_array"/>
+        <contents-item page="501" section="12.2.4.2" name="Class gslice and Class gslice_array"/>
+        <contents-item page="502" section="12.2.4.3" name="Class mask_array"/>
+        <contents-item page="503" section="12.2.4.5" name="Class indirect_array"/>
+        <contents-item page="504" section="12.3" name="Global Numeric Functions"/>
+
+        <contents-item page="506" section="13" name="Input/Output Using Stream Classes"/>
+        <contents-item page="506" level="2" name="Recent Changes in the IOStream Library"/>
+        <contents-item page="507" section="13.1" name="Common Background of I/O Streams"/>
+        <contents-item page="507" section="13.1.1" name="Stream Objects"/>
+        <contents-item page="507" section="13.1.2" name="Stream Classes"/>
+        <contents-item page="507" section="13.1.3" name="Global Stream Objects"/>
+        <contents-item page="508" section="13.1.4" name="Stream Operators"/>
+        <contents-item page="508" section="13.1.5" name="Manipulators"/>
+        <contents-item page="509" section="13.1.6" name="A Simple Example"/>
+        <contents-item page="510" section="13.2" name="Fundamental Stream Classes and Objects"/>
+        <contents-item page="510" section="13.2.1" name="Classes and Class Hierarchy"/>
+        <contents-item page="511" section="13.2.1.1" name="Purpose of the Stream Buffer Classes"/>
+        <contents-item page="511" section="13.2.1.2" name="Detailed Class Definitions"/>
+        <contents-item page="513" section="13.2.2" name="Global Stream Objects"/>
+        <contents-item page="513" section="13.2.3" name="Header Files"/>
+        <contents-item page="514" section="13.3" name="Standard Stream Operators &lt;&lt; and &gt;&gt;"/>
+        <contents-item page="515" section="13.3.1" name="Output Operator &lt;&lt;"/>
+        <contents-item page="516" section="13.3.2" name="Input Operator &gt;&gt;"/>
+        <contents-item page="516" section="13.3.3" name="Input/Output of Special Types"/>
+        <contents-item page="516" section="13.3.3.1" name="Type bool"/>
+        <contents-item page="517" section="13.3.3.2" name="Types char and wchar_t"/>
+        <contents-item page="517" section="13.3.3.3" name="Type char*"/>
+        <contents-item page="517" section="13.3.3.4" name="Type void*"/>
+        <contents-item page="518" section="13.3.3.5" name="Stream Buffers"/>
+        <contents-item page="518" section="13.3.3.6" name="User-Defined Types"/>
+        <contents-item page="518" section="13.4" name="State of Streams"/>
+        <contents-item page="518" section="13.4.1" name="Constants for the State of Streams"/>
+        <contents-item page="519" section="13.4.2" name="Member Functions Accessing the State of Streams"/>
+        <contents-item page="520" section="13.4.3" name="Stream State and Boolean Conditions"/>
+        <contents-item page="522" section="13.4.4" name="Stream State and Exceptions"/>
+        <contents-item page="526" section="13.5" name="Standard Input/Output Functions"/>
+        <contents-item page="527" section="13.5.1" name="Member Functions for Input"/>
+        <contents-item page="529" section="13.5.2" name="Member Functions for Output"/>
+        <contents-item page="530" section="13.5.3" name="Example Uses"/>
+        <contents-item page="530" section="13.6" name="Manipulators"/>
+        <contents-item page="531" section="13.6.1" name="How Manipulators Work"/>
+        <contents-item page="532" section="13.6.2" name="User-Defined Manipulators"/>
+        <contents-item page="533" section="13.7" name="Formatting"/>
+        <contents-item page="533" section="13.7.1" name="Format Flags"/>
+        <contents-item page="535" section="13.7.2" name="Input/Output Format of Boolean Values"/>
+        <contents-item page="536" section="13.7.3" name="Field Width, Fill Character, and Adjustment"/>
+        <contents-item page="536" section="13.7.3.1" name="Using Field Width, Fill Character, and Adjustment for Output"/>
+        <contents-item page="537" section="13.7.3.2" name="Using Field Width for Input"/>
+        <contents-item page="538" section="13.7.4" name="Positive Sign and Uppercase Letters"/>
+        <contents-item page="538" section="13.7.5" name="Numeric Base"/>
+        <contents-item page="540" section="13.7.6" name="Floating-Point Notation"/>
+        <contents-item page="541" section="13.7.7" name="General Formatting Definitions"/>
+        <contents-item page="542" section="13.8" name="Internationalization"/>
+        <contents-item page="543" section="13.9" name="File Access"/>
+        <contents-item page="546" section="13.9.1" name="File Flags"/>
+        <contents-item page="548" section="13.9.2" name="Random Access"/>
+        <contents-item page="551" section="13.9.3" name="Using File Descriptors"/>
+        <contents-item page="551" section="13.10" name="Connecting Input and Output Streams"/>
+        <contents-item page="551" section="13.10.1" name="Loose Coupling Using tie()"/>
+        <contents-item page="552" section="13.10.2" name="Tight Coupling Using Stream Buffers"/>
+        <contents-item page="554" section="13.10.3" name="Redirecting Standard Streams"/>
+        <contents-item page="556" section="13.10.4" name="Streams for Reading and Writing"/>
+        <contents-item page="557" section="13.11" name="Stream Classes for Strings"/>
+        <contents-item page="558" section="13.11.1" name="String Stream Classes"/>
+        <contents-item page="561" section="13.11.2" name="char* Stream Classes"/>
+        <contents-item page="563" section="13.12" name="Input/Output Operators for User-Defined Types"/>
+        <contents-item page="563" section="13.12.1" name="Implementing Output Operators"/>
+        <contents-item page="565" section="13.12.2" name="Implementing Input Operators"/>
+        <contents-item page="567" section="13.12.3" name="Input/Output Using Auxiliary Functions"/>
+        <contents-item page="568" section="13.12.4" name="User-Defined Operators Using Unformatted Functions"/>
+        <contents-item page="570" section="13.12.5" name="User-Defined Format Flags"/>
+        <contents-item page="572" section="13.12.6" name="Conventions for User-Defined Input/Output Operators"/>
+        <contents-item page="573" section="13.13" name="The Stream Buffer Classes"/>
+        <contents-item page="573" section="13.13.1" name="User's View of Stream Buffers"/>
+        <contents-item page="574" section="13.13.2" name="Stream Buffer Iterators"/>
+        <contents-item page="575" section="13.13.2.1" name="Output Stream Buffer Iterators"/>
+        <contents-item page="575" section="13.13.2.2" name="Input Stream Buffer Iterators"/>
+        <contents-item page="576" section="13.13.2.3" name="Example Use of Stream Buffer Iterators"/>
+        <contents-item page="577" section="13.13.3" name="User-Defined Stream Buffers"/>
+        <contents-item page="577" section="13.13.3.1" name="User-Defined Output Buffers"/>
+        <contents-item page="583" section="13.13.3.2" name="User-Defined Input Buffers"/>
+        <contents-item page="587" section="13.14" name="Performance Issues"/>
+        <contents-item page="588" section="13.14.1" name="Synchronization with C's Standard Streams"/>
+        <contents-item page="588" section="13.14.2" name="Buffering in Stream Buffers"/>
+        <contents-item page="589" section="13.14.3" name="Using Stream Buffers Directly"/>
+
+        <contents-item page="591" section="14" name="Internationalization"/>
+        <contents-item page="592" section="14.1" name="Different Character Encodings"/>
+        <contents-item page="592" section="14.1.1" name="Wide-Character and Multibyte Text"/>
+        <contents-item page="592" section="14.1.2" name="Character Traits"/>
+        <contents-item page="595" section="14.1.3" name="Intelnationalization of Special Characters"/>
+        <contents-item page="596" section="14.2" name="The Concept of Locales"/>
+        <contents-item page="597" section="14.2.1" name="Using Locales"/>
+        <contents-item page="602" section="14.2.2" name="Locale Facets"/>
+        <contents-item page="603" section="14.3" name="Locales in Detail"/>
+        <contents-item page="606" section="14.4" name="Facets in Detail"/>
+        <contents-item page="607" section="14.4.1" name="Numeric Formatting"/>
+        <contents-item page="607" section="14.4.1.1" name="Numeric Punctuation"/>
+        <contents-item page="608" section="14.4.1.2" name="Numeric Formatting"/>
+        <contents-item page="609" section="14.4.1.3" name="Numeric Parsing"/>
+        <contents-item page="610" section="14.4.2" name="Time and Date Formatting"/>
+        <contents-item page="610" section="14.4.2.1" name="Time and Date Parsing"/>
+        <contents-item page="612" section="14.4.2.2" name="Time and Date Formatting"/>
+        <contents-item page="613" section="14.4.3" name="Monetary Formatting"/>
+        <contents-item page="613" section="14.4.3.1" name="Monetary Punctuation"/>
+        <contents-item page="614" section="14.4.3.2" name="Monetary Formatting"/>
+        <contents-item page="615" section="14.4.3.3" name="Monetary Parsing"/>
+        <contents-item page="616" section="14.4.4" name="Character Classification and Conversion"/>
+        <contents-item page="616" section="14.4.4.1" name="Character Classification"/>
+        <contents-item page="618" section="14.4.4.2" name="Specialization of ctype&lt;&gt; for Type char"/>
+        <contents-item page="619" section="14.4.4.3" name="Global Convenience Functions for Character Classification"/>
+        <contents-item page="620" section="14.4.4.4" name="Character Encoding Conversion"/>
+        <contents-item page="623" section="14.4.5" name="String Collation"/>
+        <contents-item page="624" section="14.4.6" name="Internationalized Messages"/>
+
+        <contents-item page="626" section="15" name="Allocators"/>
+        <contents-item page="626" section="15.1" name="Using Allocators as an Application Programmer"/>
+        <contents-item page="626" section="15.2" name="Using Allocators as a Library Programmer"/>
+        <contents-item page="629" level="3" name="Raw Storage Iterators"/>
+        <contents-item page="629" level="3"  name="Temporary Buffers"/>
+        <contents-item page="630" section="15.3" name="The Default Allocator"/>
+        <contents-item page="632" section="15.4" name="A User-Defined Allocator"/>
+        <contents-item page="634" section="15.5" name="Allocators in Detail"/>
+        <contents-item page="634" section="15.5.1" name="Type Definitions"/>
+        <contents-item page="635" section="15.5.2" name="Operations"/>
+        <contents-item page="636" section="15.6" name="Utilities for Uninitialized Memory in Detail"/>
+
+        <contents-item page="639" level="1" name="Internet Resources"/>
+        <contents-item page="639" level="2" name="Where You Can Get the Standard"/>
+        <contents-item page="639" level="2" name="Newsgroups"/>
+        <contents-item page="639" level="2" name="Internet Addresses/URLs"/>
+        <contents-item page="641" level="1" name="Bibliography"/>
+        <contents-item page="642" level="1" name="Back Cover"/>
+    </contents>
+    <pdf-pages zero="1" romanZero="1"/>
+</pdfbookmark>

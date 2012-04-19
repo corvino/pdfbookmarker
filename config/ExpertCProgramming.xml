@@ -1,0 +1,331 @@
+<!--
+    java -jar build/pdfbookmarker.jar parse-contents config/ExpertCProgramming.xml books/Expert.C.Programming.pdf
+    java -Xmx1g -jar build/pdfbookmarker.jar bookmark config/ExpertCProgramming.xml books/Expert.C.Programming.pdf Expert\ C\ Programming.pdf
+-->
+<pdfbookmark>
+    <contents maskSectionLevel="2">
+        <contents-item level="1" page="1" name="Cover"/>
+
+        <contents-item level="1" page="2" name="Introduction"/>
+        <contents-item level="2" page="3" name="The $20 Million Bug"/>
+        <contents-item level="2" page="4" name="Convention"/>
+        <contents-item level="2" page="4" name="Some Light Relief—Tuning File Systems"/>
+        <contents-item level="2" page="5" name="Programming Challenge: Computer Dating"/>
+        <contents-item level="2" page="6" name="Programming Solution: Computer Dating"/>
+
+        <contents-item section="1" page="7" name="C Through the Mists of Time"/>
+        <contents-item section="1.1" page="7" name="The Prehistory of C"/>
+        <contents-item section="1.1.1" page="9" name="Software Dogma: The Golden Rule of Compiler-Writers"/>
+        <contents-item section="1.2" page="10" name="Early Experiences with C"/>
+        <contents-item section="1.3" page="11" name="The Standard I/O Library and C Preprocessor"/>
+        <contents-item section="1.3.1" page="12" name="Software Dogma: C Is Not Algol"/>
+        <contents-item section="1.4" page="14" name="K&amp;R C"/>
+        <contents-item section="1.4.1" page="14" name="Software Dogma: An Unusual Bug"/>
+        <contents-item section="1.5" page="16" name="The Present Day: ANSI C"/>
+        <contents-item section="1.5.1" page="17" name="Handy Heuristic: Which Version of C to Use?"/>
+        <contents-item section="1.5.2" page="17" name="Handy Heuristic: Where to Get a Copy of the C Standard"/>
+        <contents-item section="1.6" page="18" name="It's Nice, but Is It Standard?"/>
+        <contents-item section="1.6.1" page="18" name="Unportable Code"/>
+        <contents-item section="1.6.2" page="19" name="Bad Code"/>
+        <contents-item section="1.6.2.1" page="19" name="Software Dogma: Undefined Behavior Causes CPU Meltdown in IBM PC's!"/>
+        <contents-item section="1.6.3" page="20" name="Portable Code"/>
+        <contents-item section="1.7" page="20" name="Translation Limits"/>
+        <contents-item section="1.8" page="21" name="The Structure of the ANSI C Standard"/>
+        <contents-item section="1.8.1" page="23" name="Software Dogma: Standards Are Set in Concrete, Even the Mistakes"/>
+        <contents-item section="1.8.2" page="23" name="Handy Heuristic: Differences between K&amp;R C and ANSI C"/>
+        <contents-item section="1.8.3" page="24" name="Software Dogma: The Protocol of Prototypes"/>
+        <contents-item section="1.9" page="25" name="Reading the ANSI C Standard for Fun, Pleasure, and Profit"/>
+        <contents-item section="1.9.1" page="27" name="Handy Heuristic: Const Isn't"/>
+        <contents-item section="1.10" page="28" name="How Quiet is a &quot;Quiet Change&quot;?"/>
+        <contents-item section="1.10.1" page="30" name="Software Dogma: A Subtle Bug"/>
+        <contents-item section="1.10.2" page="31" name="Handy Heuristic: Advice on Unsigned Types"/>
+        <contents-item section="1.11" page="32" name="Some Light Relief—The Implementation-Defined Effects of Pragmas . . ."/>
+
+        <contents-item section="2" page="33" name="It's Not a Bug, It's a Language Feature"/>
+        <contents-item section="2.1" page="34" name="Why Language Features Matter—The Way the Fortran Bug Really Happened!"/>
+        <contents-item section="2.1.1" page="35" name="Handy Heuristic: The One 'l' nul and the Two 'l' null"/>
+        <contents-item section="2.2" page="35" name="Sins of Commission"/>
+        <contents-item section="2.2.1" page="35" name="Switches Let You Down with Fall Through"/>
+        <contents-item section="2.2.1.1" page="36" name="Handy Heuristic: Runtime Checking in MS-DOS"/>
+        <contents-item section="3.2.1.2" page="37" name="Handy Heuristic: Need Some Temporary Store? Be the First on Your Block!"/>
+        <contents-item section="3.2.1.3" page="39" name="Software Dogma: Default Fall Through Is Wrong 97% of the Time"/>
+        <contents-item section="2.2.1.4" page="39" name="Another Switch Problem—What Does break Break?"/>
+        <contents-item section="2.2.2" page="41" name="Available Hardware Is a Crayon?"/>
+        <contents-item section="2.2.2.1" page="42" name="Available Hardware Is a Crayon?"/>
+        <contents-item section="2.2.2.2" page="42" name="Handy Heuristic: First Time Through"/>
+        <contents-item section="2.2.3" page="42" name="Too Much Default Visibility"/>
+        <contents-item section="2.3" page="43" name="Sins of Mission"/>
+        <contents-item section="2.3.1" page="43" name="Overloading the Camel's Back"/>
+        <contents-item section="2.3.2" page="45" name="&quot;Some of the Operators Have the Wrong Precedence&quot;"/>
+        <contents-item section="2.3.2.1" page="47" name="Software Dogma: 'And' and 'AND' or 'Or' or 'OR'"/>
+        <contents-item section="2.3.2.2" page="47" name="Handy Heuristic: Order of Evaluation"/>
+        <contents-item section="2.3.2.3" page="48" name="Handy Heuristic: What &quot;Associativity&quot; Means"/>
+        <contents-item section="2.3.3" page="49" name="The Early Bug gets() the Internet Worm"/>
+        <contents-item section="2.4" page="51" name="Sins of Omission"/>
+        <contents-item section="2.4.1" page="51" name="Mail Won't Go to Users with an &quot;f&quot; in Their User names"/>
+        <contents-item section="2.4.1.1" page="52" name="Software Dogma: Shell Fumbles on Argument Parsing"/>
+        <contents-item section="2.4.2" page="53" name="Space—The Final Frontier"/>
+        <contents-item section="2.4.3" page="54" name="A Digression into C++ Comments"/>
+        <contents-item section="2.4.4" page="55" name="The Compiler Date Is Corrupted"/>
+        <contents-item section="2.4.5" page="58" name="Lint Should Never Have Been Separated Out"/>
+        <contents-item section="2.4.5.1" page="58" name="Handy Heuristic"/>
+        <contents-item section="2.4.5.2" page="58" name="The SunOS Lint Party"/>
+        <contents-item section="2.5" page="59" name="Some Light Relief—Some Features Really Are Bugs!"/>
+        <contents-item section="2.5.1" page="60" name="References"/>
+
+        <contents-item section="3" page="60" name="Unscrambling Declarations in C"/>
+        <contents-item section="3.1" page="62" name="Syntax Only a Compiler Could Love"/>
+        <contents-item section="3.2" page="63" name="How a Declaration Is Formed"/>
+        <contents-item section="3.2.1" page="65" name="A Word About structs"/>
+        <contents-item section="3.2.2" page="67" name="A Word About unions"/>
+        <contents-item section="3.2.3" page="69" name="A Word About enums"/>
+        <contents-item section="3.3" page="69" name="The Precedence Rule"/>
+        <contents-item section="3.4" page="71" name="Unscrambling C Declarations by Diagram"/>
+        <contents-item section="3.4.1" page="71" name="Magic Decoder Ring for C Declarations"/>
+        <contents-item section="3.5" page="73" name="typedef Can Be Your Friend"/>
+        <contents-item section="3.5.1" page="74" name="Handy Heuristic: Tips for Working with Declarators"/>
+        <contents-item section="3.6" page="75" name="Difference Between typedef int x[10] and #define x int[10]"/>
+        <contents-item section="3.7" page="75" name="What typedef struct foo { ... foo; } foo; Means"/>
+        <contents-item section="3.7.1" page="77" name="Handy Heuristic: Tips for Working with Typedefs"/>
+        <contents-item section="3.8" page="78" name="The Piece of Code that Understandeth All Parsing"/>
+        <contents-item section="3.8.1" page="78" name="Programming Challenge: Write a Program to Translate C Declarations into English"/>
+        <contents-item section="3.8.2" page="81" name="Programming Solution: The Piece of Code that Understandeth All Parsing"/>
+        <contents-item section="3.8.3" page="85" name="Programming Solution: Unscrambling a C Declaration (One More Time)"/>
+        <contents-item section="3.8.4" page="80" name="Further Reading"/>
+        <contents-item section="3.9" page="80" name="Some Light Relief—Software to Bite the Wax Tadpole."/>
+        <contents-item section="3.10" page="84" name="Handy Heuristic: Make String Comparison Look More Natural"/>
+
+
+
+        <contents-item section="4" page="86" name="The Shocking Truth: C Arrays and Pointers Are NOT the Same!"/>
+        <contents-item section="4.1" page="86" name="Arrays Are NOT Pointers!"/>
+        <contents-item section="4.2" page="86" name="Why Doesn't My Code Work?"/>
+        <contents-item section="4.3" page="87" name="What's a Declaration? What's a Definition?"/>
+        <contents-item section="4.3.1" page="88" name="Handy Heuristic: Distinguishing a Definition from a Declaration"/>
+        <contents-item section="4.4" page="88" name="How Arrays and Pointers Are Accessed"/>
+        <contents-item section="4.4.1" page="90" name="What Happens When You &quot;Define as Pointer/Reference as Array&quot;"/>
+        <contents-item section="4.5" page="91" name="Match Your Declarations to the Definition"/>
+        <contents-item section="4.6" page="92" name="Other Differences Between Arrays and Pointers"/>
+        <contents-item section="4.7" page="93" name="Some Light Relief—Fun with Palindromes!"/>
+        <contents-item section="4.7.1" page="96" name="Programming Challenge: Write a Palindrome"/>
+
+        <contents-item section="5" page="96" name="Thinking of Linking"/>
+        <contents-item section="5.1" page="96" name="Libraries, Linking, and Loading"/>
+        <contents-item section="5.1.1" page="96" name="Where the Linker Is in the Phases of Compilation"/>
+        <contents-item section="5.2" page="100" name="The Benefits of Dynamic Linking"/>
+        <contents-item section="5.2.1" page="101" name="Handy Heuristic: One Purpose of Dynamic Linking Is the ABI"/>
+        <contents-item section="5.2.2" page="102" name="Software Dogma: Only Use Dynamic Linking!"/>
+        <contents-item section="5.3" page="104" name="Five Special Secrets of Linking with Libraries"/>
+        <contents-item section="5.3.1" page="104" name="Dynamic libraries are called lib something .so , and static libraries are called lib something .a"/>
+        <contents-item section="5.3.2" page="104" name="You tell the compiler to link with, for example, libthread.so by giving the option -lthread"/>
+        <contents-item section="5.3.3" page="104" name="The compiler expects to find the libraries in certain directories"/>
+        <contents-item section="5.3.4" page="105" name="Identify your libraries by looking at the header files you have used"/>
+        <contents-item section="5.3.4.1" page="106" name="Handy Heuristic: How to Match a Symbol with its Library"/>
+        <contents-item section="5.3.5" page="106" name="Symbols from static libraries are extracted in a more restricted way than symbols from dynamic libraries"/>
+        <contents-item section="5.3.5.1" page="108" name="Handy Heuristic"/>
+        <contents-item section="5.4" page="108" name="Watch Out for Interpositioning"/>
+        <contents-item section="5.4.1" page="110" name="Software Dogma: An Interpositioning Bug in SunOS"/>
+        <contents-item section="5.5" page="113" name="Generating Linker Report Files"/>
+        <contents-item section="5.5.1" page="114" name="Handy Heuristic: "/>
+        <contents-item section="5.6" page="114" name="When &quot;botch&quot; Appears"/>
+        <contents-item section="5.7" page="114" name="Some Light Relief—Look Who's Talking: Challenging the Turing Test"/>
+        <contents-item section="5.7.1" page="115" name="Eliza"/>
+        <contents-item section="5.7.2" page="115" name="Eliza Meets the VP"/>
+        <contents-item section="5.7.3" page="116" name="Doctor, Meet Doctor"/>
+        <contents-item section="5.7.4" page="117" name="The Prize in Boston"/>
+        <contents-item section="5.7.5" page="118" name="Conclusions"/>
+        <contents-item section="5.7.6" page="119" name="Postscript"/>
+        <contents-item section="5.7.7" page="119" name="Further Reading"/>
+
+        <contents-item section="6" page="119" name="Poetry in Motion: Runtime Data Structures"/>
+        <contents-item section="6.1" page="120" name="a.out and a.out Folklore"/>
+        <contents-item section="6.2" page="121" name="Segments"/>
+        <contents-item section="6.2.1" page="123" name="Programming Challenge"/>
+        <contents-item section="6.3" page="124" name="What the OS Does with Your a.out"/>
+        <contents-item section="6.4" page="126" name="What the C Runtime Does with Your a.out"/>
+        <contents-item section="6.4.1" page="126" name="The Stack Segment"/>
+        <contents-item section="6.4.1.1" page="127" name="Programming Challenge: Stack Hack"/>
+        <contents-item section="6.5" page="128" name="What Happens When a Function Gets Called: The Procedure Activation Record"/>
+        <contents-item section="6.5.1" page="129" name="Software Dogma: Astonishing C Fact!"/>
+        <contents-item section="6.5.2" page="131" name="Programming Challenge: The Stack Frame"/>
+        <contents-item section="6.6" page="131" name="The auto and static keywords"/>
+        <contents-item section="6.6.1" page="132" name="A Stack Frame Might Not Be on the Stack"/>
+        <contents-item section="6.7" page="132" name="Threads of Control"/>
+        <contents-item section="6.8" page="132" name="setjmp and longjmp"/>
+        <contents-item section="6.8.1" page="134" name="Programming Challenge"/>
+        <contents-item section="6.9" page="135" name="The Stack Segment Under UNIX"/>
+        <contents-item section="6.9" page="135" name="The Stack Segment Under MS-DOS"/>
+        <contents-item section="6.10" page="135" name="Helpful C Tools"/>
+        <contents-item section="6.10.1" page="137" name="Software Dogma"/>
+        <contents-item section="6.11" page="139" name="Some Light Relief—Programming Puzzles at CMU"/>
+        <contents-item section="6.11.1" page="139" name="Programming Challenge: How to Exceed the Speed Limit?"/>
+        <contents-item section="6.12" page="140" name="For Advanced Students Only"/>
+
+        <contents-item section="7" page="141" name="Thanks for the Memory"/>
+        <contents-item section="7.1" page="142" name="The Intel 80x86 Family"/>
+        <contents-item section="7.1.1" page="144" name="Software Dogma: Choosing Components for the IBM PC"/>
+        <contents-item section="7.2" page="145" name="The Intel 80x86 Memory Model and How It Got That Way"/>
+        <contents-item section="7.2.1" page="146" name="Handy Heuristic: Different-Looking Pointers, Same Address"/>
+        <contents-item section="7.2.2" page="146" name="Handy Heuristic: A Guide to Memory Prefix Use"/>
+        <contents-item section="7.2.3" page="147" name="Handy Heuristic: Where the MS-DOS 640Kb Limit Comes From"/>
+        <contents-item section="7.2.4" page="148" name="Handy Heuristic: PC Memory Models"/>
+        <contents-item section="7.3" page="149" name="Virtual Memory"/>
+        <contents-item section="7.3.1" page="151" name="Handy Heuristic: Memory Media Trade-Offs"/>
+        <contents-item section="7.3.2" page="153" name="Programming Challenge: How Much Memory Can You Allocate?"/>
+        <contents-item section="7.4" page="153" name="Cache Memory"/>
+        <contents-item section="7.4.1" page="155" name="Handy Heuristic: One Experience with Cache"/>
+        <contents-item section="7.5" page="156" name="The Data Segment and Heap"/>
+        <contents-item section="7.6" page="158" name="Memory Leaks"/>
+        <contents-item section="7.6.1" page="159" name="Handy Heuristic: Avoiding Memory Leaks"/>
+        <contents-item section="7.6.2" page="159" name="How to Check for a Memory Leak"/>
+        <contents-item section="7.6.3" page="160" name="Handy Heuristic: Listening to the Network's Heartbeat: Click to Tune"/>
+        <contents-item section="7.6.4" page="161" name="Software Dogma: The President and the Printtool—A Memory Leak Bug"/>
+        <contents-item section="7.7" page="162" name="Bus Error, Take the Train"/>
+        <contents-item section="7.7.1" page="163" name="Programming Challenge: Catching Signals on the PC"/>
+        <contents-item section="7.7.2" page="163" name="Bus Error"/>
+        <contents-item section="7.7.3" page="164" name="Segmentation Fault"/>
+        <contents-item section="7.7.3.1" page="165" name="Programming Challenge: Test Crash Your Software"/>
+        <contents-item section="7.7.3.2" page="165" name="Software Dogma: A Segmentation Violation Bug in SunOS"/>
+        <contents-item section="7.7.3.3" page="168" name="Handy Heuristic: How to Free Elements in a Linked List"/>
+        <contents-item section="7.7.3.4" page="168" name="Software Dogma: Is Your Program Out of Space?"/>
+
+        <contents-item section="8" page="173" name="Why Programmers Can't Tell Halloween from Christmas Day"/>
+        <contents-item section="8.1" page="174" name="The Potrzebie System of Weights and Measures"/>
+        <contents-item section="8.2" page="175" name="Making a Glyph from Bit Patterns"/>
+        <contents-item section="8.3" page="176" name="Types Changed While You Wait"/>
+        <contents-item section="8.3.1" page="178" name="Software Dogma: Alert! Really Important Point—Arguments Are Promoted Too!"/>
+        <contents-item section="8.4" page="179" name="Prototype Painfulness"/>
+        <contents-item section="8.4.1" page="180" name="Where Prototypes Break Down"/>
+        <contents-item section="8.4.2" page="182" name="Programming Challenge: How to Fake Out Prototypes"/>
+        <contents-item section="8.4.3" page="183" name="Handy Heuristic: Don't Mix Old and New Styles in Function Declaration and Definition"/>
+        <contents-item section="8.5" page="183" name="Getting a Char Without a Carriage Return"/>
+        <contents-item section="8.5.1" page="184" name="Handy Heuristic: The Boss Key"/>
+        <contents-item section="8.5.2" page="185" name="Handy Heuristic: Check errno After Library Calls"/>
+        <contents-item section="8.5.3" page="187" name="Programming Challenge: Write an Interrupt-Driven Input Routine on Your System"/>
+        <contents-item section="8.6" page="188" name="Implementing a Finite State Machine in C"/>
+        <contents-item section="8.6.1" page="189" name="Programming Challenge: Write an FSM Program"/>
+        <contents-item section="8.7" page="189" name="Software Is Harder than Hardware!"/>
+        <contents-item section="8.7.1" page="190" name="Handy Heuristic: Debugging Hooks"/>
+        <contents-item section="8.7.2" page="190" name="Handy Heuristic: Hash with Panache"/>
+        <contents-item section="8.7.3" page="192" name="Programming Challenge: Write a Hash Program"/>
+        <contents-item section="8.8" page="192" name="How and Why to Cast"/>
+        <contents-item section="8.9" page="194" name="Some Light Relief—The Inter national Obfuscated C Code Competition"/>
+        <contents-item section="8.9.1" page="195" name="Software Dogma: DDS-BASIC Interpreter (Version 1.00)"/>
+        <contents-item section="8.9.2" page="200" name="Programming Solution: Type Promotion Mix-Up in Prototypes"/>
+        <contents-item section="8.9.3" page="201" name="Programming Solution: Asynchronous I/O"/>
+        <contents-item section="8.9.4" page="202" name="Programming Solution: cdecl as an FSM"/>
+
+        <contents-item section="9" page="205" name="More about Arrays"/>
+        <contents-item section="9.1" page="206" name="When an Array Is a Pointer"/>
+        <contents-item section="9.2" page="207" name="Why the Confusion?"/>
+        <contents-item section="9.2.1" page="208" name="Software Dogma: When Arrays Are Pointers"/>
+        <contents-item section="9.2.2" page="209" name="Rule 1 An &quot;Array Name in an Expression&quot; Is a Pointer"/>
+        <contents-item section="9.2.3" page="209" name="Rule 2 C Treats Array Subscripts as Pointer Offsets"/>
+        <contents-item section="9.2.4" page="211" name="Rule 3 An &quot;Array Name as a Function Parameter&quot; Is a Pointer"/>
+        <contents-item section="9.3" page="211" name="Why C Treats Array Parameters as Pointers"/>
+        <contents-item section="9.3.1" page="212" name="How an Array Parameter Is Referenced"/>
+        <contents-item section="9.3.2" page="214" name="Programming Challenge: Play Around with Array/Pointer Arguments"/>
+        <contents-item section="9.4" page="215" name="Indexing a Slice"/>
+        <contents-item section="9.5" page="215" name="Arrays and Pointers Interchangeability Summary"/>
+        <contents-item section="9.6" page="215" name="C Has Multidimensional Arrays."/>
+        <contents-item section="9.7" page="216" name="...But Every Other Language Calls Them &quot;Arrays of Arrays&quot;"/>
+        <contents-item section="9.7.1" page="217" name="Handy Heuristic: What &quot;Multidimensional&quot; Means in Different Languages"/>
+        <contents-item section="9.7.2" page="218" name="Handy Heuristic: Arrays in C Are One-Dimensional"/>
+        <contents-item section="9.8" page="218" name="How Multidimensional Arrays Break into Components"/>
+        <contents-item section="9.8.1" page="219" name="Programming Challenge: Hooray for Arrays!"/>
+        <contents-item section="9.9" page="219" name="How Arrays Are Laid Out in Memory"/>
+        <contents-item section="9.10" page="220" name="How to Initialize Arrays"/>
+        <contents-item section="9.10.1" page="221" name="Programming Challenge: Check Those Bit Patterns"/>
+        <contents-item section="9.11" page="222" name="Some Light Relief—Hardware/Software Trade-Offs"/>
+
+        <contents-item section="9.11." page="223" name="Programming Solution: Playing Around with Array/Pointer Arguments"/>
+
+        <contents-item section="10" page="224" name="More About Pointers"/>
+        <contents-item section="10.1" page="224" name="The Layout of Multidimensional Arrays"/>
+        <contents-item section="10.2" page="225" name="An Array of Pointers Is an &quot;Iliffe Vector&quot;"/>
+        <contents-item section="10.2.1" page="225" name="Software Dogma: Reminder on Declaration Syntax"/>
+        <contents-item section="10.2.2" page="226" name="Software Dogma: When You See squash[i][j] —You Don't Know How It Was Declared"/>
+        <contents-item section="10.3" page="228" name="Using Pointers for Ragged Arrays"/>
+        <contents-item section="10.3.1" page="230" name="Handy Heuristic: How Array and Pointer Parameters Are Changed by the Compiler"/>
+        <contents-item section="10.3.2" page="230" name="For Advanced Students Only"/>
+        <contents-item section="10.3.3" page="231" name="Programming Challenge: Check It Out"/>
+        <contents-item section="10.4" page="231" name="Passing a One-Dimensional Array to a Function"/>
+        <contents-item section="10.5" page="231" name="Using Pointers to Pass a Multidimensional Array to a Function"/>
+        <contents-item section="10.5.1" page="232" name="Software Dogma: There Is No Way in C to Pass a General Multidimensional Array to a Function"/>
+        <contents-item section="10.5.2" page="232" name="Attempt 1"/>
+        <contents-item section="10.5.3" page="233" name="Attempt 2"/>
+        <contents-item section="10.5.4" page="233" name="Software Dogma: Conformant Arrays"/>
+        <contents-item section="10.5.5" page="234" name="Attempt 3"/>
+        <contents-item section="10.5.6" page="234" name="Attempt 4"/>
+        <contents-item section="10.6" page="235" name="Using Pointers to Return an Array from a Function"/>
+        <contents-item section="10.6.1" page="236" name="Handy Heuristic: Why Does a Null Pointer Crash printf ?"/>
+        <contents-item section="10.7" page="237" name="Using Pointers to Create and Use Dynamic Arrays"/>
+        <contents-item section="10.7.1" page="238" name="Handy Heuristic: Learning from a Program's Messages"/>
+        <contents-item section="10.7.2" page="238" name="Software Dogma: Meaningful Error Messages"/>
+        <contents-item section="10.7.3" page="240" name="Handy Heuristic: Reporting Bugs Improves Products"/>
+        <contents-item section="10.7.4" page="242" name="Programming Challenge: Dynamically Growing Your Arrays"/>
+        <contents-item section="10.8" page="242" name="Some Light Relief—The Limitations of Program Proofs"/>
+        <contents-item section="10.8.1" page="245" name="Further Reading"/>
+        <contents-item section="10.8.2" page="245" name="Programming Solution: Answer to Change in Program Proof"/>
+
+        <contents-item section="11" page="246" name="You Know C, So C++ is Easy!"/>
+        <contents-item section="11.1" page="246" name="Allez-OOP!"/>
+        <contents-item section="11.2" page="248" name="Abstraction—Extracting Out the Essential Characteristics of a Thing"/>
+        <contents-item section="11.2.1" page="248" name="Software Dogma: The Key Idea: Abstraction"/>
+        <contents-item section="11.3" page="249" name="Encapsulation—Grouping Together Related Types, Data, and Functions"/>
+        <contents-item section="11.3.1" page="249" name="Software Dogma: The Key Idea— A Class Encapsulates (Bundles Together) Code with Its Related Data"/>
+        <contents-item section="11.4" page="250" name="Showing Some Class—Giving User-Defined Types the Same Privileges as Predefined Types"/>
+        <contents-item section="11.4.1" page="251" name="Software Dogma: The Key Idea: A Class"/>
+        <contents-item section="11.5" page="251" name="Availability"/>
+        <contents-item section="11.6" page="252" name="Declarations"/>
+        <contents-item section="11.6.1" page="252" name="Programming Challenge: Try Compiling and Running a C++ Program."/>
+        <contents-item section="11.6.2" page="254" name="Programming Challenge: Write the Method Bodies"/>
+        <contents-item section="11.7" page="254" name="How to Call a Method"/>
+        <contents-item section="11.7.1" page="255" name="Programming Challenge: Call the Methods"/>
+        <contents-item section="11.7.2" page="255" name="Constructors and Destructors"/>
+        <contents-item section="11.7.3" page="256" name="Programming Challenge: Do Something Destructive"/>
+        <contents-item section="11.8" page="256" name="Inheritance—Reusing Operations that Are Already Defined"/>
+        <contents-item section="11.8.1" page="257" name="Software Dogma: The Key Idea: Inheritance"/>
+        <contents-item section="11.8.2" page="259" name="Software Dogma: How C++ Does Inheritance"/>
+        <contents-item section="11.9" page="260" name="Multiple Inheritance—Deriving from Two or More Base Classes"/>
+        <contents-item section="11.9.1" page="261" name="Overloading—Having One Name for the Same Action on Different Types"/>
+        <contents-item section="11.9.2" page="261" name="How C++ Does Operator Overloading"/>
+        <contents-item section="11.10" page="262" name="Input/Output in C++"/>
+        <contents-item section="11.11" page="263" name="Polymorphism—Runtime Binding"/>
+        <contents-item section="11.11.1" page="264" name="Software Dogma: The Key Idea: Polymorphism"/>
+        <contents-item section="11.12" page="265" name="Explanation"/>
+        <contents-item section="11.12.1" page="265" name="Handy Heuristic: Virtually Impractical"/>
+        <contents-item section="11.13" page="266" name="How C++ Does Polymorphism"/>
+        <contents-item section="11.14" page="266" name="Fancy Pants Polymorphism"/>
+        <contents-item section="11.14.1" page="267" name="Software Dogma: Deep Thought—Polymorphism Has Something in Common with Interposing"/>
+        <contents-item section="11.14" page="267" name="Other Corners of C++"/>
+        <contents-item section="11.14.1" page="268" name="Software Dogma: C++ Design Goals: That Was Then. This Is Now."/>
+        <contents-item section="11.15" page="269" name="If I Was Going There, I Wouldn't Start from Here"/>
+        <contents-item section="11.15.1" page="269" name="Software Dogma: A Simple Subset of C++"/>
+        <contents-item section="11.15.2" page="270" name="Software Dogma: Design Challenge: The C++ Machine"/>
+        <contents-item section="11.16" page="272" name="It May Be Crufty, but It's the Only Game in Town"/>
+        <contents-item section="11.16.1" page="272" name="Software Dogma: Improvements in C++ Over C"/>
+        <contents-item section="11.16.2" page="273" name="Handy Heuristic: Transitioning from C to C++"/>
+        <contents-item section="11.16.3" page="274" name="So What Is a Protected Abstract Virtual Base Pure Virtual Private Destructor?"/>
+        <contents-item section="11.17" page="275" name="Some Light Relief—The Dead Computers Society"/>
+        <contents-item section="11.18" page="277" name="Some Final Light Relief—Your Certificate of Merit!"/>
+        <contents-item section="11.19" page="277" name="Further Reading"/>
+
+        <contents-item level="1" page="278" name="Silicon Valley Programmer Interviews"/>
+        <contents-item section="12.1" page="278" name="Silicon Valley Programmer Interviews"/>
+        <contents-item section="12.2" page="278" name="How Can You Detect a Cycle in a Linked List?"/>
+        <contents-item section="12.2.1" page="279" name="Programming Challenge: Knocked for a Loop"/>
+        <contents-item section="12.3" page="280" name="What Are the Different C Increment Statements For?"/>
+        <contents-item section="12.4" page="282" name="How Is a Library Call Different from a System Call?"/>
+        <contents-item section="12.4.1" page="283" name="Programming Challenge: Professor Perlis's Gut-Busting Homework Assignment"/>
+        <contents-item section="12.5" page="284" name="How Is a File Descriptor Different from a File Pointer?"/>
+        <contents-item section="12.6" page="284" name="Write Some Code to Determine if a Variable Is Signed or Not"/>
+        <contents-item section="12.7" page="285" name="What Is the Time Complexity of Printing the Values in a Binary Tree?"/>
+        <contents-item section="12.8" page="286" name="Give Me a String at Random from This File"/>
+        <contents-item section="12.9" page="286" name="Some Light Relief—How to Measure a Building with a Barometer"/>
+        <contents-item section="12.10" page="289" name="Further Reading"/>
+
+        <contents-item level="1" page="290" name="Back Cover"/>
+    </contents>
+    <pdf-pages zero="1" romanZero="1"/>
+</pdfbookmark>
