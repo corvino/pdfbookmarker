@@ -1,0 +1,85 @@
+<!--
+    java -jar build/pdfbookmarker.jar show-contents config/FridayQ\&A.xml "books/The Complete Friday Q&A - Volume I.pdf"
+    java -jar build/pdfbookmarker.jar parse-contents config/FridayQ\&A.xml "books/The Complete Friday Q&A - Volume I.pdf"
+    java -jar build/pdfbookmarker.jar bookmark config/FridayQ\&A.xml "books/The Complete Friday Q&A - Volume I.pdf" "The Complete Friday Q&A - Volume I.pdf"
+-->
+<pdfbookmark>
+    <contents maskSectionLevel="2">
+        <contents-item level="1" page="1" name="Contents"/>
+
+        <contents-item level="1" page="5" name="About The Complete Friday Q&amp;A: Volume 1"/>
+        <contents-item level="1" page="6" name="Introduction"/>
+        <contents-item level="1" page="7" name="Acknowledgements"/>
+
+        <contents-item level="1" page="8" name="Multithreaded Programming and Parallelism Overview"/>
+        <contents-item level="1" page="11" name="Blocks in Objective-C"/>
+        <contents-item level="1" page="18" name="Pros and Cons of Private APIs"/>
+        <contents-item level="1" page="21" name="Thread Safety in OS X System Frameworks"/>
+        <contents-item level="1" page="26" name="Interprocess Communication"/>
+        <contents-item level="1" page="30" name="How Key-Value Observing Works"/>
+        <contents-item level="1" page="37" name="Code Injection"/>
+        <contents-item level="1" page="42" name="Profiling With Shark"/>
+        <contents-item level="1" page="50" name="Operations-Based Parallelization"/>
+        <contents-item level="1" page="53" name="The Good and Bad of Distributed Objects"/>
+        <contents-item level="1" page="57" name="Holistic Optimization"/>
+        <contents-item level="1" page="60" name="Using the Clang Static Analyzer"/>
+        <contents-item level="1" page="64" name="Intro to the Objective-C Runtime"/>
+        <contents-item level="1" page="70" name="Objective-C Messaging"/>
+        <contents-item level="1" page="74" name="Objective-C Message Forwarding"/>
+        <contents-item level="1" page="79" name="Multithreaded Optimization in ChemicalBurn"/>
+        <contents-item level="1" page="85" name="Code Generation with LLVM, Part 1: Basics"/>
+        <contents-item level="1" page="93" name="Code Generation with LLVM, Part 2: Fast Objective-C Forwarding"/>
+        <contents-item level="1" page="112" name="Objective-C Class Loading and Initialization"/>
+        <contents-item level="1" page="115" name="Introduction to Valgrind"/>
+        <contents-item level="1" page="120" name="Mac OS X Process Memory Statistics"/>
+        <contents-item level="1" page="124" name="Type Qualifiers in C, Part 1"/>
+        <contents-item level="1" page="128" name="Type Qualifiers in C, Part 2"/>
+        <contents-item level="1" page="132" name="Type Qualifiers in C, Part 3"/>
+        <contents-item level="1" page="138" name="Format Strings Tips and Tricks"/>
+        <contents-item level="1" page="143" name="Practical Blocks"/>
+        <contents-item level="1" page="155" name="Writing Vararg Macros and Functions"/>
+        <contents-item level="1" page="159" name="Intro to Grand Central Dispatch, Part I: Basics and Dispatch Queues"/>
+        <contents-item level="1" page="166" name="Intro to Grand Central Dispatch, Part II: Multi-Core Performance"/>
+        <contents-item level="1" page="171" name="Intro to Grand Central Dispatch, Part III: Dispatch Sources"/>
+        <contents-item level="1" page="176" name="Intro to Grand Central Dispatch, Part IV: Odds and Ends"/>
+        <contents-item level="1" page="180" name="GCD Practicum"/>
+        <contents-item level="1" page="191" name="Care and Feeding of Singletons"/>
+        <contents-item level="1" page="197" name="Defensive Programming"/>
+        <contents-item level="1" page="202" name="Creating a Blocks-Based Object System"/>
+        <contents-item level="1" page="212" name="A Preview of Coming Attractions"/>
+        <contents-item level="1" page="213" name="Generators in Objective-C"/>
+        <contents-item level="1" page="230" name="Linking and Install Names"/>
+        <contents-item level="1" page="233" name="Dangerous Cocoa Calls"/>
+        <contents-item level="1" page="237" name="Probing Cocoa With PyObjC"/>
+        <contents-item level="1" page="243" name="Using Accessors in Init and Dealloc"/>
+        <contents-item level="1" page="247" name="Building Standalone iPhone Web Apps"/>
+        <contents-item level="1" page="253" name="A GCD Case Study: Building an HTTP Server"/>
+        <contents-item level="1" page="269" name="Highlights From a Year of Friday Q&amp;A"/>
+        <contents-item level="1" page="270" name="NSRunLoop Internals"/>
+        <contents-item level="1" page="281" name="NSNotificationQueue"/>
+        <contents-item level="1" page="286" name="Stack and Heap Objects in Objective-C"/>
+        <contents-item level="1" page="290" name="Toll Free Bridgin Internals"/>
+        <contents-item level="1" page="294" name="Method Replacement for Fun and Profit"/>
+        <contents-item level="1" page="300" name="Error Returns with Continuation Passing Style"/>
+        <contents-item level="1" page="308" name="Trampolining Blocks with Mutable Code"/>
+        <contents-item level="1" page="321" name="Character Encodings"/>
+        <contents-item level="1" page="327" name="Futures"/>
+        <contents-item level="1" page="339" name="Compound Futures"/>
+        <contents-item level="1" page="353" name="Subclassing Class Clusters"/>
+        <contents-item level="1" page="358" name="OpenCL Basics"/>
+        <contents-item level="1" page="366" name="Comparison of Objective-C Enumeration Techniques"/>
+        <contents-item level="1" page="370" name="Implementing Fast Enumeration"/>
+        <contents-item level="1" page="379" name="Implementing a Custom Slider"/>
+        <contents-item level="1" page="389" name="Dealing with Retain Cycles"/>
+        <contents-item level="1" page="398" name="What Every Apple Programmer Should Know"/>
+        <contents-item level="1" page="402" name="Leopard Collection Classes"/>
+        <contents-item level="1" page="409" name="Implementing Equality and Hashing"/>
+        <contents-item level="1" page="416" name="Background Timers"/>
+        <contents-item level="1" page="425" name="Zeroing Weak References in Objective-C"/>
+        <contents-item level="1" page="444" name="Zeroing Weak References to CoreFoundation Objects"/>
+        <contents-item level="1" page="456" name="Implementing NSCoding"/>
+        <contents-item level="1" page="465" name="Defensive Programming in Cocoa"/>
+        <contents-item level="1" page="477" name="Index"/>
+    </contents>
+    <pdf-pages zero="1" romanZero="1"/>
+</pdfbookmark>
