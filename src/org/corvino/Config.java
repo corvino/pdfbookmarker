@@ -20,6 +20,7 @@ public class Config {
     boolean accumulate;
 	int contentsStartPage;
 	int contentsEndPage;
+	int defaultLevel;
 	int pageZero;
 	int pageRomanZero;
 	String contentPattern;
@@ -29,8 +30,11 @@ public class Config {
     int maskLevel;
     List<Bookmark> contents;
 
-    Map<String, Integer> sectionMapping;
-    List<Bookmark> customBookmarks;
+    Map<String, Integer> sectionLevelMapping;
+    Map<String, String> sectionNameMapping;
+    List<Bookmark> leadingBookmarks;
+    List<Bookmark> trailingBookmarks;
+    Map<String, List<Bookmark>> titleFollowingBookmarks;
 
 	public Config(String filename) throws ParserConfigurationException, SAXException, IOException {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -51,6 +55,9 @@ public class Config {
                                                         "table-of-contents startPage must be an integer");
                     contentsEndPage = Config.parseInt(attributes.getValue("endPage"),
                                                       "table-of-contents endPage must be an integer");
+
+                    String defaultLevelString = attributes.getValue("default-level");
+                    defaultLevel = (null == defaultLevelString) ? 1 : Config.parseInt(defaultLevelString, "default-level specified must be an integer");
                 } else if ("contents".equalsIgnoreCase(qName)) {
                     String maskSection = attributes.getValue("maskSectionLevel");
                     String mask = attributes.getValue("maskLevel");
@@ -71,7 +78,7 @@ public class Config {
                     if (null != levelAttrib) {
                         level = Config.parseInt(attributes.getValue("level"), "bookmark level must be an integer.");
                     } else if (null != section) {
-                        level = AddPDFBookmarks.levelForSection(section);
+                        level = section.split("\\.").length;
                     } else {
                         throw new IllegalArgumentException("contents-item must have a section or level.");
                     }
@@ -92,20 +99,57 @@ public class Config {
                                                    "pdf-pages zero must be an integer");
 				} else if ("section-mapping".equalsIgnoreCase(qName)) {
                     inSectionMapping = true;
-                    sectionMapping = new HashMap<String, Integer>();
+                    sectionLevelMapping = new HashMap<String, Integer>();
+                    sectionNameMapping = new HashMap<String, String>();
                 }  else if ("custom-bookmarks".equalsIgnoreCase(qName)) {
                     inCustomBookmarks = true;
-                    customBookmarks = new ArrayList<Bookmark>();
+                    leadingBookmarks = new ArrayList<Bookmark>();
+                    trailingBookmarks = new ArrayList<Bookmark>();
+                    titleFollowingBookmarks = new HashMap<String, List<Bookmark>>();
                 } else if ("map".equalsIgnoreCase(qName) && inSectionMapping) {
-                    sectionMapping.put(attributes.getValue("name").trim(),
-                                       Config.parseInt(attributes.getValue("value"),
-                                                       "map value must be an integer."));
+                    String name = attributes.getValue("name").trim();
+
+                    String levelText = attributes.getValue("level");
+                    if (null != levelText) {
+                        sectionLevelMapping.put(name,
+                                Config.parseInt(levelText,
+                                        "map value must be an integer."));
+                    }
+
+                    String renameText = attributes.getValue("rename");
+                    if (null != renameText) {
+                        sectionNameMapping.put(name, renameText);
+                    }
                 } else if ("bookmark".equalsIgnoreCase(qName) && inCustomBookmarks) {
-                    customBookmarks.add(new Bookmark(attributes.getValue("name").trim(),
-                                                     Config.parseInt(attributes.getValue("level"),
-                                                                     "bookmark level must be an integer."),
-                                                     Config.parseInt(attributes.getValue("page"),
-                                                                     "bookmark page must be an integer.")));
+                    String followingTitle = attributes.getValue("following-title");
+                    String position = attributes.getValue("position");
+
+                    if (null != followingTitle) {
+                        Bookmark followingBookmark = new Bookmark(attributes.getValue("name").trim(),
+                                Config.parseInt(attributes.getValue("level"),
+                                        "bookmark level must be an integer."),
+                                Config.parseInt(attributes.getValue("page"),
+                                        "bookmark page must be an integer."));
+                        List<Bookmark> followingBookmarks = titleFollowingBookmarks.get(followingTitle);
+
+                        if (null == followingBookmarks) {
+                            followingBookmarks = new ArrayList<Bookmark>();
+                            titleFollowingBookmarks.put(followingTitle, followingBookmarks);
+                        }
+                        followingBookmarks.add(followingBookmark);
+                    } else if ("trailing".equals(position)) {
+                        trailingBookmarks.add(new Bookmark(attributes.getValue("name").trim(),
+                                Config.parseInt(attributes.getValue("level"),
+                                        "bookmark level must be an integer."),
+                                Config.parseInt(attributes.getValue("page"),
+                                        "bookmark page must be an integer.")));
+                    } else if ("leading".equals(position) || null == position) {
+                        leadingBookmarks.add(new Bookmark(attributes.getValue("name").trim(),
+                                Config.parseInt(attributes.getValue("level"),
+                                        "bookmark level must be an integer."),
+                                Config.parseInt(attributes.getValue("page"),
+                                        "bookmark page must be an integer.")));
+                    }
                 }
 			}
 
@@ -147,44 +191,31 @@ public class Config {
         }
 	}
 
-    public boolean getAccumulate() {
-        return accumulate;
-    }
+    public boolean getAccumulate() { return accumulate; }
+    public int getContentsStartPage() { return contentsStartPage; }
+    public int getContentsEndPage() { return contentsEndPage; }
+    public int getDefaultLevel () { return defaultLevel; }
+    public int getPageZero() { return pageZero; }
+    public int getPageRomanZero() { return pageRomanZero; }
+    public String getContentPattern() { return contentPattern; }
+    public String getIgnorePattern() { return ignorePattern; }
+    public List<Bookmark> getContents() { return contents; }
+    public Map<String, Integer> getSectionLevelMapping() { return sectionLevelMapping; }
+    public Map<String, String> getSectionNameMapping() { return sectionNameMapping; }
+    public List<Bookmark> getLeadingBookmarks() { return leadingBookmarks; }
+    public List<Bookmark> getTrailingBookmarks() {return trailingBookmarks; }
+    public Map<String, List<Bookmark>> getTitleFollowingBookmarks() { return titleFollowingBookmarks; }
 
-	public int getContentsStartPage() {
-		return contentsStartPage;
-	}
+    public static String showCodepoints(String string) {
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < string.length(); i++) {
+            buffer.append(string.codePointAt(i));
+            if (i +1 < string.length()) {
+                buffer.append(" / ");
+            }
+        }
 
-	public int getContentsEndPage() {
-		return contentsEndPage;
-	}
-
-	public int getPageZero() {
-		return pageZero;
-	}
-
-	public int getPageRomanZero() {
-		return pageRomanZero;
-	}
-
-	public String getContentPattern() {
-		return contentPattern;
-	}
-
-	public String getIgnorePattern() {
-		return ignorePattern;
-	}
-
-    public List<Bookmark> getContents() {
-        return contents;
-    }
-
-    public Map<String, Integer> getSectionMapping() {
-        return sectionMapping;
-    }
-
-    public List<Bookmark> getCustomBookmarks() {
-        return customBookmarks;
+        return buffer.toString();
     }
 
     public static int parseInt(String value, String errorMessage) {

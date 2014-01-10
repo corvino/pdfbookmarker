@@ -1,0 +1,40 @@
+<!--
+    java -jar build/pdfbookmarker.jar show-contents config/NSHipster.xml "books/NSHipster - Obscure Topics in Cocoa & Objective C.pdf"
+    java -jar build/pdfbookmarker.jar parse-contents config/NSHipster.xml "books/NSHipster - Obscure Topics in Cocoa & Objective C.pdf"
+    java -jar build/pdfbookmarker.jar bookmark config/NSHipster.xml "books/NSHipster - Obscure Topics in Cocoa & Objective C.pdf" "NSHipster - Obscure Topics in Cocoa & Objective C.pdf"
+-->
+<pdfbookmark>
+    <table-of-contents startPage="5" endPage="8" default-level="2"/>
+    <pdf-pages zero="0" romanZero="1"/>
+    <content-pattern>
+	    <![CDATA[
+            ^([0-9]*)([^0-9]+)([0-9]+)
+		]]>
+	</content-pattern>
+
+    <section-mapping>
+        <map name="Objective-C" level="1" />
+        <map name="CoreFoundation" rename="Foundation &amp; CoreFoundation" level="1" />
+        <map name="&#8232;&#8232;&#8232;UIKit" rename="UIKit" level="1" />
+        <map name="Accessibility" rename="Localization, Internationalization &amp; Accessibility
+" value="1" />
+        <map name="API Design" level="1" />
+
+        <map name="NULL / NSNull" rename="nil / Nil / NULL / NSNull" />
+        <map name="Boolean / NSCFBoolean" rename="BOOL / bool / Boolean / NSCFBoolean" />
+        <map name="NS_OPTIONS" rename="NS_ENUM &amp; NS_OPTIONS" />
+        <map name="Collection Operators" rename="Key-Value Coding Collection Operators" />
+        <map name="e Law of Demeter" rename="The Law of Demeter" />
+        <map name="Least Surprise" rename="The Principle of Least Surprise" />
+
+        <map name="Th&#8232;Th&#8232;&#8232;Community" rename="Community" level="1" />
+    </section-mapping>
+
+    <custom-bookmarks>
+        <bookmark name="Contents" level="1" page="5" />
+        <bookmark name="Introduction" level="1" page="9" />
+        <bookmark name="About NSHipster" level="1" following-title="Empathy" page="287" />
+        <bookmark name="Colophon" level="1" following-title="Empathy" page="287" />
+        <bookmark name="About the Author" level="1" position="trailing" page="288" />
+    </custom-bookmarks>
+</pdfbookmark>

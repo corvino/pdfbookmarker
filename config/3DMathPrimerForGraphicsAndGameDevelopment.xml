@@ -33,10 +33,10 @@
 	</ignore-pattern>
 
     <section-mapping>
-        <map name="Summation Notation" value="2" />
-        <map name="Angles, Degrees, and Radians" value="2" />
-        <map name="Trig Functions" value="2" />
-        <map name="Trig Identities" value="2" />
+        <map name="Summation Notation" level="2" />
+        <map name="Angles, Degrees, and Radians" level="2" />
+        <map name="Trig Functions" level="2" />
+        <map name="Trig Identities" level="2" />
     </section-mapping>
 
     <custom-bookmarks>

@@ -59,8 +59,14 @@ public class AddPDFBookmarks {
 				if (3 != args.length) {
 					System.err.println("Usage: parse-contents <config-file> <pdf-file>");
 				} else {
-					parseContents(args[1], args[2]);
+					parseContents(args[1], args[2], false);
 				}
+            } else if ("parse-contents-detailed".equals(command)) {
+                if (3 != args.length) {
+                    System.err.println("Usage: parse-contents-detailed <config-file> <pdf-file>");
+                } else {
+                    parseContents(args[1], args[2], true);
+                }
 			} else {
 				printUsage();
 			}
@@ -109,7 +115,7 @@ public class AddPDFBookmarks {
 		document.close();
 	}
 
-	private static void parseContents(String configFile, String filename)
+	private static void parseContents(String configFile, String filename, boolean detailed)
 		throws ParserConfigurationException, SAXException, IOException
 	{
 		Config config = new Config(configFile);
@@ -124,12 +130,17 @@ public class AddPDFBookmarks {
 
 		while (iterator.hasNext()) {
 			HashMap<String, Object> bookmark = iterator.next();
+            String title = (String) bookmark.get("Title");
 
 			for (int i = 0; i < level; i++) {
 				System.out.print("  ");
 			}
 
-			System.out.println(bookmark.get("Title") + " : " + bookmark.get("Page"));
+            if (detailed) {
+                System.out.println(title + " (" + Config.showCodepoints(title) + ") " + " : " + bookmark.get("Page"));
+            } else {
+			    System.out.println(title + " : " + bookmark.get("Page"));
+            }
 
 			if (bookmark.containsKey("Kids")) {
 				level += 1;
@@ -234,18 +245,21 @@ public class AddPDFBookmarks {
 		String contents = getContents(config, pdfFile);
 		BufferedReader contentsReader = new BufferedReader(new StringReader(contents));
 
-        Map<String, Integer> sectionMapping = config.getSectionMapping();
-        List<Config.Bookmark> customBookmarks = config.getCustomBookmarks();
+        Map<String, Integer> sectionLevelMapping = config.getSectionLevelMapping();
+        Map<String, String> sectionNameMapping = config.getSectionNameMapping();
+        List<Config.Bookmark> leadingBookmarks = config.getLeadingBookmarks();
+        List<Config.Bookmark> trailingBookmarks = config.getTrailingBookmarks();
+        Map<String, List<Config.Bookmark>> titleFollowingBookmarks = config.getTitleFollowingBookmarks();
 
 
 		System.out.println("Content regex: " + contentRegEx);
 
-        // Add custom bookmarks from config.
+        // Add leading custom bookmarks from config.
 
-        if (null != customBookmarks) {
-            for (Config.Bookmark custom : config.getCustomBookmarks()) {
-                bookmark = getBookmark(custom.getTitle(), custom.getPage());
-				bookmarkCollector.addBookmark(bookmark, custom.getLevel());
+        if (null != leadingBookmarks) {
+            for (Config.Bookmark leadingBookmark : config.getLeadingBookmarks()) {
+                bookmark = getBookmark(leadingBookmark.getTitle(), leadingBookmark.getPage());
+                bookmarkCollector.addBookmark(bookmark, leadingBookmark.getLevel());
             }
         }
 
@@ -278,7 +292,18 @@ public class AddPDFBookmarks {
 					section = contentMatcher.group(1);
 					title = contentMatcher.group(2).trim();
 					pageValue = contentMatcher.group(3).trim();
+                    level = config.defaultLevel;
                     accumulator.setLength(0);
+
+                    if (null != sectionLevelMapping && sectionLevelMapping.containsKey(title)) {
+                        level = sectionLevelMapping.get(title);
+                    } else if (null != section && 0 < section.length()) {
+                        level = section.split("\\.").length;
+                    }
+
+                    if (null != sectionNameMapping && sectionNameMapping.containsKey(title)) {
+                        title = sectionNameMapping.get(title);
+                    }
 
 					if (Character.isDigit(pageValue.charAt(0))) {
 						pageNumber = Integer.parseInt(pageValue) + pageZero;
@@ -287,10 +312,26 @@ public class AddPDFBookmarks {
 					}
 
                     bookmark = getBookmark(title, pageNumber);
-					bookmarkCollector.addBookmark(bookmark, levelForSection(sectionMapping, title, section));
+					bookmarkCollector.addBookmark(bookmark, level);
+
+                    if (null != titleFollowingBookmarks) {
+                        if (titleFollowingBookmarks.containsKey(title)) {
+                            for (Config.Bookmark followingBookmark : titleFollowingBookmarks.get(title))
+                                bookmarkCollector.addBookmark(getBookmark(followingBookmark.getTitle(), followingBookmark.getPage()), followingBookmark.getLevel());
+                        }
+                    }
 				}
 			}
 		}
+
+        // Add trailing custom bookmarks from config.
+
+        if (null != trailingBookmarks) {
+            for (Config.Bookmark tralingBookmark : config.getTrailingBookmarks()) {
+                bookmark = getBookmark(tralingBookmark.getTitle(), tralingBookmark.getPage());
+                bookmarkCollector.addBookmark(bookmark, tralingBookmark.getLevel());
+            }
+        }
 
 		// If the last bookmark was not at the top level, the bookmark stack needs
 		// to be unwound.
@@ -299,31 +340,4 @@ public class AddPDFBookmarks {
 
 		return bookmarkCollector.getBookmarks();
 	}
-
-    static int levelForSection(Map<String, Integer> sectionMapping, String title, String section) {
-        int level;
-
-
-        if (null != sectionMapping && sectionMapping.containsKey(title)) {
-            level = sectionMapping.get(title);
-        } else {
-            level = levelForSection(section);
-        }
-
-        return level;
-    }
-
-    static int levelForSection(String section)
-    {
-        int level;
-
-        if (null == section) {
-            level = 1;
-        } else {
-            String[] parts = section.split("\\.");
-            level = parts.length;
-        }
-
-        return level;
-    }
 }
