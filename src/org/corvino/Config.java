@@ -18,13 +18,13 @@ public class Config {
     boolean inContents;
 
     boolean accumulate;
-	int contentsStartPage;
-	int contentsEndPage;
-	int defaultLevel;
-	int pageZero;
-	int pageRomanZero;
-	String contentPattern;
-	String ignorePattern;
+    int contentsStartPage;
+    int contentsEndPage;
+    int defaultLevel;
+    int pageZero;
+    int pageRomanZero;
+    String contentPattern;
+    String ignorePattern;
 
     int maskSectionLevel;
     int maskLevel;
@@ -36,18 +36,18 @@ public class Config {
     List<Bookmark> trailingBookmarks;
     Map<String, List<Bookmark>> titleFollowingBookmarks;
 
-	public Config(String filename) throws ParserConfigurationException, SAXException, IOException {
-		SAXParserFactory factory = SAXParserFactory.newInstance();
-		SAXParser saxParser = factory.newSAXParser();
+    public Config(String filename) throws ParserConfigurationException, SAXException, IOException {
+        SAXParserFactory factory = SAXParserFactory.newInstance();
+        SAXParser saxParser = factory.newSAXParser();
 
-		DefaultHandler handler = new DefaultHandler() {
+        DefaultHandler handler = new DefaultHandler() {
 
-			StringBuffer accumulator = new StringBuffer();
+            StringBuffer accumulator = new StringBuffer();
 
-			public void startElement(String uri, String localName,
-									 String qName, Attributes attributes)
-			throws SAXException {
-				if ("table-of-contents".equalsIgnoreCase(qName)) {
+            public void startElement(String uri, String localName,
+                                     String qName, Attributes attributes)
+            throws SAXException {
+                if ("table-of-contents".equalsIgnoreCase(qName)) {
 
                     accumulate = "true".equals(attributes.getValue("accumulate"));
 
@@ -92,12 +92,12 @@ public class Config {
                     } else {
                         System.out.println(name = section.trim() + " " + name);
                     }
-				} else if ("pdf-pages".equalsIgnoreCase(qName)) {
+                } else if ("pdf-pages".equalsIgnoreCase(qName)) {
                     pageZero = Config.parseInt(attributes.getValue("zero"),
                                                "pdf-pages zero must be an integer");
                     pageRomanZero= Config.parseInt(attributes.getValue("romanZero"),
                                                    "pdf-pages zero must be an integer");
-				} else if ("section-mapping".equalsIgnoreCase(qName)) {
+                } else if ("section-mapping".equalsIgnoreCase(qName)) {
                     inSectionMapping = true;
                     sectionLevelMapping = new HashMap<String, Integer>();
                     sectionNameMapping = new HashMap<String, String>();
@@ -151,31 +151,31 @@ public class Config {
                                         "bookmark page must be an integer.")));
                     }
                 }
-			}
+            }
 
-			public void endElement(String uri, String localName,
-								   String qName)
-			throws SAXException {
-				if (qName.equals("content-pattern")) {
-					contentPattern = accumulator.toString().trim();
-				} else if (qName.equals("ignore-pattern")) {
-					ignorePattern = accumulator.toString().trim();
-				} else if ("section-mapping".equalsIgnoreCase(qName)) {
+            public void endElement(String uri, String localName,
+                                   String qName)
+            throws SAXException {
+                if (qName.equals("content-pattern")) {
+                    contentPattern = accumulator.toString().trim();
+                } else if (qName.equals("ignore-pattern")) {
+                    ignorePattern = accumulator.toString().trim();
+                } else if ("section-mapping".equalsIgnoreCase(qName)) {
                     inSectionMapping = false;
                 }  else if ("custom-bookmarks".equalsIgnoreCase(qName)) {
                     inCustomBookmarks = false;
                 }
 
-				accumulator.setLength(0);
-			}
+                accumulator.setLength(0);
+            }
 
-			public void characters(char ch[], int start, int length)
-			throws SAXException {
-				accumulator.append(ch, start, length);
-			}
+            public void characters(char ch[], int start, int length)
+            throws SAXException {
+                accumulator.append(ch, start, length);
+            }
         };
 
-		saxParser.parse(filename, handler);
+        saxParser.parse(filename, handler);
 
         if (null == contents) {
             if (null == contentPattern) {
@@ -189,7 +189,7 @@ public class Config {
             System.out.println("  contents end page: " + contentsEndPage);
             System.out.println("  accumulate: " + accumulate);
         }
-	}
+    }
 
     public boolean getAccumulate() { return accumulate; }
     public int getContentsStartPage() { return contentsStartPage; }
@@ -221,11 +221,11 @@ public class Config {
     public static int parseInt(String value, String errorMessage) {
         int retval;
 
-		try {
-			retval = Integer.parseInt(value.trim());
-		} catch (NumberFormatException nfe) {
-			throw new IllegalArgumentException(errorMessage);
-		}
+        try {
+            retval = Integer.parseInt(value.trim());
+        } catch (NumberFormatException nfe) {
+            throw new IllegalArgumentException(errorMessage);
+        }
 
         return retval;
     }

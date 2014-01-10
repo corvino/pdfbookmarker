@@ -28,162 +28,162 @@ import org.xml.sax.SAXException;
 
 public class AddPDFBookmarks {
 
-	public static void main(String args[]) throws Exception
-	{
-		if (1 > args.length) {
-			printUsage();
-		} else {
-			String command = args[0];
+    public static void main(String args[]) throws Exception
+    {
+        if (1 > args.length) {
+            printUsage();
+        } else {
+            String command = args[0];
 
-			if ("bookmark".equals(command)) {
-				if (4 != args.length) {
-					System.err.println("Usage: bookmark <config-file> <pdf-file> <out-file>");
-				} else {
-					String configFile = args[1];
-					String pdfFile = args[2];
-					String outFile = args[3];
+            if ("bookmark".equals(command)) {
+                if (4 != args.length) {
+                    System.err.println("Usage: bookmark <config-file> <pdf-file> <out-file>");
+                } else {
+                    String configFile = args[1];
+                    String pdfFile = args[2];
+                    String outFile = args[3];
 
-					bookmark(configFile, pdfFile, outFile);
-				}
-			} else if ("show-contents".equals(command)) {
-				if (3 != args.length) {
-					System.err.println("Usage: show-contents <config-file> <pdf-file>");
-				} else {
-					Config config = new Config(args[1]);
-					String contents = getContents(config, args[2]);
+                    bookmark(configFile, pdfFile, outFile);
+                }
+            } else if ("show-contents".equals(command)) {
+                if (3 != args.length) {
+                    System.err.println("Usage: show-contents <config-file> <pdf-file>");
+                } else {
+                    Config config = new Config(args[1]);
+                    String contents = getContents(config, args[2]);
 
-					System.out.println("\nContents:\n-----------------");
-					System.out.println(contents);
-				}
-			} else if ("parse-contents".equals(command)) {
-				if (3 != args.length) {
-					System.err.println("Usage: parse-contents <config-file> <pdf-file>");
-				} else {
-					parseContents(args[1], args[2], false);
-				}
+                    System.out.println("\nContents:\n-----------------");
+                    System.out.println(contents);
+                }
+            } else if ("parse-contents".equals(command)) {
+                if (3 != args.length) {
+                    System.err.println("Usage: parse-contents <config-file> <pdf-file>");
+                } else {
+                    parseContents(args[1], args[2], false);
+                }
             } else if ("parse-contents-detailed".equals(command)) {
                 if (3 != args.length) {
                     System.err.println("Usage: parse-contents-detailed <config-file> <pdf-file>");
                 } else {
                     parseContents(args[1], args[2], true);
                 }
-			} else {
-				printUsage();
-			}
-		}
-	}
+            } else {
+                printUsage();
+            }
+        }
+    }
 
-	private static void printUsage()
-	{
-		System.err.println("Usage: <config-file> <pdf-file> [<out-file>] <command>");
-		System.err.println("Commands:");
-		System.err.println("  bookmark");
-		System.err.println("  show-contents");
-		System.err.println("  parse-contents");
-	}
+    private static void printUsage()
+    {
+        System.err.println("Usage: <config-file> <pdf-file> [<out-file>] <command>");
+        System.err.println("Commands:");
+        System.err.println("  bookmark");
+        System.err.println("  show-contents");
+        System.err.println("  parse-contents");
+    }
 
-	private static void bookmark(String configFile, String inputFile, String outputFile)
-		throws ParserConfigurationException, SAXException,
-			   IOException, DocumentException, BadPdfFormatException
-	{
-		int numOfPages;
+    private static void bookmark(String configFile, String inputFile, String outputFile)
+        throws ParserConfigurationException, SAXException,
+               IOException, DocumentException, BadPdfFormatException
+    {
+        int numOfPages;
 
-		PdfCopy writer;
-		Document document;
-		PdfImportedPage page;
+        PdfCopy writer;
+        Document document;
+        PdfImportedPage page;
 
-		Config config = new Config(configFile);
-		PdfReader reader = new PdfReader(inputFile);
-		List<HashMap<String, Object>> bookmarks = getBookmarks(config, inputFile);
+        Config config = new Config(configFile);
+        PdfReader reader = new PdfReader(inputFile);
+        List<HashMap<String, Object>> bookmarks = getBookmarks(config, inputFile);
 
-		reader.consolidateNamedDestinations();
-		numOfPages = reader.getNumberOfPages();
+        reader.consolidateNamedDestinations();
+        numOfPages = reader.getNumberOfPages();
 
-		document = new Document(reader.getPageSizeWithRotation(1));
-		writer = new PdfCopy(document, new FileOutputStream(outputFile));
+        document = new Document(reader.getPageSizeWithRotation(1));
+        writer = new PdfCopy(document, new FileOutputStream(outputFile));
 
-		document.open();
+        document.open();
 
-		for (int i = 1; i <= numOfPages; i++) {
-			page = writer.getImportedPage(reader, i);
-			writer.addPage(page);
-		}
+        for (int i = 1; i <= numOfPages; i++) {
+            page = writer.getImportedPage(reader, i);
+            writer.addPage(page);
+        }
 
-		writer.setOutlines(bookmarks);
-		reader.close();
-		writer.close();
-		document.close();
-	}
+        writer.setOutlines(bookmarks);
+        reader.close();
+        writer.close();
+        document.close();
+    }
 
-	private static void parseContents(String configFile, String filename, boolean detailed)
-		throws ParserConfigurationException, SAXException, IOException
-	{
-		Config config = new Config(configFile);
-		List<HashMap<String, Object>> bookmarks = getBookmarks(config, filename);
+    private static void parseContents(String configFile, String filename, boolean detailed)
+        throws ParserConfigurationException, SAXException, IOException
+    {
+        Config config = new Config(configFile);
+        List<HashMap<String, Object>> bookmarks = getBookmarks(config, filename);
 
-		System.out.println("\nBookmarks:\n-----------------");
+        System.out.println("\nBookmarks:\n-----------------");
 
-		int level = 0;
-		Stack<Iterator<HashMap<String, Object>>> above =
-			new Stack<Iterator<HashMap<String, Object>>>();
-		Iterator<HashMap<String, Object>> iterator = bookmarks.iterator();
+        int level = 0;
+        Stack<Iterator<HashMap<String, Object>>> above =
+            new Stack<Iterator<HashMap<String, Object>>>();
+        Iterator<HashMap<String, Object>> iterator = bookmarks.iterator();
 
-		while (iterator.hasNext()) {
-			HashMap<String, Object> bookmark = iterator.next();
+        while (iterator.hasNext()) {
+            HashMap<String, Object> bookmark = iterator.next();
             String title = (String) bookmark.get("Title");
 
-			for (int i = 0; i < level; i++) {
-				System.out.print("  ");
-			}
+            for (int i = 0; i < level; i++) {
+                System.out.print("  ");
+            }
 
             if (detailed) {
                 System.out.println(title + " (" + Config.showCodepoints(title) + ") " + " : " + bookmark.get("Page"));
             } else {
-			    System.out.println(title + " : " + bookmark.get("Page"));
+                System.out.println(title + " : " + bookmark.get("Page"));
             }
 
-			if (bookmark.containsKey("Kids")) {
-				level += 1;
-				@SuppressWarnings("unchecked")
-				List<HashMap<String, Object>> kids =
-						(List<HashMap<String, Object>>) bookmark.get("Kids");
-				above.push(iterator);
-				iterator = kids.iterator();
-			}
+            if (bookmark.containsKey("Kids")) {
+                level += 1;
+                @SuppressWarnings("unchecked")
+                List<HashMap<String, Object>> kids =
+                        (List<HashMap<String, Object>>) bookmark.get("Kids");
+                above.push(iterator);
+                iterator = kids.iterator();
+            }
 
-			while (!iterator.hasNext() && above.size() > 0) {
-				iterator = above.pop();
-				level -= 1;
-			}
-		}
-	}
+            while (!iterator.hasNext() && above.size() > 0) {
+                iterator = above.pop();
+                level -= 1;
+            }
+        }
+    }
 
 
-	private static String getContents(Config config, String filename)
-		throws IOException
-	{
-		PdfReader pdfReader = new PdfReader(filename);
-		StringBuffer contents = new StringBuffer();
+    private static String getContents(Config config, String filename)
+        throws IOException
+    {
+        PdfReader pdfReader = new PdfReader(filename);
+        StringBuffer contents = new StringBuffer();
 
-		for (int i = config.getContentsStartPage(); i <= config.getContentsEndPage(); i++) {
-			contents.append(PdfTextExtractor.getTextFromPage(pdfReader, i));
-		}
+        for (int i = config.getContentsStartPage(); i <= config.getContentsEndPage(); i++) {
+            contents.append(PdfTextExtractor.getTextFromPage(pdfReader, i));
+        }
 
-		return contents.toString();
-	}
+        return contents.toString();
+    }
 
     private static HashMap<String, Object> getBookmark(String title, int pageNumber) {
-		HashMap<String, Object> bookmark = new HashMap<String, Object>();
+        HashMap<String, Object> bookmark = new HashMap<String, Object>();
 
-		bookmark.put("Action", "GoTo");
+        bookmark.put("Action", "GoTo");
         bookmark.put("Title", title);
         bookmark.put("Page", pageNumber + " XYZ 0 792 0.0");
 
         return bookmark;
     }
 
-	private static List<HashMap<String, Object>> getBookmarks(Config config, String pdfFile)
-		throws IOException
+    private static List<HashMap<String, Object>> getBookmarks(Config config, String pdfFile)
+        throws IOException
     {
         List<HashMap<String, Object>> bookmarks;
 
@@ -207,7 +207,7 @@ public class AddPDFBookmarks {
 
             for (Config.Bookmark custom : config.getContents()) {
                 bookmark = getBookmark(custom.getTitle(), custom.getPage());
-				bookmarkCollector.addBookmark(bookmark, custom.getLevel());
+                bookmarkCollector.addBookmark(bookmark, custom.getLevel());
             }
 
             bookmarkCollector.unwindBookmarks();
@@ -217,33 +217,33 @@ public class AddPDFBookmarks {
         return bookmarks;
     }
 
-	private static List<HashMap<String, Object>> getBookmarksFromPDF(Config config, String pdfFile)
-		throws IOException
-	{
-		boolean result;
-		HashMap<String, Object> bookmark;
-		int level;
-		int pageNumber;
+    private static List<HashMap<String, Object>> getBookmarksFromPDF(Config config, String pdfFile)
+        throws IOException
+    {
+        boolean result;
+        HashMap<String, Object> bookmark;
+        int level;
+        int pageNumber;
 
-		String contentsLine;
-		String pageValue;
-		String section;
-		String title;
+        String contentsLine;
+        String pageValue;
+        String section;
+        String title;
 
         StringBuffer accumulator = new StringBuffer();
         boolean accumulate = config.getAccumulate();
-		int pageZero = config.getPageZero();
-		int pageRomanZero = config.getPageRomanZero();
+        int pageZero = config.getPageZero();
+        int pageRomanZero = config.getPageRomanZero();
 
-		String contentRegEx = config.getContentPattern();
-		Pattern contentPattern = Pattern.compile(contentRegEx);
-		Matcher contentMatcher = contentPattern.matcher("");
-		String ignoreRegEx = config.getIgnorePattern();
-		Matcher ignoreMatcher = null;
+        String contentRegEx = config.getContentPattern();
+        Pattern contentPattern = Pattern.compile(contentRegEx);
+        Matcher contentMatcher = contentPattern.matcher("");
+        String ignoreRegEx = config.getIgnorePattern();
+        Matcher ignoreMatcher = null;
 
-		HierarchicalBookmarkCollector bookmarkCollector = new HierarchicalBookmarkCollector();
-		String contents = getContents(config, pdfFile);
-		BufferedReader contentsReader = new BufferedReader(new StringReader(contents));
+        HierarchicalBookmarkCollector bookmarkCollector = new HierarchicalBookmarkCollector();
+        String contents = getContents(config, pdfFile);
+        BufferedReader contentsReader = new BufferedReader(new StringReader(contents));
 
         Map<String, Integer> sectionLevelMapping = config.getSectionLevelMapping();
         Map<String, String> sectionNameMapping = config.getSectionNameMapping();
@@ -252,7 +252,7 @@ public class AddPDFBookmarks {
         Map<String, List<Config.Bookmark>> titleFollowingBookmarks = config.getTitleFollowingBookmarks();
 
 
-		System.out.println("Content regex: " + contentRegEx);
+        System.out.println("Content regex: " + contentRegEx);
 
         // Add leading custom bookmarks from config.
 
@@ -263,19 +263,19 @@ public class AddPDFBookmarks {
             }
         }
 
-		if (null != ignoreRegEx) {
-			Pattern ignorePattern = Pattern.compile(ignoreRegEx);
-			ignoreMatcher = ignorePattern.matcher("");
-		}
+        if (null != ignoreRegEx) {
+            Pattern ignorePattern = Pattern.compile(ignoreRegEx);
+            ignoreMatcher = ignorePattern.matcher("");
+        }
 
-		for (contentsLine = contentsReader.readLine();
-								 null != contentsLine;
-								 contentsLine = contentsReader.readLine()) {
+        for (contentsLine = contentsReader.readLine();
+                                 null != contentsLine;
+                                 contentsLine = contentsReader.readLine()) {
             if (null != ignoreMatcher) {
                 ignoreMatcher.reset(contentsLine);
             }
 
-			if (null == ignoreMatcher || !ignoreMatcher.find()) {
+            if (null == ignoreMatcher || !ignoreMatcher.find()) {
                 if (accumulate) {
                     if (0 != accumulator.length()) {
                         accumulator.append(" ");
@@ -288,10 +288,10 @@ public class AddPDFBookmarks {
 
                 result = contentMatcher.find();
 
-				if (result) {
-					section = contentMatcher.group(1);
-					title = contentMatcher.group(2).trim();
-					pageValue = contentMatcher.group(3).trim();
+                if (result) {
+                    section = contentMatcher.group(1);
+                    title = contentMatcher.group(2).trim();
+                    pageValue = contentMatcher.group(3).trim();
                     level = config.defaultLevel;
                     accumulator.setLength(0);
 
@@ -305,14 +305,14 @@ public class AddPDFBookmarks {
                         title = sectionNameMapping.get(title);
                     }
 
-					if (Character.isDigit(pageValue.charAt(0))) {
-						pageNumber = Integer.parseInt(pageValue) + pageZero;
-					} else {
-						pageNumber = RomanNumeral.parseInteger(pageValue) + pageRomanZero;
-					}
+                    if (Character.isDigit(pageValue.charAt(0))) {
+                        pageNumber = Integer.parseInt(pageValue) + pageZero;
+                    } else {
+                        pageNumber = RomanNumeral.parseInteger(pageValue) + pageRomanZero;
+                    }
 
                     bookmark = getBookmark(title, pageNumber);
-					bookmarkCollector.addBookmark(bookmark, level);
+                    bookmarkCollector.addBookmark(bookmark, level);
 
                     if (null != titleFollowingBookmarks) {
                         if (titleFollowingBookmarks.containsKey(title)) {
@@ -320,9 +320,9 @@ public class AddPDFBookmarks {
                                 bookmarkCollector.addBookmark(getBookmark(followingBookmark.getTitle(), followingBookmark.getPage()), followingBookmark.getLevel());
                         }
                     }
-				}
-			}
-		}
+                }
+            }
+        }
 
         // Add trailing custom bookmarks from config.
 
@@ -333,11 +333,11 @@ public class AddPDFBookmarks {
             }
         }
 
-		// If the last bookmark was not at the top level, the bookmark stack needs
-		// to be unwound.
+        // If the last bookmark was not at the top level, the bookmark stack needs
+        // to be unwound.
 
-		bookmarkCollector.unwindBookmarks();
+        bookmarkCollector.unwindBookmarks();
 
-		return bookmarkCollector.getBookmarks();
-	}
+        return bookmarkCollector.getBookmarks();
+    }
 }
