@@ -528,12 +528,11 @@
   <component name="libraryTable">
     <library name="iText">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/iText-5.0.5.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/itextpdf-5.4.5.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/lib/iText-src-5.0.5.zip!/src/core" />
-        <root url="jar://$PROJECT_DIR$/lib/iText-src-5.0.5.zip!/src/rups" />
+        <root url="jar://$PROJECT_DIR$/lib/itextpdf-5.4.5-sources.jar!/" />
       </SOURCES>
     </library>
   </component>

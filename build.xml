@@ -13,19 +13,19 @@
     <target name="compile" description="compile the source">
         <mkdir dir="${build.classes}" />
         <path>
-            <pathelement location="lib/iText-5.0.5.jar"/>
+            <pathelement location="lib/itextpdf-5.4.5.jar"/>
         </path>
-        <javac srcdir="${src}" classpath="lib/iText-5.0.5.jar" destdir="${build.classes}" debug="true">
+        <javac srcdir="${src}" classpath="lib/itextpdf-5.4.5.jar" destdir="${build.classes}" debug="true">
 		    <compilerarg value="-Xlint" />
 		</javac>
     </target>
 
     <target name="jar" depends="compile" description="Create jar file.">
         <jar jarfile="${jar.fullpath}" basedir="${build.classes}">
-            <zipgroupfileset file="lib/iText-5.0.5.jar" includes="*.jar" />
+            <zipgroupfileset file="lib/itextpdf-5.4.5.jar" includes="*.jar" />
             <manifest>
                 <attribute name="Main-Class" value="org.corvino.AddPDFBookmarks" />
-                <attribute name="Class-Path" value="lib/iText-5.0.5.jar" />
+                <attribute name="Class-Path" value="lib/itextpdf-5.4.5.jar" />
             </manifest>
         </jar>
     </target>
