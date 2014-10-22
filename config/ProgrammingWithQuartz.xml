@@ -1,0 +1,191 @@
+<!--
+    java -jar build/pdfbookmarker.jar show-contents config/ProgrammingWithQuartz.xml "books/ProgrammingWithQuartz.pdf"
+    java -jar build/pdfbookmarker.jar parse-contents config/ProgrammingWithQuartz.xml "books/ProgrammingWithQuartz.pdf"
+    java -jar build/pdfbookmarker.jar bookmark config/3DMathPrimerForGraphicsAndGameDevelopment.xml "books/3D Math Primer for Graphics and Game Development.pdf" 3DMathPrimerForGraphicsAndGameDevelopment.pdf
+    rm books/processed/ProgrammingWithQuartz.pdf && java -jar build/pdfbookmarker.jar bookmark config/ProgrammingWithQuartz.xml "books/working/ProgrammingWithQuartz.pdf" "books/processed/ProgrammingWithQuartz.pdf" && open books/processed/ProgrammingWithQuartz.pdf
+-->
+<pdfbookmark>
+    <table-of-contents startPage="9" endPage="16" default-level="2"/>
+    <pdf-pages zero="30" romanZero="2"/>
+    <content-pattern>
+	    <![CDATA[
+            ^([0-9]+\s)?([^\.]+)\s+((?:[0-9]+)|(?:[vixc]+))$
+		]]>
+	</content-pattern>
+	<ignore-pattern>
+	    <![CDATA[
+			(?:Chapter)|(?:Contents)
+		]]>
+	</ignore-pattern>
+
+    <section-mapping>
+        <map name="Foreward" level="1" />
+        <map name="Preface" level="1" />
+        <map name="Introducing Quartz 2D" level="1" />
+
+        <map name="Quartz 2D Drawing Basics" level="1" />
+        <map name="Constructing Quartz Paths" level="3" />
+
+        <map name="Using Quartz 2D in Cocoa" level="1" />
+        <map name="Using Quartz 2D in Carbon" level="1" />
+        <map name="The Quartz Coordinate System and Coordinate Transformations" level="1" />
+
+        <map name="Drawing with Paths" level="1" />
+        <map name="Cubic B&#0233;zier Curves" level="3" /> <!-- FIX ME!!! -->
+        <map name="Quadratic B&#0233;zier Curves" level="3" />
+        <map name="Closing Subpaths" level="3" />
+        <map name="Additional Path Convenience Functions (Tiger)" level="3" />
+        <map name="Line Width" level="3" />
+        <map name="Line Joins" level="3" />
+        <map name="Line Caps" level="3" />
+        <map name="Line Dash" level="3" />
+        <map name="Aligning User Space Coordinates on Pixel Boundaries (Tiger)" level="3" />
+
+        <map name="Color, Alpha Transparency, and the Quartz Graphics State" level="1" />
+        <map name="A General Approach to Setting Color" level="3" />
+        <map name="CGColor Objects (Panther)" level="3" />
+        <map name="Calibrated Color Spaces" level="3" />
+        <map name="Device Color Spaces" level="3" />
+        <map name="Special Color Spaces" level="3" />
+        <map name="Creating Color Spaces by Name (Jaguar)" level="3" />
+        <map name="Rendering Intents" level="3" />
+        <map name="Blend Modes (Tiger)" level="3" />
+
+        <map name="Data Providers and Data Consumers" level="1" />
+        <map name="CGDataProviderCreateWithURL" level="3" />
+        <map name="CGDataProviderCreateWithData" level="3" />
+        <map name="CGDataProviderCreate" level="3" />
+        <map name="CGDataProviderCreateDirectAccess" level="3" />
+        <map name="CGDataProviderCreateWithCFData (Tiger)" level="3" />
+        <map name="Guidelines for Using Data Providers" level="3" />
+
+        <map name="Drawing Images" level="1" />
+        <map name="Specialized Functions for JPEG and PNG" level="3" />
+        <map name="Drawing Images into a Flipped Coordinate System" level="3" />
+        <map name="A General Function for Uncompressed Data" level="3" />
+        <map name="Alpha Information" level="3" />
+        <map name="Pixel Formats" level="3" />
+        <map name="Decode Array" level="3" />
+        <map name="Interpolation" level="3" />
+        <map name="Drawing Uncompressed, Raw Image Data" level="3" />
+        <map name="Drawing a Synthetic Image from Data in Memory" level="3" />
+        <map name="Drawing a Synthetic Image by Accessing Data Directly" level="3" />
+        <map name="Bitmap Images and Universal Binaries (Tiger)" level="3" />
+        <map name="Generalized Functions for Compressed Image Data (Tiger)" level="3" />
+        <map name="Importing Image Data with QuickTime" level="3" />
+        <map name="Guidelines for Image Creation" level="3" />
+        <map name="Getting Image Dimensions" level="3" />
+        <map name="Getting the Pixel Format" level="3" />
+        <map name="Creating an Image from a Bitmap Context" level="3" />
+        <map name="Working with Color Spaces" level="3" />
+        <map name="Creating Subimages" level="3" />
+
+        <map name="Image Masking" level="1" />
+        <map name="Drawing and Inverting a 1-Bit Image Mask" level="3" />
+        <map name="Drawing an 8-Bit-Deep Mask" level="3" />
+        <map name="Masking an Image with an Image Mask" level="3" />
+        <map name="Masking an Image with an Image" level="3" />
+        <map name="Masking Guidelines" level="3" />
+
+        <map name="Text" level="1" />
+        <map name="Font and Font Size" level="3" />
+        <map name="Text Matrix and Text Position" level="3" />
+        <map name="Text Drawing Modes" level="3" />
+        <map name="Font Smoothing (Jaguar)" level="3" />
+        <map name="Character Spacing" level="3" />
+        <map name="Drawing with Characters" level="3" />
+        <map name="Drawing with Glyphs" level="3" />
+        <map name="Using NSString" level="3" />
+        <map name="Using NSLayoutManager" level="3" />
+        <map name="Subclassing to Get Additional Control" level="3" />
+        <map name="Using HIThemeDrawTextBox (Panther)" level="3" />
+        <map name="Using Multilingual Text Engine" level="3" />
+        <map name="Using Apple Type Services for Unicode Imaging" level="3" />
+
+        <map name="Creating Bits" level="1" />
+        <map name="Supported Pixel Formats" level="3" />
+        <map name="Creating a Bitmap Graphics Context" level="3" />
+        <map name="Bitmap Contexts and Universal Binaries (Tiger)" level="3" />
+        <map name="Getting Information About a Bitmap Context" level="3" />
+        <map name="Using the Bitmap Data from a Bitmap Context" level="3" />
+        <map name="Creating a CGLayer Object" level="3" />
+        <map name="Drawing to a CGLayer" level="3" />
+        <map name="Drawing the Contents of a CGLayer" level="3" />
+        <map name="Using a CGLayer to Draw a Checkerboard" level="3" />
+        <map name="Drawing Repeatedly Without Caching" level="3" />
+        <map name="Drawing Repeatedly with Bitmap Context Caching" level="3" />
+        <map name="Drawing Repeatedly with CGLayer Caching" level="3" />
+        <map name="Display Profile Issues" level="3" /> <!-- !!!FIX ME!!! -->
+
+        <map name="Opening and Drawing PDF Documents" level="1" />
+        <map name="Creating PDF Data from a Pasteboard: Cocoa" level="3" />
+        <map name="Creating PDF from a Pasteboard: Carbon" level="3" />
+        <map name="Drawing with CGContextDrawPDFDocument" level="3" />
+        <map name="Drawing PDF Documents in a Flipped Coordinate System" level="3" />
+        <map name="Using CGPDFPage Objects (Panther)" level="3" />
+        <map name="Drawing with PDF Rotation on Jaguar and Earlier Versions" level="3" />
+
+        <map name="Creating and Examining PDF Documents" level="1" />
+        <map name="Using CGPDFContextCreateWithURL" level="3" />
+        <map name="Using the Auxiliary Information Dictionary" level="3" />
+        <map name="Creating a Link to a URL" level="3" />
+        <map name="Creating a Link to Another Page in the Document" level="3" />
+        <map name="Quartz PDF Introspection" level="3" />
+        <map name="Scanning the PDF Content Stream (Tiger)" level="3" />
+
+        <map name="Advanced Drawing Features" level="1" />
+        <map name="Creating Patterns" level="3" />
+        <map name="Creating and Drawing Colored Patterns" level="3" />
+        <map name="Base Space, the Pattern Matrix, and Transforming Patterns" level="3" />
+        <map name="Pattern Phase" level="3" />
+        <map name="Creating and Drawing Stencil Patterns" level="3" />
+        <map name="Drawing Complex Patterns" level="3" />
+        <map name="Pattern Issues" level="3" />
+        <map name="Shadow Attributes" level="3" />
+        <map name="Creating and Drawing with Shadows" level="3" />
+        <map name="Shadow Offset and Quartz Base Space" level="3" />
+        <map name="Shadows and Grouped Objects" level="3" />
+        <map name="Shadows and PDF Documents" level="3" />
+        <map name="Using Transparency Layers" level="3" />
+        <map name="Alpha Compositing and Transparency Layers" level="3" />
+        <map name="Transparency Layers and PDF Documents" level="3" />
+        <map name="Transparency Layers Compared to CGLayers" level="3" />
+        <map name="Shading Concepts and the CGFunction" level="3" />
+        <map name="Axial Shadings" level="3" />
+        <map name="Radial Shadings" level="3" />
+        <map name="Radial Shading Geometries" level="3" />
+        <map name="Transforming Shadings" level="3" />
+
+        <map name="Supporting PostScript and EPS Data" level="1" />
+
+        <map name="Performance and Debugging" level="1" />
+        <map name="The Quartz Compositor" level="3" />
+        <map name="Quartz Object and Memory Model" level="3" />
+        <map name="Improving Performance" level="3" />
+        <map name="Measuring Performance" level="3" />
+        <map name="Examining the Coordinate System" level="3" />
+        <map name="Checking the Clipping Area" level="3" />
+        <map name="Drawing a Debugging Rectangle" level="3" />
+        <map name="Looking for Console Messages" level="3" />
+        <map name="Checking for Data Provider Integrity" level="3" />
+        <map name="Checking for Immutability Violations" level="3" />
+        <map name="Checking for Improperly Initialized Contexts" level="3" />
+        <map name="Checking for Out-of-Sync Color Setting" level="3" />
+        <map name="Drawing Images to a PDF Context" level="3" />
+        <map name="Releasing a CGPDFContext Object" level="3" />
+        <map name="Checking Pattern Color Space Usage" level="3" />
+        <map name="Using PDF Generation as a Debugging Aid" level="3" />
+
+        <map name="Creating Quartz Tools and Python Scripts" level="1" />
+        <map name="Getting Started" level="3" />
+        <map name="Creating Bits with Python" level="3" />
+        <map name="Security Issues" level="3" />
+
+        <map name="Index" level="1" />
+    </section-mapping>
+
+    <custom-bookmarks>
+        <bookmark name="Contents" level="1" page="9" />
+        <bookmark name="Drawing the Contents of a CGLayer" following-title="Drawing to a CGLayer" level="3" page="405" />
+    </custom-bookmarks>
+</pdfbookmark>
